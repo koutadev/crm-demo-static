@@ -8,7 +8,7 @@
         <title>アルティス営業管理</title>
 
         <!-- Scripts / Styles / Fonts (Vite が自前配信) -->
-        <link rel="preload" as="style" href="build/assets/app-Bsbfsf4V.css" /><link rel="modulepreload" as="script" href="build/assets/app-DxbBum8c.js" /><link rel="stylesheet" href="build/assets/app-Bsbfsf4V.css" /><script type="module" src="build/assets/app-DxbBum8c.js"></script>
+        <link rel="preload" as="style" href="build/assets/app-D2h6j5m2.css" /><link rel="modulepreload" as="script" href="build/assets/app-CobmalS0.js" /><link rel="stylesheet" href="build/assets/app-D2h6j5m2.css" /><script type="module" src="build/assets/app-CobmalS0.js"></script>
         <style>:root{--color-primary:#0f766e;--color-accent:#ea580c;}</style>
                 <link rel="stylesheet" href="demo.css">
     <script src="demo.js"></script>
@@ -38,6 +38,24 @@
            collapsed ? 'lg:w-[4.5rem]!' : '',
        ]"
        class="fixed inset-y-0 start-0 z-50 flex w-64 max-lg:-translate-x-full flex-col border-e border-gray-200 bg-white transition-[transform,width] duration-200 motion-reduce:transition-none lg:w-64 dark:border-gray-700 dark:bg-gray-800">
+
+    
+    <button type="button"
+            @click="toggleCollapsed()"
+            :aria-expanded="(! collapsed).toString()"
+            :aria-label="collapsed ? 'メニューを開く' : 'メニューを折りたたむ'"
+            :title="collapsed ? 'メニューを開く' : 'メニューを折りたたむ'"
+            aria-controls="app-sidebar"
+            class="absolute top-1/2 -end-3 z-10 hidden h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 shadow-sm transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none lg:flex dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:text-primary-text">
+        <svg class="h-3.5 w-3.5" aria-hidden="true" x-show="! collapsed"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5 11.25 12l7.5-7.5m-6 15L5.25 12l7.5-7.5" />
+    </svg>
+        <svg class="h-3.5 w-3.5" aria-hidden="true" x-show="collapsed" x-cloak="x-cloak"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+    </svg>
+    </button>
 
     
     <div class="flex h-14 shrink-0 items-center gap-2 border-b border-gray-100 px-4 dark:border-gray-700">
@@ -153,21 +171,6 @@
 </a>
                             </div>
             </nav>
-
-    
-    <div class="hidden shrink-0 border-t border-gray-100 p-2 lg:block dark:border-gray-700">
-        <button type="button" @click="toggleCollapsed()"
-                class="flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 motion-reduce:transition-none dark:text-gray-400 dark:hover:bg-gray-700"
-                :aria-expanded="(! collapsed).toString()"
-                aria-controls="app-sidebar">
-            <svg class="h-5 w-5 shrink-0 transition-transform motion-reduce:transition-none" aria-hidden="true" :class="collapsed && 'rotate-180'"
-     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-    </svg>
-            <span x-show="! collapsed">メニューを折りたたむ</span>
-            <span class="sr-only" x-show="collapsed" x-cloak>メニューを開く</span>
-        </button>
-    </div>
 </aside>
 
             <div :class="collapsed ? 'lg:ps-[4.5rem]!' : ''"
@@ -315,49 +318,53 @@
             
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <div
-        class="block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
+        class="@container block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
 
     <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">合計(税込)</p>
 
-    <p class="mt-2 flex items-baseline gap-1">
-        <span class="text-3xl font-bold tabular-nums text-gray-900 dark:text-gray-100">5,801,000</span>
-                    <span class="text-sm text-gray-500 dark:text-gray-400">円</span>
+    <p class="mt-2 flex min-w-0 items-baseline gap-1" title="5,801,000 円">
+        
+        <span class="min-w-0 truncate text-[length:clamp(1.125rem,9cqi,1.875rem)] font-bold leading-tight tabular-nums text-gray-900 dark:text-gray-100">5,801,000</span>
+                    <span class="shrink-0 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">円</span>
             </p>
 
             <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">明細 3 件</p>
     </div>
             <div
-        class="block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
+        class="@container block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
 
     <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">うち消費税</p>
 
-    <p class="mt-2 flex items-baseline gap-1">
-        <span class="text-3xl font-bold tabular-nums text-gray-900 dark:text-gray-100">526,000</span>
-                    <span class="text-sm text-gray-500 dark:text-gray-400">円</span>
+    <p class="mt-2 flex min-w-0 items-baseline gap-1" title="526,000 円">
+        
+        <span class="min-w-0 truncate text-[length:clamp(1.125rem,9cqi,1.875rem)] font-bold leading-tight tabular-nums text-gray-900 dark:text-gray-100">526,000</span>
+                    <span class="shrink-0 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">円</span>
             </p>
 
             <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">税率ごとに 1 回だけ切り捨て</p>
     </div>
             <div
-        class="block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
+        class="@container block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
 
     <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">税抜</p>
 
-    <p class="mt-2 flex items-baseline gap-1">
-        <span class="text-3xl font-bold tabular-nums text-gray-900 dark:text-gray-100">5,275,000</span>
-                    <span class="text-sm text-gray-500 dark:text-gray-400">円</span>
+    <p class="mt-2 flex min-w-0 items-baseline gap-1" title="5,275,000 円">
+        
+        <span class="min-w-0 truncate text-[length:clamp(1.125rem,9cqi,1.875rem)] font-bold leading-tight tabular-nums text-gray-900 dark:text-gray-100">5,275,000</span>
+                    <span class="shrink-0 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">円</span>
             </p>
 
             <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">税込 − 消費税</p>
     </div>
             <div
-        class="block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
+        class="@container block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
 
     <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">加重見込み(税込)</p>
 
-    <p class="mt-2 flex items-baseline gap-1">
-        <span class="text-3xl font-bold tabular-nums text-gray-900 dark:text-gray-100">580,100</span>
-                    <span class="text-sm text-gray-500 dark:text-gray-400">円</span>
+    <p class="mt-2 flex min-w-0 items-baseline gap-1" title="580,100 円">
+        
+        <span class="min-w-0 truncate text-[length:clamp(1.125rem,9cqi,1.875rem)] font-bold leading-tight tabular-nums text-gray-900 dark:text-gray-100">580,100</span>
+                    <span class="shrink-0 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">円</span>
             </p>
 
             <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">確度 10%</p>
@@ -900,7 +907,7 @@
                     </label>
     
     <input type="datetime-local" id="activity_at" name="activity_at"
-                           value="2026-08-25T15:11" required
+                           value="2026-08-25T16:06" required
                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300">
 
             <p class="text-xs text-gray-500 dark:text-gray-400">先の日時を入れると「次アクション」として上部に出ます。</p>
