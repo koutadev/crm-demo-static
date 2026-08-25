@@ -1,0 +1,2771 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="">
+
+        <title>アルティス営業管理</title>
+
+        <!-- Scripts / Styles / Fonts (Vite が自前配信) -->
+        <link rel="preload" as="style" href="build/assets/app-Bsbfsf4V.css" /><link rel="modulepreload" as="script" href="build/assets/app-DxbBum8c.js" /><link rel="stylesheet" href="build/assets/app-Bsbfsf4V.css" /><script type="module" src="build/assets/app-DxbBum8c.js"></script>
+        <style>:root{--color-primary:#0f766e;--color-accent:#ea580c;}</style>
+                <link rel="stylesheet" href="demo.css">
+    <script src="demo.js"></script>
+</head>
+    <body data-demo-page="商談一覧" class="font-sans antialiased">
+<div class="demo-banner" role="note">
+    <span class="demo-banner__tag">DEMO</span>
+    <span>
+        これはポートフォリオ用の静的デモです。表示されている会社名・担当者名・金額は
+        <strong>すべて架空のダミーデータ</strong>で、保存・出力・検索などの操作は動作しません。
+    </span>
+</div>
+
+        
+        <div x-data="appShell()" @keydown.escape.window="closeMobile()" class="min-h-screen bg-gray-100 dark:bg-gray-900">
+            <div x-show="mobileOpen"
+     x-transition.opacity
+     x-cloak
+     @click="closeMobile()"
+     class="fixed inset-0 z-40 bg-gray-900/50 lg:hidden"
+     aria-hidden="true"></div>
+
+
+<aside id="app-sidebar"
+       :class="[
+           mobileOpen ? 'max-lg:translate-x-0!' : '',
+           collapsed ? 'lg:w-[4.5rem]!' : '',
+       ]"
+       class="fixed inset-y-0 start-0 z-50 flex w-64 max-lg:-translate-x-full flex-col border-e border-gray-200 bg-white transition-[transform,width] duration-200 motion-reduce:transition-none lg:w-64 dark:border-gray-700 dark:bg-gray-800">
+
+    
+    <div class="flex h-14 shrink-0 items-center gap-2 border-b border-gray-100 px-4 dark:border-gray-700">
+        <a href="dashboard.html" class="flex min-w-0 items-center gap-2">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-base font-bold text-white">
+        ア
+    </span>
+            <span class="truncate text-sm font-semibold text-gray-800 dark:text-gray-200" x-show="! collapsed">
+                アルティス営業管理
+            </span>
+        </a>
+
+        <button type="button" @click="closeMobile()"
+                class="ms-auto rounded-md p-1 text-gray-500 hover:bg-gray-100 hover:text-gray-700 lg:hidden dark:hover:bg-gray-700"
+                aria-label="メニューを閉じる">
+            <svg class="h-5 w-5" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </svg>
+        </button>
+    </div>
+
+    
+    <nav class="flex-1 space-y-4 overflow-y-auto px-2 py-4" aria-label="メインメニュー">
+                    <div class="space-y-1">
+                                    <p class="px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500"
+                       x-show="! collapsed">
+                        営業
+                    </p>
+                    <hr class="mx-3 border-gray-200 dark:border-gray-700" x-show="collapsed" x-cloak>
+                
+                                    <a href="dashboard.html"
+      :title="collapsed ? 'ダッシュボード' : null"
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+    <svg class="h-5 w-5 shrink-0" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 15.75V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+    </svg>
+
+    <span class="truncate" x-show="! collapsed">ダッシュボード</span>
+    <span class="sr-only" x-show="collapsed" x-cloak>ダッシュボード</span>
+</a>
+                                    <a href="deals.html"
+    aria-current="page"    :title="collapsed ? '商談' : null"
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-primary bg-primary-soft font-semibold text-primary-soft-fg">
+    <svg class="h-5 w-5 shrink-0" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75h16.5v16.5H3.75z" />
+    </svg>
+
+    <span class="truncate" x-show="! collapsed">商談</span>
+    <span class="sr-only" x-show="collapsed" x-cloak>商談</span>
+</a>
+                                    <a href="#" data-demo-disabled="link"
+      :title="collapsed ? '顧客' : null"
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+    <svg class="h-5 w-5 shrink-0" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+    </svg>
+
+    <span class="truncate" x-show="! collapsed">顧客</span>
+    <span class="sr-only" x-show="collapsed" x-cloak>顧客</span>
+</a>
+                            </div>
+                    <div class="space-y-1">
+                                    <p class="px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500"
+                       x-show="! collapsed">
+                        マスタ
+                    </p>
+                    <hr class="mx-3 border-gray-200 dark:border-gray-700" x-show="collapsed" x-cloak>
+                
+                                    <a href="masters.html"
+      :title="collapsed ? 'マスタ管理' : null"
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+    <svg class="h-5 w-5 shrink-0" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+    </svg>
+
+    <span class="truncate" x-show="! collapsed">マスタ管理</span>
+    <span class="sr-only" x-show="collapsed" x-cloak>マスタ管理</span>
+</a>
+                            </div>
+                    <div class="space-y-1">
+                                    <p class="px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500"
+                       x-show="! collapsed">
+                        管理
+                    </p>
+                    <hr class="mx-3 border-gray-200 dark:border-gray-700" x-show="collapsed" x-cloak>
+                
+                                    <a href="#" data-demo-disabled="link"
+      :title="collapsed ? 'ユーザー管理' : null"
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+    <svg class="h-5 w-5 shrink-0" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+    </svg>
+
+    <span class="truncate" x-show="! collapsed">ユーザー管理</span>
+    <span class="sr-only" x-show="collapsed" x-cloak>ユーザー管理</span>
+</a>
+                                    <a href="#" data-demo-disabled="link"
+      :title="collapsed ? '操作ログ' : null"
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+    <svg class="h-5 w-5 shrink-0" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+    </svg>
+
+    <span class="truncate" x-show="! collapsed">操作ログ</span>
+    <span class="sr-only" x-show="collapsed" x-cloak>操作ログ</span>
+</a>
+                            </div>
+            </nav>
+
+    
+    <div class="hidden shrink-0 border-t border-gray-100 p-2 lg:block dark:border-gray-700">
+        <button type="button" @click="toggleCollapsed()"
+                class="flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 motion-reduce:transition-none dark:text-gray-400 dark:hover:bg-gray-700"
+                :aria-expanded="(! collapsed).toString()"
+                aria-controls="app-sidebar">
+            <svg class="h-5 w-5 shrink-0 transition-transform motion-reduce:transition-none" aria-hidden="true" :class="collapsed && 'rotate-180'"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+    </svg>
+            <span x-show="! collapsed">メニューを折りたたむ</span>
+            <span class="sr-only" x-show="collapsed" x-cloak>メニューを開く</span>
+        </button>
+    </div>
+</aside>
+
+            <div :class="collapsed ? 'lg:ps-[4.5rem]!' : ''"
+                 class="flex min-h-screen flex-col transition-[padding] duration-200 motion-reduce:transition-none lg:ps-64">
+
+                <header class="sticky top-0 z-30 flex h-14 shrink-0 items-center gap-3 border-b border-gray-200 bg-white/95 px-4 backdrop-blur dark:border-gray-700 dark:bg-gray-800/95">
+    <button type="button" @click="openMobile()"
+            class="rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 lg:hidden dark:text-gray-400 dark:hover:bg-gray-700"
+            aria-label="メニューを開く"
+            aria-controls="app-sidebar"
+            :aria-expanded="mobileOpen.toString()">
+        <svg class="h-5 w-5" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    </svg>
+    </button>
+
+    <nav class="min-w-0 text-sm hidden sm:block" aria-label="パンくず">
+        <ol class="flex flex-wrap items-center gap-1 text-gray-500 dark:text-gray-400">
+                            <li class="flex min-w-0 items-center gap-1">
+                    
+                                            <a href="dashboard.html" class="truncate hover:text-gray-700 hover:underline dark:hover:text-gray-200">
+                            ダッシュボード
+                        </a>
+                                    </li>
+                            <li class="flex min-w-0 items-center gap-1">
+                                            <svg class="h-3.5 w-3.5 shrink-0 text-gray-300 dark:text-gray-600" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+    </svg>
+                    
+                                            <a href="dashboard.html" class="truncate hover:text-gray-700 hover:underline dark:hover:text-gray-200">
+                            営業
+                        </a>
+                                    </li>
+                            <li class="flex min-w-0 items-center gap-1">
+                                            <svg class="h-3.5 w-3.5 shrink-0 text-gray-300 dark:text-gray-600" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+    </svg>
+                    
+                                            <span class="truncate font-medium text-gray-700 dark:text-gray-200"
+                               aria-current="page" >
+                            商談
+                        </span>
+                                    </li>
+                    </ol>
+    </nav>
+
+            <div class="ms-auto">
+            <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
+    <div @click="open = ! open">
+        <button type="button"
+                            class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-100 hover:text-gray-800 motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-gray-700">
+                        <span class="max-w-32 truncate">管理者ユーザー</span>
+                        <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+    </div>
+
+    <div x-show="open"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            class="absolute z-50 mt-2 w-48 rounded-md shadow-lg ltr:origin-top-right rtl:origin-top-left end-0"
+            style="display: none;"
+            @click="open = false">
+        <div class="rounded-md ring-1 ring-black ring-opacity-5 py-1 bg-white dark:bg-gray-700">
+            <div class="border-b border-gray-100 px-4 py-2 dark:border-gray-700">
+                        <p class="text-sm font-medium text-gray-800 dark:text-gray-200">管理者ユーザー</p>
+                        <p class="truncate text-xs text-gray-500 dark:text-gray-400">admin@example.com</p>
+                    </div>
+
+                    <a class="block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out" href="#" data-demo-disabled="link">プロフィール</a>
+
+                    <form method="POST" action="#" data-demo-disabled="link">
+                        <input type="hidden" name="_token" value="" autocomplete="off">
+                        <a class="block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out" href="#" data-demo-disabled="link" onclick="event.preventDefault(); this.closest('form').submit();">ログアウト</a>
+                    </form>
+        </div>
+    </div>
+</div>
+        </div>
+    </header>
+
+                <!-- Page Heading -->
+                                    <header class="border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
+                        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex flex-wrap items-center gap-3">
+                <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
+                    商談一覧
+                </h2>
+
+                <div class="inline-flex rounded-md border border-gray-300 p-0.5 dark:border-gray-700" role="tablist" aria-label="表示形式">
+            <a href="deals.html"
+           role="tab"
+           aria-selected="true"
+           class="rounded px-3 py-1.5 text-xs font-medium transition-colors motion-reduce:transition-none bg-primary text-white">
+            一覧
+        </a>
+            <a href="deals-kanban.html"
+           role="tab"
+           aria-selected="false"
+           class="rounded px-3 py-1.5 text-xs font-medium transition-colors motion-reduce:transition-none text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+            カンバン
+        </a>
+    </div>
+            </div>
+
+                            <a href="#" data-demo-disabled="link"
+                   class="inline-flex items-center rounded-md bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition hover:bg-primary-hover">
+                    商談を追加
+                </a>
+                    </div>
+                        </div>
+                    </header>
+                
+                <!-- Page Content -->
+                <main class="flex-1">
+                    <div class="py-8">
+        <div class="mx-auto max-w-7xl space-y-6 px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div
+        class="block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
+
+    <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">件数</p>
+
+    <p class="mt-2 flex items-baseline gap-1">
+        <span class="text-3xl font-bold tabular-nums text-gray-900 dark:text-gray-100">320</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">件</span>
+            </p>
+
+            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">平均 3,389,486 円</p>
+    </div>
+            <div
+        class="block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
+
+    <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">合計(税込)</p>
+
+    <p class="mt-2 flex items-baseline gap-1">
+        <span class="text-3xl font-bold tabular-nums text-gray-900 dark:text-gray-100">1,084,635,562</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">円</span>
+            </p>
+
+            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">表示中の商談の合計</p>
+    </div>
+            <div
+        class="block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
+
+    <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">受注済み(税込)</p>
+
+    <p class="mt-2 flex items-baseline gap-1">
+        <span class="text-3xl font-bold tabular-nums text-gray-900 dark:text-gray-100">369,171,642</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">円</span>
+            </p>
+
+            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">確定した売上</p>
+    </div>
+            <div
+        class="block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
+
+    <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">加重見込み(税込)</p>
+
+    <p class="mt-2 flex items-baseline gap-1">
+        <span class="text-3xl font-bold tabular-nums text-gray-900 dark:text-gray-100">225,676,573</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">円</span>
+            </p>
+
+            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">進行中 610,626,677 円 × 確度</p>
+    </div>
+    </div>
+
+
+<div class="rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800"
+     x-data="{ measure: 'amount' }">
+    <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
+        <h3 class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+            ステータス別の内訳
+        </h3>
+
+        <div class="inline-flex rounded-md border border-gray-300 p-0.5 text-xs dark:border-gray-700"
+             role="radiogroup" aria-label="内訳の表示単位">
+                            <button type="button"
+                        role="radio"
+                        :aria-checked="(measure === 'amount').toString()"
+                        x-on:click="measure = 'amount'"
+                        :class="measure === 'amount'
+                            ? 'bg-primary text-white'
+                            : 'text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
+                        class="rounded px-3 py-1 font-medium transition-colors motion-reduce:transition-none">
+                    金額
+                </button>
+                            <button type="button"
+                        role="radio"
+                        :aria-checked="(measure === 'count').toString()"
+                        x-on:click="measure = 'count'"
+                        :class="measure === 'count'
+                            ? 'bg-primary text-white'
+                            : 'text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
+                        class="rounded px-3 py-1 font-medium transition-colors motion-reduce:transition-none">
+                    件数
+                </button>
+                    </div>
+    </div>
+
+    <div x-show="measure === 'amount'">
+        <div class="space-y-3">
+            <div class="flex w-full overflow-hidden rounded-full bg-gray-100 h-3 dark:bg-gray-700"
+             role="img"
+             aria-label="見込み 245,462,903 円、提案中 217,231,115 円、見積提示 147,932,659 円、受注 369,171,642 円、失注 104,837,243 円">
+                                            <div class="bg-gray-400 transition-[width] duration-300 motion-reduce:transition-none"
+                     style="width: 22.6%"
+                     title="見込み：245,462,903 円（22.6%）"></div>
+                                            <div class="bg-sky-500 transition-[width] duration-300 motion-reduce:transition-none"
+                     style="width: 20%"
+                     title="提案中：217,231,115 円（20%）"></div>
+                                            <div class="bg-amber-500 transition-[width] duration-300 motion-reduce:transition-none"
+                     style="width: 13.6%"
+                     title="見積提示：147,932,659 円（13.6%）"></div>
+                                            <div class="bg-emerald-500 transition-[width] duration-300 motion-reduce:transition-none"
+                     style="width: 34%"
+                     title="受注：369,171,642 円（34%）"></div>
+                                            <div class="bg-rose-500 transition-[width] duration-300 motion-reduce:transition-none"
+                     style="width: 9.7%"
+                     title="失注：104,837,243 円（9.7%）"></div>
+                    </div>
+
+                    <ul class="flex flex-wrap gap-x-5 gap-y-2 text-xs">
+                                    <li class="flex items-center gap-1.5">
+                        <span class="inline-block h-2.5 w-2.5 shrink-0 rounded-sm bg-gray-400" aria-hidden="true"></span>
+                        <span class="text-gray-600 dark:text-gray-400">見込み</span>
+                        <span class="font-medium tabular-nums text-gray-900 dark:text-gray-100">
+                            245,462,903 円
+                        </span>
+                        <span class="tabular-nums text-gray-400 dark:text-gray-500">22.6%</span>
+                    </li>
+                                    <li class="flex items-center gap-1.5">
+                        <span class="inline-block h-2.5 w-2.5 shrink-0 rounded-sm bg-sky-500" aria-hidden="true"></span>
+                        <span class="text-gray-600 dark:text-gray-400">提案中</span>
+                        <span class="font-medium tabular-nums text-gray-900 dark:text-gray-100">
+                            217,231,115 円
+                        </span>
+                        <span class="tabular-nums text-gray-400 dark:text-gray-500">20%</span>
+                    </li>
+                                    <li class="flex items-center gap-1.5">
+                        <span class="inline-block h-2.5 w-2.5 shrink-0 rounded-sm bg-amber-500" aria-hidden="true"></span>
+                        <span class="text-gray-600 dark:text-gray-400">見積提示</span>
+                        <span class="font-medium tabular-nums text-gray-900 dark:text-gray-100">
+                            147,932,659 円
+                        </span>
+                        <span class="tabular-nums text-gray-400 dark:text-gray-500">13.6%</span>
+                    </li>
+                                    <li class="flex items-center gap-1.5">
+                        <span class="inline-block h-2.5 w-2.5 shrink-0 rounded-sm bg-emerald-500" aria-hidden="true"></span>
+                        <span class="text-gray-600 dark:text-gray-400">受注</span>
+                        <span class="font-medium tabular-nums text-gray-900 dark:text-gray-100">
+                            369,171,642 円
+                        </span>
+                        <span class="tabular-nums text-gray-400 dark:text-gray-500">34%</span>
+                    </li>
+                                    <li class="flex items-center gap-1.5">
+                        <span class="inline-block h-2.5 w-2.5 shrink-0 rounded-sm bg-rose-500" aria-hidden="true"></span>
+                        <span class="text-gray-600 dark:text-gray-400">失注</span>
+                        <span class="font-medium tabular-nums text-gray-900 dark:text-gray-100">
+                            104,837,243 円
+                        </span>
+                        <span class="tabular-nums text-gray-400 dark:text-gray-500">9.7%</span>
+                    </li>
+                            </ul>
+            </div>
+    </div>
+
+    <div x-show="measure === 'count'" x-cloak>
+        <div class="space-y-3">
+            <div class="flex w-full overflow-hidden rounded-full bg-gray-100 h-3 dark:bg-gray-700"
+             role="img"
+             aria-label="見込み 70 件、提案中 60 件、見積提示 45 件、受注 110 件、失注 35 件">
+                                            <div class="bg-gray-400 transition-[width] duration-300 motion-reduce:transition-none"
+                     style="width: 21.9%"
+                     title="見込み：70 件（21.9%）"></div>
+                                            <div class="bg-sky-500 transition-[width] duration-300 motion-reduce:transition-none"
+                     style="width: 18.8%"
+                     title="提案中：60 件（18.8%）"></div>
+                                            <div class="bg-amber-500 transition-[width] duration-300 motion-reduce:transition-none"
+                     style="width: 14.1%"
+                     title="見積提示：45 件（14.1%）"></div>
+                                            <div class="bg-emerald-500 transition-[width] duration-300 motion-reduce:transition-none"
+                     style="width: 34.4%"
+                     title="受注：110 件（34.4%）"></div>
+                                            <div class="bg-rose-500 transition-[width] duration-300 motion-reduce:transition-none"
+                     style="width: 10.9%"
+                     title="失注：35 件（10.9%）"></div>
+                    </div>
+
+                    <ul class="flex flex-wrap gap-x-5 gap-y-2 text-xs">
+                                    <li class="flex items-center gap-1.5">
+                        <span class="inline-block h-2.5 w-2.5 shrink-0 rounded-sm bg-gray-400" aria-hidden="true"></span>
+                        <span class="text-gray-600 dark:text-gray-400">見込み</span>
+                        <span class="font-medium tabular-nums text-gray-900 dark:text-gray-100">
+                            70 件
+                        </span>
+                        <span class="tabular-nums text-gray-400 dark:text-gray-500">21.9%</span>
+                    </li>
+                                    <li class="flex items-center gap-1.5">
+                        <span class="inline-block h-2.5 w-2.5 shrink-0 rounded-sm bg-sky-500" aria-hidden="true"></span>
+                        <span class="text-gray-600 dark:text-gray-400">提案中</span>
+                        <span class="font-medium tabular-nums text-gray-900 dark:text-gray-100">
+                            60 件
+                        </span>
+                        <span class="tabular-nums text-gray-400 dark:text-gray-500">18.8%</span>
+                    </li>
+                                    <li class="flex items-center gap-1.5">
+                        <span class="inline-block h-2.5 w-2.5 shrink-0 rounded-sm bg-amber-500" aria-hidden="true"></span>
+                        <span class="text-gray-600 dark:text-gray-400">見積提示</span>
+                        <span class="font-medium tabular-nums text-gray-900 dark:text-gray-100">
+                            45 件
+                        </span>
+                        <span class="tabular-nums text-gray-400 dark:text-gray-500">14.1%</span>
+                    </li>
+                                    <li class="flex items-center gap-1.5">
+                        <span class="inline-block h-2.5 w-2.5 shrink-0 rounded-sm bg-emerald-500" aria-hidden="true"></span>
+                        <span class="text-gray-600 dark:text-gray-400">受注</span>
+                        <span class="font-medium tabular-nums text-gray-900 dark:text-gray-100">
+                            110 件
+                        </span>
+                        <span class="tabular-nums text-gray-400 dark:text-gray-500">34.4%</span>
+                    </li>
+                                    <li class="flex items-center gap-1.5">
+                        <span class="inline-block h-2.5 w-2.5 shrink-0 rounded-sm bg-rose-500" aria-hidden="true"></span>
+                        <span class="text-gray-600 dark:text-gray-400">失注</span>
+                        <span class="font-medium tabular-nums text-gray-900 dark:text-gray-100">
+                            35 件
+                        </span>
+                        <span class="tabular-nums text-gray-400 dark:text-gray-500">10.9%</span>
+                    </li>
+                            </ul>
+            </div>
+    </div>
+</div>
+
+            <div class="space-y-4">
+    
+    <div class="space-y-4">
+            
+        <div class="flex flex-wrap items-center gap-2" x-data="{ open: false }" @keydown.escape.stop="open = false">
+    <span class="text-xs font-medium text-gray-500 dark:text-gray-400">ビュー</span>
+
+    <div class="relative" @click.outside="open = false">
+        <button type="button"
+                @click="open = ! open"
+                aria-haspopup="menu"
+                :aria-expanded="open.toString()"
+                class="inline-flex items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm text-gray-700 shadow-sm transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800">
+            <span>すべて</span>
+                        <svg class="h-4 w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+        </button>
+
+        <div x-show="open"
+             x-cloak
+             x-transition.opacity.duration.100ms
+             role="menu"
+             class="absolute z-30 mt-1 w-72 overflow-hidden rounded-md border border-gray-200 bg-white py-1 text-sm shadow-lg dark:border-gray-700 dark:bg-gray-800">
+
+            <a href="deals.html" role="menuitem"
+               class="block px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 bg-primary-soft text-primary-soft-fg">
+                すべて<span class="ms-2 text-xs text-gray-500 dark:text-gray-400">条件なし</span>
+            </a>
+
+                            <p class="px-3 py-2 text-xs text-gray-500 dark:text-gray-400">
+                    保存したビューはまだありません。
+                </p>
+            
+            <div class="my-1 border-t border-gray-100 dark:border-gray-700"></div>
+
+            <button type="button" role="menuitem"
+                    @click="open = false; $dispatch('open-modal', 'saved-view-form')"
+                    class="block w-full px-3 py-2 text-start text-primary-text hover:bg-gray-50 dark:hover:bg-gray-700">
+                現在の条件を保存…
+            </button>
+        </div>
+    </div>
+
+            <span class="text-xs text-gray-500 dark:text-gray-400">
+            現在 2 件の条件で絞り込み中
+        </span>
+    
+    
+    <div x-data="modal(JSON.parse('{\u0022name\u0022:\u0022saved-view-form\u0022,\u0022show\u0022:false,\u0022closable\u0022:true}'))"
+     x-on:open-modal.window="matches($event.detail) && open()"
+     x-on:close-modal.window="matches($event.detail) && close(true)"
+     x-on:close.stop="close(true)"
+     x-on:keydown.escape.window="close()"
+     x-show="show"
+     x-cloak
+     class="fixed inset-0 z-50 overflow-y-auto px-4 py-6 sm:px-0"
+     style="display: none;">
+
+    
+    <div x-show="show"
+         x-on:click="close()"
+         x-transition:enter="transition ease-out duration-200 motion-reduce:transition-none"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-150 motion-reduce:transition-none"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         class="fixed inset-0 bg-gray-900/50"
+         aria-hidden="true"></div>
+
+    
+    <div x-ref="panel"
+         x-show="show"
+         x-on:keydown.tab="trap($event)"
+         role="dialog"
+         aria-modal="true"
+          aria-labelledby="saved-view-form-title"          tabindex="-1"
+         x-transition:enter="transition ease-out duration-200 motion-reduce:transition-none"
+         x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+         x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+         x-transition:leave="transition ease-in duration-150 motion-reduce:transition-none"
+         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+         x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+         class="relative mx-auto mb-6 w-full overflow-hidden rounded-lg bg-white shadow-xl dark:bg-gray-800 sm:max-w-md">
+
+                    <div class="flex items-start justify-between gap-4 border-b border-gray-100 px-5 py-4 dark:border-gray-700">
+                <h2 id="saved-view-form-title" class="text-base font-semibold text-gray-800 dark:text-gray-200">ビューを保存</h2>
+
+                                    <button type="button" x-on:click="close(true)"
+                            class="rounded-md p-1 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600 motion-reduce:transition-none dark:hover:bg-gray-700"
+                            aria-label="閉じる">
+                        <svg class="h-5 w-5" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </svg>
+                    </button>
+                            </div>
+        
+        <div class="px-5 py-4 text-sm text-gray-700 dark:text-gray-300">
+            <form method="POST" action="#" data-demo-disabled="link" class="space-y-4">
+            <input type="hidden" name="_token" value="" autocomplete="off">            <input type="hidden" name="table_key" value="deals">
+            <input type="hidden" name="redirect_to" value="/deals?sort=expected_close_date&amp;direction=desc">
+
+            
+                            <input type="hidden" name="conditions[sort]" value="expected_close_date">
+                            <input type="hidden" name="conditions[direction]" value="desc">
+            
+            <div class="space-y-1">
+            <label  for="name"  class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            ビュー名
+                            <span class="ms-1 text-xs font-normal text-rose-600 dark:text-rose-400">必須</span>
+                    </label>
+    
+    <input type="text"
+           id="name"
+           name="name"
+           value=""
+            placeholder="例：今月クローズ予定の進行中"            required                                 class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-3 py-2 text-sm border-gray-300 dark:border-gray-700" maxlength="100">
+
+            <p class="text-xs text-gray-500 dark:text-gray-400">同じ名前で保存すると上書きします。</p>
+    
+    </div>
+
+            <div class="space-y-1">
+    
+    <label for="is_default" class="inline-flex items-center gap-2">
+        <input type="checkbox"
+               id="is_default"
+               name="is_default"
+               value="1"
+                                                            class="rounded border-gray-300 text-primary shadow-sm focus:ring-primary disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:bg-gray-900">
+
+                    <span class="text-sm text-gray-700 dark:text-gray-300">
+                既定のビューにする
+                            </span>
+            </label>
+
+            <p class="text-xs text-gray-500 dark:text-gray-400">条件を指定せずにこの一覧を開いたとき、自動で適用します。</p>
+    
+    </div>
+
+                            <div class="rounded-md bg-gray-50 px-3 py-2 text-xs text-gray-600 dark:bg-gray-900/40 dark:text-gray-400">
+                    保存される条件：sort=expected_close_date / direction=desc
+                </div>
+            
+            
+            <div class="flex items-center justify-end gap-2 border-t border-gray-100 pt-4 dark:border-gray-700">
+                <button type="button"
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 gap-2 px-4 py-2 text-sm" x-on:click="$dispatch('close')">
+        キャンセル
+    </button>
+                <button type="submit"
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm">
+        保存
+    </button>
+            </div>
+        </form>
+        </div>
+
+            </div>
+</div>
+</div>
+    
+    
+    <form method="GET" action="#" data-demo-disabled="link"
+          class="rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-800">
+        
+        <input type="hidden" name="sort" value="expected_close_date">
+        <input type="hidden" name="direction" value="desc">
+        
+        <div class="flex flex-wrap items-end gap-3">
+            <div class="min-w-64 flex-1">
+                <label for="dt-q" class="block text-xs font-medium text-gray-600 dark:text-gray-400">キーワード</label>
+                <input id="dt-q" type="search" name="q" value=""
+                       placeholder="商談コード・件名で検索"
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 sm:text-sm">
+            </div>
+
+                            <div class="">
+                    <label for="dt-status" class="block text-xs font-medium text-gray-600 dark:text-gray-400">
+                        ステータス
+                    </label>
+
+                                            <select id="dt-status" name="status"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 sm:text-sm">
+                            <option value="">すべて</option>
+                                                            <option value="open" >
+                                    進行中（受注・失注を除く）
+                                </option>
+                                                            <option value="prospect" >
+                                    見込み
+                                </option>
+                                                            <option value="proposing" >
+                                    提案中
+                                </option>
+                                                            <option value="quoted" >
+                                    見積提示
+                                </option>
+                                                            <option value="won" >
+                                    受注
+                                </option>
+                                                            <option value="lost" >
+                                    失注
+                                </option>
+                                                    </select>
+                                    </div>
+                            <div class="w-56">
+                    <label for="dt-partner_id" class="block text-xs font-medium text-gray-600 dark:text-gray-400">
+                        顧客
+                    </label>
+
+                                            
+                        <div class="mt-1">
+                            <div class="space-y-1">
+    
+    <div x-data="combobox(JSON.parse('{\u0022options\u0022:[{\u0022value\u0022:\u00221\u0022,\u0022label\u0022:\u0022株式会社 江古田\u0022,\u0022search\u0022:\u0022株式会社 江古田\u0022},{\u0022value\u0022:\u00222\u0022,\u0022label\u0022:\u0022有限会社 木村\u0022,\u0022search\u0022:\u0022有限会社 木村\u0022},{\u0022value\u0022:\u00223\u0022,\u0022label\u0022:\u0022株式会社 津田\u0022,\u0022search\u0022:\u0022株式会社 津田\u0022},{\u0022value\u0022:\u00224\u0022,\u0022label\u0022:\u0022株式会社 石田\u0022,\u0022search\u0022:\u0022株式会社 石田\u0022},{\u0022value\u0022:\u00225\u0022,\u0022label\u0022:\u0022有限会社 西之園\u0022,\u0022search\u0022:\u0022有限会社 西之園\u0022},{\u0022value\u0022:\u00226\u0022,\u0022label\u0022:\u0022有限会社 三宅\u0022,\u0022search\u0022:\u0022有限会社 三宅\u0022},{\u0022value\u0022:\u00227\u0022,\u0022label\u0022:\u0022有限会社 大垣\u0022,\u0022search\u0022:\u0022有限会社 大垣\u0022},{\u0022value\u0022:\u00228\u0022,\u0022label\u0022:\u0022有限会社 笹田\u0022,\u0022search\u0022:\u0022有限会社 笹田\u0022},{\u0022value\u0022:\u00229\u0022,\u0022label\u0022:\u0022株式会社 江古田\u0022,\u0022search\u0022:\u0022株式会社 江古田\u0022},{\u0022value\u0022:\u002210\u0022,\u0022label\u0022:\u0022有限会社 青田\u0022,\u0022search\u0022:\u0022有限会社 青田\u0022},{\u0022value\u0022:\u002211\u0022,\u0022label\u0022:\u0022株式会社 大垣\u0022,\u0022search\u0022:\u0022株式会社 大垣\u0022},{\u0022value\u0022:\u002212\u0022,\u0022label\u0022:\u0022有限会社 小林\u0022,\u0022search\u0022:\u0022有限会社 小林\u0022},{\u0022value\u0022:\u002213\u0022,\u0022label\u0022:\u0022有限会社 小林\u0022,\u0022search\u0022:\u0022有限会社 小林\u0022},{\u0022value\u0022:\u002214\u0022,\u0022label\u0022:\u0022有限会社 中島\u0022,\u0022search\u0022:\u0022有限会社 中島\u0022},{\u0022value\u0022:\u002215\u0022,\u0022label\u0022:\u0022有限会社 松本\u0022,\u0022search\u0022:\u0022有限会社 松本\u0022},{\u0022value\u0022:\u002216\u0022,\u0022label\u0022:\u0022有限会社 渚\u0022,\u0022search\u0022:\u0022有限会社 渚\u0022},{\u0022value\u0022:\u002217\u0022,\u0022label\u0022:\u0022株式会社 加納\u0022,\u0022search\u0022:\u0022株式会社 加納\u0022},{\u0022value\u0022:\u002218\u0022,\u0022label\u0022:\u0022有限会社 津田\u0022,\u0022search\u0022:\u0022有限会社 津田\u0022},{\u0022value\u0022:\u002219\u0022,\u0022label\u0022:\u0022株式会社 村山\u0022,\u0022search\u0022:\u0022株式会社 村山\u0022},{\u0022value\u0022:\u002220\u0022,\u0022label\u0022:\u0022株式会社 江古田\u0022,\u0022search\u0022:\u0022株式会社 江古田\u0022},{\u0022value\u0022:\u002221\u0022,\u0022label\u0022:\u0022有限会社 藤本\u0022,\u0022search\u0022:\u0022有限会社 藤本\u0022},{\u0022value\u0022:\u002222\u0022,\u0022label\u0022:\u0022有限会社 松本\u0022,\u0022search\u0022:\u0022有限会社 松本\u0022},{\u0022value\u0022:\u002223\u0022,\u0022label\u0022:\u0022有限会社 木村\u0022,\u0022search\u0022:\u0022有限会社 木村\u0022},{\u0022value\u0022:\u002224\u0022,\u0022label\u0022:\u0022株式会社 山口\u0022,\u0022search\u0022:\u0022株式会社 山口\u0022},{\u0022value\u0022:\u002225\u0022,\u0022label\u0022:\u0022株式会社 中村\u0022,\u0022search\u0022:\u0022株式会社 中村\u0022},{\u0022value\u0022:\u002226\u0022,\u0022label\u0022:\u0022株式会社 宇野\u0022,\u0022search\u0022:\u0022株式会社 宇野\u0022},{\u0022value\u0022:\u002227\u0022,\u0022label\u0022:\u0022株式会社 佐々木\u0022,\u0022search\u0022:\u0022株式会社 佐々木\u0022},{\u0022value\u0022:\u002228\u0022,\u0022label\u0022:\u0022株式会社 江古田\u0022,\u0022search\u0022:\u0022株式会社 江古田\u0022},{\u0022value\u0022:\u002229\u0022,\u0022label\u0022:\u0022有限会社 井上\u0022,\u0022search\u0022:\u0022有限会社 井上\u0022},{\u0022value\u0022:\u002230\u0022,\u0022label\u0022:\u0022有限会社 津田\u0022,\u0022search\u0022:\u0022有限会社 津田\u0022},{\u0022value\u0022:\u002231\u0022,\u0022label\u0022:\u0022有限会社 中津川\u0022,\u0022search\u0022:\u0022有限会社 中津川\u0022},{\u0022value\u0022:\u002232\u0022,\u0022label\u0022:\u0022有限会社 西之園\u0022,\u0022search\u0022:\u0022有限会社 西之園\u0022},{\u0022value\u0022:\u002233\u0022,\u0022label\u0022:\u0022株式会社 加藤\u0022,\u0022search\u0022:\u0022株式会社 加藤\u0022},{\u0022value\u0022:\u002234\u0022,\u0022label\u0022:\u0022株式会社 青山\u0022,\u0022search\u0022:\u0022株式会社 青山\u0022},{\u0022value\u0022:\u002235\u0022,\u0022label\u0022:\u0022有限会社 津田\u0022,\u0022search\u0022:\u0022有限会社 津田\u0022},{\u0022value\u0022:\u002236\u0022,\u0022label\u0022:\u0022株式会社 小林\u0022,\u0022search\u0022:\u0022株式会社 小林\u0022},{\u0022value\u0022:\u002237\u0022,\u0022label\u0022:\u0022株式会社 笹田\u0022,\u0022search\u0022:\u0022株式会社 笹田\u0022},{\u0022value\u0022:\u002238\u0022,\u0022label\u0022:\u0022株式会社 浜田\u0022,\u0022search\u0022:\u0022株式会社 浜田\u0022},{\u0022value\u0022:\u002239\u0022,\u0022label\u0022:\u0022株式会社 青田\u0022,\u0022search\u0022:\u0022株式会社 青田\u0022},{\u0022value\u0022:\u002240\u0022,\u0022label\u0022:\u0022株式会社 中村\u0022,\u0022search\u0022:\u0022株式会社 中村\u0022},{\u0022value\u0022:\u002241\u0022,\u0022label\u0022:\u0022株式会社 廣川\u0022,\u0022search\u0022:\u0022株式会社 廣川\u0022},{\u0022value\u0022:\u002242\u0022,\u0022label\u0022:\u0022有限会社 野村\u0022,\u0022search\u0022:\u0022有限会社 野村\u0022},{\u0022value\u0022:\u002243\u0022,\u0022label\u0022:\u0022株式会社 中島\u0022,\u0022search\u0022:\u0022株式会社 中島\u0022},{\u0022value\u0022:\u002244\u0022,\u0022label\u0022:\u0022有限会社 津田\u0022,\u0022search\u0022:\u0022有限会社 津田\u0022}],\u0022value\u0022:\u0022\u0022,\u0022label\u0022:\u0022\u0022,\u0022source\u0022:null}'))"
+                                             @keydown.escape.stop="close()"
+         @click.outside="close()"
+                  class="relative">
+
+        
+                    <input type="hidden" name="partner_id" :value="value">
+        
+        <div class="relative">
+            <input type="text"
+                                          id="dt-partner_id"
+                       aria-controls="dt-partner_id-listbox"
+                                      x-ref="input"
+                   role="combobox"
+                   autocomplete="off"
+                   aria-autocomplete="list"
+                   :aria-expanded="open.toString()"
+                   :aria-activedescendant="activeDescendant(&#039;dt-partner_id&#039;)"
+                   placeholder="すべて"
+                   x-model="query"
+                   @focus="openList(); $el.select()"
+                   @input="onInput()"
+                   @keydown.arrow-down.prevent="move(1)"
+                   @keydown.arrow-up.prevent="move(-1)"
+                   @keydown.home.prevent="moveTo(0)"
+                   @keydown.end.prevent="moveTo(-1)"
+                   @keydown.enter.prevent="selectActive()"
+                   @keydown.tab="close()"
+                                                                            class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-2.5 py-1.5 text-xs border-gray-300 dark:border-gray-700 pe-16">
+
+            
+            <div class="absolute inset-y-0 end-0 flex items-center gap-0.5 pe-2">
+                <button type="button"
+                        x-show="hasSelection"
+                        x-cloak
+                        @click="clear(); $refs.input?.focus()"
+                                                class="rounded p-1 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none dark:hover:text-gray-200"
+                        aria-label="選択を解除">
+                    <svg class="h-4 w-4" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </svg>
+                </button>
+
+                <span class="pointer-events-none text-gray-400" aria-hidden="true">
+                    <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+
+        
+        <ul  id="dt-partner_id-listbox"             role="listbox"
+            x-ref="list"
+            x-show="open"
+            x-cloak
+            x-transition.opacity.duration.100ms
+            class="absolute z-30 mt-1 max-h-60 w-full overflow-auto rounded-md border border-gray-200 bg-white py-1 text-sm shadow-lg dark:border-gray-700 dark:bg-gray-800">
+
+            <template x-for="(item, index) in filtered" :key="item.value">
+                <li :id="&#039;dt-partner_id&#039; + '-option-' + index"
+                    role="option"
+                    :aria-selected="(item.value === value).toString()"
+                    @click="select(item)"
+                    @mouseenter="activeIndex = index"
+                    :class="index === activeIndex
+                        ? 'bg-primary-soft text-primary-soft-fg'
+                        : 'text-gray-700 dark:text-gray-200'"
+                    class="cursor-pointer px-3 py-2">
+                    <span x-text="item.label"></span>
+                    <span class="ms-2 text-xs text-primary-text" x-show="item.value === value">選択中</span>
+                </li>
+            </template>
+
+            
+            <li x-show="loading" x-cloak class="px-3 py-2 text-gray-500 dark:text-gray-400">読み込み中…</li>
+            <li x-show="failed" x-cloak class="px-3 py-2 text-rose-600 dark:text-rose-400">候補を取得できませんでした</li>
+            <li x-show="! loading && ! failed && filtered.length === 0" x-cloak
+                class="px-3 py-2 text-gray-500 dark:text-gray-400">該当する顧客がありません</li>
+        </ul>
+    </div>
+
+    
+    </div>
+                        </div>
+                                    </div>
+                            <div class="w-56">
+                    <label for="dt-employee_id" class="block text-xs font-medium text-gray-600 dark:text-gray-400">
+                        営業担当
+                    </label>
+
+                                            
+                        <div class="mt-1">
+                            <div class="space-y-1">
+    
+    <div x-data="combobox(JSON.parse('{\u0022options\u0022:[{\u0022value\u0022:\u00221\u0022,\u0022label\u0022:\u0022工藤 明美\u0022,\u0022search\u0022:\u0022工藤 明美\u0022},{\u0022value\u0022:\u00222\u0022,\u0022label\u0022:\u0022吉田 聡太郎\u0022,\u0022search\u0022:\u0022吉田 聡太郎\u0022},{\u0022value\u0022:\u00223\u0022,\u0022label\u0022:\u0022桐山 花子\u0022,\u0022search\u0022:\u0022桐山 花子\u0022},{\u0022value\u0022:\u00224\u0022,\u0022label\u0022:\u0022渡辺 翔太\u0022,\u0022search\u0022:\u0022渡辺 翔太\u0022},{\u0022value\u0022:\u00225\u0022,\u0022label\u0022:\u0022杉山 直子\u0022,\u0022search\u0022:\u0022杉山 直子\u0022},{\u0022value\u0022:\u00226\u0022,\u0022label\u0022:\u0022宇野 直人\u0022,\u0022search\u0022:\u0022宇野 直人\u0022},{\u0022value\u0022:\u00227\u0022,\u0022label\u0022:\u0022田中 健一\u0022,\u0022search\u0022:\u0022田中 健一\u0022},{\u0022value\u0022:\u00228\u0022,\u0022label\u0022:\u0022加藤 真綾\u0022,\u0022search\u0022:\u0022加藤 真綾\u0022},{\u0022value\u0022:\u00229\u0022,\u0022label\u0022:\u0022浜田 晃\u0022,\u0022search\u0022:\u0022浜田 晃\u0022},{\u0022value\u0022:\u002210\u0022,\u0022label\u0022:\u0022伊藤 千代\u0022,\u0022search\u0022:\u0022伊藤 千代\u0022},{\u0022value\u0022:\u002211\u0022,\u0022label\u0022:\u0022高橋 加奈\u0022,\u0022search\u0022:\u0022高橋 加奈\u0022},{\u0022value\u0022:\u002212\u0022,\u0022label\u0022:\u0022小泉 春香\u0022,\u0022search\u0022:\u0022小泉 春香\u0022},{\u0022value\u0022:\u002213\u0022,\u0022label\u0022:\u0022渚 明美\u0022,\u0022search\u0022:\u0022渚 明美\u0022},{\u0022value\u0022:\u002214\u0022,\u0022label\u0022:\u0022伊藤 直子\u0022,\u0022search\u0022:\u0022伊藤 直子\u0022},{\u0022value\u0022:\u002215\u0022,\u0022label\u0022:\u0022近藤 花子\u0022,\u0022search\u0022:\u0022近藤 花子\u0022},{\u0022value\u0022:\u002216\u0022,\u0022label\u0022:\u0022松本 洋介\u0022,\u0022search\u0022:\u0022松本 洋介\u0022},{\u0022value\u0022:\u002217\u0022,\u0022label\u0022:\u0022野村 健一\u0022,\u0022search\u0022:\u0022野村 健一\u0022},{\u0022value\u0022:\u002218\u0022,\u0022label\u0022:\u0022井高 春香\u0022,\u0022search\u0022:\u0022井高 春香\u0022},{\u0022value\u0022:\u002219\u0022,\u0022label\u0022:\u0022佐々木 浩\u0022,\u0022search\u0022:\u0022佐々木 浩\u0022},{\u0022value\u0022:\u002220\u0022,\u0022label\u0022:\u0022西之園 花子\u0022,\u0022search\u0022:\u0022西之園 花子\u0022},{\u0022value\u0022:\u002221\u0022,\u0022label\u0022:\u0022山岸 舞\u0022,\u0022search\u0022:\u0022山岸 舞\u0022},{\u0022value\u0022:\u002222\u0022,\u0022label\u0022:\u0022山本 里佳\u0022,\u0022search\u0022:\u0022山本 里佳\u0022},{\u0022value\u0022:\u002223\u0022,\u0022label\u0022:\u0022佐藤 陽子\u0022,\u0022search\u0022:\u0022佐藤 陽子\u0022},{\u0022value\u0022:\u002224\u0022,\u0022label\u0022:\u0022野村 涼平\u0022,\u0022search\u0022:\u0022野村 涼平\u0022}],\u0022value\u0022:\u0022\u0022,\u0022label\u0022:\u0022\u0022,\u0022source\u0022:null}'))"
+                                             @keydown.escape.stop="close()"
+         @click.outside="close()"
+                  class="relative">
+
+        
+                    <input type="hidden" name="employee_id" :value="value">
+        
+        <div class="relative">
+            <input type="text"
+                                          id="dt-employee_id"
+                       aria-controls="dt-employee_id-listbox"
+                                      x-ref="input"
+                   role="combobox"
+                   autocomplete="off"
+                   aria-autocomplete="list"
+                   :aria-expanded="open.toString()"
+                   :aria-activedescendant="activeDescendant(&#039;dt-employee_id&#039;)"
+                   placeholder="すべて"
+                   x-model="query"
+                   @focus="openList(); $el.select()"
+                   @input="onInput()"
+                   @keydown.arrow-down.prevent="move(1)"
+                   @keydown.arrow-up.prevent="move(-1)"
+                   @keydown.home.prevent="moveTo(0)"
+                   @keydown.end.prevent="moveTo(-1)"
+                   @keydown.enter.prevent="selectActive()"
+                   @keydown.tab="close()"
+                                                                            class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-2.5 py-1.5 text-xs border-gray-300 dark:border-gray-700 pe-16">
+
+            
+            <div class="absolute inset-y-0 end-0 flex items-center gap-0.5 pe-2">
+                <button type="button"
+                        x-show="hasSelection"
+                        x-cloak
+                        @click="clear(); $refs.input?.focus()"
+                                                class="rounded p-1 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none dark:hover:text-gray-200"
+                        aria-label="選択を解除">
+                    <svg class="h-4 w-4" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </svg>
+                </button>
+
+                <span class="pointer-events-none text-gray-400" aria-hidden="true">
+                    <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+
+        
+        <ul  id="dt-employee_id-listbox"             role="listbox"
+            x-ref="list"
+            x-show="open"
+            x-cloak
+            x-transition.opacity.duration.100ms
+            class="absolute z-30 mt-1 max-h-60 w-full overflow-auto rounded-md border border-gray-200 bg-white py-1 text-sm shadow-lg dark:border-gray-700 dark:bg-gray-800">
+
+            <template x-for="(item, index) in filtered" :key="item.value">
+                <li :id="&#039;dt-employee_id&#039; + '-option-' + index"
+                    role="option"
+                    :aria-selected="(item.value === value).toString()"
+                    @click="select(item)"
+                    @mouseenter="activeIndex = index"
+                    :class="index === activeIndex
+                        ? 'bg-primary-soft text-primary-soft-fg'
+                        : 'text-gray-700 dark:text-gray-200'"
+                    class="cursor-pointer px-3 py-2">
+                    <span x-text="item.label"></span>
+                    <span class="ms-2 text-xs text-primary-text" x-show="item.value === value">選択中</span>
+                </li>
+            </template>
+
+            
+            <li x-show="loading" x-cloak class="px-3 py-2 text-gray-500 dark:text-gray-400">読み込み中…</li>
+            <li x-show="failed" x-cloak class="px-3 py-2 text-rose-600 dark:text-rose-400">候補を取得できませんでした</li>
+            <li x-show="! loading && ! failed && filtered.length === 0" x-cloak
+                class="px-3 py-2 text-gray-500 dark:text-gray-400">該当する営業担当がありません</li>
+        </ul>
+    </div>
+
+    
+    </div>
+                        </div>
+                                    </div>
+            
+                            
+                <input type="hidden" name="view_mode" value="table">
+
+<div class="space-y-1">
+            <label  class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            基準日
+                    </label>
+    
+    <div class="inline-flex rounded-md border border-gray-300 p-0.5 dark:border-gray-700" role="radiogroup"
+          aria-label="基準日" >
+                    
+            <label for="period_basis-expected_close_date"
+                   class="cursor-pointer rounded px-3 py-1.5 text-xs font-medium transition-colors motion-reduce:transition-none bg-primary text-white">
+                <input type="radio"
+                       id="period_basis-expected_close_date"
+                       name="period_basis"
+                       value="expected_close_date"
+                       checked                                              class="sr-only"
+                       >
+                予定クローズ日
+            </label>
+                    
+            <label for="period_basis-ordered_at"
+                   class="cursor-pointer rounded px-3 py-1.5 text-xs font-medium transition-colors motion-reduce:transition-none text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                <input type="radio"
+                       id="period_basis-ordered_at"
+                       name="period_basis"
+                       value="ordered_at"
+                                                                     class="sr-only"
+                       >
+                受注日
+            </label>
+            </div>
+
+    
+    </div>
+
+<div>
+    <label for="probability_min" class="block text-xs font-medium text-gray-600 dark:text-gray-400">確度</label>
+    <select id="probability_min" name="probability_min"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 sm:text-sm">
+        <option value="">すべて</option>
+                    <option value="90" >90% 以上</option>
+                    <option value="70" >70% 以上</option>
+                    <option value="50" >50% 以上</option>
+                    <option value="30" >30% 以上</option>
+                    <option value="10" >10% 以上</option>
+            </select>
+</div>
+
+<div class="min-w-56">
+    <div class="space-y-1">
+            <label  for="period"  class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            期間
+                    </label>
+    
+    <div x-data="dateRange(JSON.parse('{\u0022presets\u0022:[{\u0022value\u0022:\u0022today\u0022,\u0022label\u0022:\u0022今日\u0022,\u0022from\u0022:\u00222026-08-25\u0022,\u0022to\u0022:\u00222026-08-25\u0022},{\u0022value\u0022:\u0022this_week\u0022,\u0022label\u0022:\u0022今週\u0022,\u0022from\u0022:\u00222026-08-24\u0022,\u0022to\u0022:\u00222026-08-30\u0022},{\u0022value\u0022:\u0022this_month\u0022,\u0022label\u0022:\u0022今月\u0022,\u0022from\u0022:\u00222026-08-01\u0022,\u0022to\u0022:\u00222026-08-31\u0022},{\u0022value\u0022:\u0022this_quarter\u0022,\u0022label\u0022:\u0022今四半期\u0022,\u0022from\u0022:\u00222026-07-01\u0022,\u0022to\u0022:\u00222026-09-30\u0022},{\u0022value\u0022:\u0022this_fiscal_year\u0022,\u0022label\u0022:\u0022今年度\u0022,\u0022from\u0022:\u00222026-04-01\u0022,\u0022to\u0022:\u00222027-03-31\u0022},{\u0022value\u0022:\u0022last_7_days\u0022,\u0022label\u0022:\u0022過去 7 日\u0022,\u0022from\u0022:\u00222026-08-19\u0022,\u0022to\u0022:\u00222026-08-25\u0022},{\u0022value\u0022:\u0022last_30_days\u0022,\u0022label\u0022:\u0022過去 30 日\u0022,\u0022from\u0022:\u00222026-07-27\u0022,\u0022to\u0022:\u00222026-08-25\u0022},{\u0022value\u0022:\u0022last_90_days\u0022,\u0022label\u0022:\u0022過去 90 日\u0022,\u0022from\u0022:\u00222026-05-28\u0022,\u0022to\u0022:\u00222026-08-25\u0022}],\u0022preset\u0022:\u0022none\u0022,\u0022from\u0022:\u0022\u0022,\u0022to\u0022:\u0022\u0022,\u0022submitOnChange\u0022:false,\u0022noneLabel\u0022:\u0022指定なし\u0022}'))"
+         @keydown.escape.stop="open = false"
+         @click.outside="open = false"
+         class="relative">
+
+        <input type="hidden" name="period_preset" :value="preset">
+        <input type="hidden" name="period_from" :value="from">
+        <input type="hidden" name="period_to" :value="to">
+
+        
+        <div class="flex items-center gap-1">
+            <button type="button"
+                    id="period"
+                    @click="open = ! open"
+                                        aria-haspopup="dialog"
+                    :aria-expanded="open.toString()"
+                    aria-controls="period-panel"
+                    class="inline-flex w-full items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 shadow-sm transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 motion-reduce:transition-none dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800">
+                <svg class="h-4 w-4 shrink-0 text-gray-400" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+    </svg>
+
+                                    <span class="shrink-0 text-xs text-gray-500 dark:text-gray-400">予定クローズ日：</span>
+                
+                <span class="truncate" x-text="label"></span>
+            </button>
+
+            <button type="button"
+                    x-show="hasRange"
+                    x-cloak
+                    @click="clear()"
+                                        class="rounded-md p-2 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600 motion-reduce:transition-none dark:hover:bg-gray-700"
+                    aria-label="期間の指定を解除">
+                <svg class="h-4 w-4" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </svg>
+            </button>
+        </div>
+
+        
+        <div id="period-panel"
+             x-show="open"
+             x-cloak
+             x-transition.opacity.duration.100ms
+             role="dialog"
+             aria-label="期間を選ぶ"
+             class="absolute z-30 mt-1 w-max max-w-[calc(100vw-2rem)] rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
+
+            <div class="flex flex-col gap-4 sm:flex-row">
+                
+                <div class="sm:w-44">
+                    <p class="px-1 pb-1 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500">
+                        よく使う期間
+                    </p>
+
+                    <ul class="space-y-0.5">
+                        <template x-for="item in presets" :key="item.value">
+                            <li>
+                                <button type="button"
+                                        @click="selectPreset(item)"
+                                        :aria-pressed="isSelected(item.value).toString()"
+                                        :class="isSelected(item.value)
+                                            ? 'bg-primary-soft font-semibold text-primary-soft-fg'
+                                            : 'text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700'"
+                                        class="flex w-full items-center justify-between gap-3 rounded-md px-2 py-1.5 text-start text-sm transition-colors motion-reduce:transition-none">
+                                    <span x-text="item.label"></span>
+                                    <span class="text-[10px] text-gray-400" x-text="format(item.from)"></span>
+                                </button>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+
+                
+                <div class="sm:w-56 sm:border-s sm:border-gray-100 sm:ps-4 dark:sm:border-gray-700">
+                    <p class="pb-1 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500">
+                        期間を指定
+                    </p>
+
+                    <div class="space-y-2">
+                        <div>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">開始日</span>
+                            <div x-data="datepicker(JSON.parse('{\u0022value\u0022:\u0022\u0022,\u0022holidays\u0022:[],\u0022min\u0022:\u0022\u0022,\u0022max\u0022:\u0022\u0022,\u0022weekStart\u0022:1}'))"
+     x-modelable="value"
+     @keydown.escape.stop="close()"
+     @click.outside="close()"
+     class="relative mt-0.5" x-model="from" @datepicker-changed="onCustomInput()">
+
+    
+    <div class="relative">
+        <input type="text"
+               id="datepicker-6a8d31f459abd"
+               x-model="display"
+               @blur="parseDisplay()"
+               @keydown.enter.prevent="parseDisplay(); close()"
+               @keydown.arrow-down.prevent="open = true; $nextTick(() => focusDay())"
+               placeholder="YYYY/MM/DD"
+               autocomplete="off"
+               inputmode="numeric"
+                                                            class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-2.5 py-1.5 text-xs border-gray-300 dark:border-gray-700 pe-10">
+
+        <button type="button"
+                @click="toggle()"
+                                class="absolute inset-y-0 end-0 flex items-center px-2 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none dark:hover:text-gray-200"
+                aria-haspopup="dialog"
+                :aria-expanded="open.toString()"
+                aria-label="カレンダーを開く">
+            <svg class="h-4 w-4" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+    </svg>
+        </button>
+    </div>
+
+    
+    <div x-show="open"
+         x-cloak
+         x-transition.opacity.duration.100ms
+         role="dialog"
+         aria-label="日付を選ぶ"
+         class="absolute z-40 mt-1 w-72 rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
+
+        
+        <div class="flex items-center justify-between gap-2">
+            <button type="button" @click="shiftMonth(-1)"
+                    class="rounded p-1 text-gray-500 transition hover:bg-gray-100 motion-reduce:transition-none dark:hover:bg-gray-700"
+                    aria-label="前の月">
+                <svg class="h-4 w-4" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+    </svg>
+            </button>
+
+            <div class="flex items-center gap-1">
+                <select x-model.number="viewYear" aria-label="年"
+                        class="rounded-md border-gray-300 py-1 text-sm dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200">
+                    <template x-for="year in years" :key="year">
+                        <option :value="year" x-text="`${year}年`"></option>
+                    </template>
+                </select>
+
+                <select x-model.number="viewMonth" aria-label="月"
+                        class="rounded-md border-gray-300 py-1 text-sm dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200">
+                    <template x-for="month in months" :key="month">
+                        <option :value="month" x-text="`${month}月`"></option>
+                    </template>
+                </select>
+            </div>
+
+            <button type="button" @click="shiftMonth(1)"
+                    class="rounded p-1 text-gray-500 transition hover:bg-gray-100 motion-reduce:transition-none dark:hover:bg-gray-700"
+                    aria-label="次の月">
+                <svg class="h-4 w-4" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+    </svg>
+            </button>
+        </div>
+
+        <p class="sr-only" aria-live="polite" x-text="monthLabel"></p>
+
+        
+        <div class="mt-2 grid grid-cols-7 gap-0.5 text-center text-xs">
+            <template x-for="weekday in weekdays" :key="weekday.dow">
+                <span :class="{
+                          'text-rose-500': weekday.dow === 0,
+                          'text-sky-500': weekday.dow === 6,
+                          'text-gray-500 dark:text-gray-400': weekday.dow !== 0 && weekday.dow !== 6,
+                      }"
+                      class="py-1" x-text="weekday.label"></span>
+            </template>
+        </div>
+
+        
+        <div x-ref="grid"
+             role="grid"
+             @keydown.arrow-left.prevent="moveFocus(-1)"
+             @keydown.arrow-right.prevent="moveFocus(1)"
+             @keydown.arrow-up.prevent="moveFocus(-7)"
+             @keydown.arrow-down.prevent="moveFocus(7)"
+             @keydown.page-up.prevent="shiftMonth(-1)"
+             @keydown.page-down.prevent="shiftMonth(1)"
+             class="mt-1 space-y-0.5">
+            <template x-for="(week, index) in weeks" :key="index">
+                <div class="grid grid-cols-7 gap-0.5" role="row">
+                    <template x-for="day in week" :key="day.key">
+                        <button type="button"
+                                role="gridcell"
+                                :data-date="day.key"
+                                :tabindex="focused === day.key ? 0 : -1"
+                                :aria-selected="isSelected(day.key).toString()"
+                                :aria-label="day.label + (day.holiday ? '（' + day.holiday + '）' : '')"
+                                :disabled="day.disabled"
+                                @click="pick(day.key)"
+                                @focus="focused = day.key"
+                                :class="{
+                                    'bg-primary text-white font-semibold hover:bg-primary-hover': isSelected(day.key),
+                                    'ring-1 ring-primary': ! isSelected(day.key) && isToday(day.key),
+                                    'opacity-40': ! day.inMonth,
+                                    'text-rose-500': ! isSelected(day.key) && dayTone(day) === 'sunday',
+                                    'text-sky-600': ! isSelected(day.key) && dayTone(day) === 'saturday',
+                                    'text-gray-700 dark:text-gray-200': ! isSelected(day.key) && dayTone(day) === 'weekday',
+                                    'hover:bg-gray-100 dark:hover:bg-gray-700': ! isSelected(day.key) && ! day.disabled,
+                                    'cursor-not-allowed opacity-30': day.disabled,
+                                }"
+                                class="relative rounded py-1.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none">
+                            <span x-text="day.day"></span>
+                            
+                            <span x-show="day.holiday" class="absolute inset-x-0 bottom-0.5 mx-auto h-1 w-1 rounded-full bg-rose-500"></span>
+                        </button>
+                    </template>
+                </div>
+            </template>
+        </div>
+
+        <div class="mt-2 flex items-center justify-between border-t border-gray-100 pt-2 dark:border-gray-700">
+            <button type="button"
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-primary dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white gap-1.5 px-2.5 py-1.5 text-xs" x-on:click="clear()">
+        クリア
+    </button>
+            <button type="button"
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 gap-1.5 px-2.5 py-1.5 text-xs" x-on:click="selectToday()">
+        今日
+    </button>
+        </div>
+    </div>
+</div>
+                        </div>
+
+                        <div>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">終了日</span>
+                            <div x-data="datepicker(JSON.parse('{\u0022value\u0022:\u0022\u0022,\u0022holidays\u0022:[],\u0022min\u0022:\u0022\u0022,\u0022max\u0022:\u0022\u0022,\u0022weekStart\u0022:1}'))"
+     x-modelable="value"
+     @keydown.escape.stop="close()"
+     @click.outside="close()"
+     class="relative mt-0.5" x-model="to" @datepicker-changed="onCustomInput()">
+
+    
+    <div class="relative">
+        <input type="text"
+               id="datepicker-6a8d31f459c81"
+               x-model="display"
+               @blur="parseDisplay()"
+               @keydown.enter.prevent="parseDisplay(); close()"
+               @keydown.arrow-down.prevent="open = true; $nextTick(() => focusDay())"
+               placeholder="YYYY/MM/DD"
+               autocomplete="off"
+               inputmode="numeric"
+                                                            class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-2.5 py-1.5 text-xs border-gray-300 dark:border-gray-700 pe-10">
+
+        <button type="button"
+                @click="toggle()"
+                                class="absolute inset-y-0 end-0 flex items-center px-2 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none dark:hover:text-gray-200"
+                aria-haspopup="dialog"
+                :aria-expanded="open.toString()"
+                aria-label="カレンダーを開く">
+            <svg class="h-4 w-4" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+    </svg>
+        </button>
+    </div>
+
+    
+    <div x-show="open"
+         x-cloak
+         x-transition.opacity.duration.100ms
+         role="dialog"
+         aria-label="日付を選ぶ"
+         class="absolute z-40 mt-1 w-72 rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
+
+        
+        <div class="flex items-center justify-between gap-2">
+            <button type="button" @click="shiftMonth(-1)"
+                    class="rounded p-1 text-gray-500 transition hover:bg-gray-100 motion-reduce:transition-none dark:hover:bg-gray-700"
+                    aria-label="前の月">
+                <svg class="h-4 w-4" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+    </svg>
+            </button>
+
+            <div class="flex items-center gap-1">
+                <select x-model.number="viewYear" aria-label="年"
+                        class="rounded-md border-gray-300 py-1 text-sm dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200">
+                    <template x-for="year in years" :key="year">
+                        <option :value="year" x-text="`${year}年`"></option>
+                    </template>
+                </select>
+
+                <select x-model.number="viewMonth" aria-label="月"
+                        class="rounded-md border-gray-300 py-1 text-sm dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200">
+                    <template x-for="month in months" :key="month">
+                        <option :value="month" x-text="`${month}月`"></option>
+                    </template>
+                </select>
+            </div>
+
+            <button type="button" @click="shiftMonth(1)"
+                    class="rounded p-1 text-gray-500 transition hover:bg-gray-100 motion-reduce:transition-none dark:hover:bg-gray-700"
+                    aria-label="次の月">
+                <svg class="h-4 w-4" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+    </svg>
+            </button>
+        </div>
+
+        <p class="sr-only" aria-live="polite" x-text="monthLabel"></p>
+
+        
+        <div class="mt-2 grid grid-cols-7 gap-0.5 text-center text-xs">
+            <template x-for="weekday in weekdays" :key="weekday.dow">
+                <span :class="{
+                          'text-rose-500': weekday.dow === 0,
+                          'text-sky-500': weekday.dow === 6,
+                          'text-gray-500 dark:text-gray-400': weekday.dow !== 0 && weekday.dow !== 6,
+                      }"
+                      class="py-1" x-text="weekday.label"></span>
+            </template>
+        </div>
+
+        
+        <div x-ref="grid"
+             role="grid"
+             @keydown.arrow-left.prevent="moveFocus(-1)"
+             @keydown.arrow-right.prevent="moveFocus(1)"
+             @keydown.arrow-up.prevent="moveFocus(-7)"
+             @keydown.arrow-down.prevent="moveFocus(7)"
+             @keydown.page-up.prevent="shiftMonth(-1)"
+             @keydown.page-down.prevent="shiftMonth(1)"
+             class="mt-1 space-y-0.5">
+            <template x-for="(week, index) in weeks" :key="index">
+                <div class="grid grid-cols-7 gap-0.5" role="row">
+                    <template x-for="day in week" :key="day.key">
+                        <button type="button"
+                                role="gridcell"
+                                :data-date="day.key"
+                                :tabindex="focused === day.key ? 0 : -1"
+                                :aria-selected="isSelected(day.key).toString()"
+                                :aria-label="day.label + (day.holiday ? '（' + day.holiday + '）' : '')"
+                                :disabled="day.disabled"
+                                @click="pick(day.key)"
+                                @focus="focused = day.key"
+                                :class="{
+                                    'bg-primary text-white font-semibold hover:bg-primary-hover': isSelected(day.key),
+                                    'ring-1 ring-primary': ! isSelected(day.key) && isToday(day.key),
+                                    'opacity-40': ! day.inMonth,
+                                    'text-rose-500': ! isSelected(day.key) && dayTone(day) === 'sunday',
+                                    'text-sky-600': ! isSelected(day.key) && dayTone(day) === 'saturday',
+                                    'text-gray-700 dark:text-gray-200': ! isSelected(day.key) && dayTone(day) === 'weekday',
+                                    'hover:bg-gray-100 dark:hover:bg-gray-700': ! isSelected(day.key) && ! day.disabled,
+                                    'cursor-not-allowed opacity-30': day.disabled,
+                                }"
+                                class="relative rounded py-1.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none">
+                            <span x-text="day.day"></span>
+                            
+                            <span x-show="day.holiday" class="absolute inset-x-0 bottom-0.5 mx-auto h-1 w-1 rounded-full bg-rose-500"></span>
+                        </button>
+                    </template>
+                </div>
+            </template>
+        </div>
+
+        <div class="mt-2 flex items-center justify-between border-t border-gray-100 pt-2 dark:border-gray-700">
+            <button type="button"
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-primary dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white gap-1.5 px-2.5 py-1.5 text-xs" x-on:click="clear()">
+        クリア
+    </button>
+            <button type="button"
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 gap-1.5 px-2.5 py-1.5 text-xs" x-on:click="selectToday()">
+        今日
+    </button>
+        </div>
+    </div>
+</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 flex items-center justify-between gap-2">
+                        <button type="button"
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-primary dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white gap-1.5 px-2.5 py-1.5 text-xs" x-on:click="clear()">
+        指定なし
+    </button>
+                        <button type="button"
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-1.5 px-2.5 py-1.5 text-xs" x-on:click="apply()">
+        適用
+    </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    </div>
+</div>
+            
+            <div class="flex items-center gap-2">
+                <button type="submit"
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm">
+        検索
+    </button>
+
+                            </div>
+        </div>
+    </form>
+
+</div>
+
+    
+    <div class="flex flex-wrap items-center justify-between gap-3">
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+            全 320 件
+                            （1–20 件目を表示）
+                    </p>
+
+        <div class="flex flex-wrap items-center gap-3">
+                            
+                <div class="inline-flex overflow-hidden rounded-md border border-gray-300 text-xs dark:border-gray-600">
+                                            <a href="deals.html"
+                           class="px-3 py-1.5 bg-primary text-white">
+                            通常
+                        </a>
+                                            <a href="deals.html"
+                           class="px-3 py-1.5 bg-white text-gray-600 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+                            削除済みも表示
+                        </a>
+                                            <a href="deals.html"
+                           class="px-3 py-1.5 bg-white text-gray-600 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+                            削除済みのみ
+                        </a>
+                                    </div>
+            
+                            <a href="#" data-demo-disabled="link"
+                   class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700">
+                    CSV出力
+                </a>
+                    </div>
+    </div>
+
+    
+    <div class="overflow-x-auto rounded-lg border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
+    <table class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
+        <thead class="bg-gray-50 dark:bg-gray-900/40">
+            <tr>
+                                    
+                    <th scope="col"
+                         aria-sort="none"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-left">
+                                                    <a href="deals.html"
+                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                                商談コード
+                                <span class="text-[10px]" aria-hidden="true"></span>
+                            </a>
+                                            </th>
+                                    
+                    <th scope="col"
+                                                class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-left">
+                                                    顧客
+                                            </th>
+                                    
+                    <th scope="col"
+                         aria-sort="none"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-left">
+                                                    <a href="deals.html"
+                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                                件名
+                                <span class="text-[10px]" aria-hidden="true"></span>
+                            </a>
+                                            </th>
+                                    
+                    <th scope="col"
+                         aria-sort="none"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-center">
+                                                    <a href="deals.html"
+                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                                ステータス
+                                <span class="text-[10px]" aria-hidden="true"></span>
+                            </a>
+                                            </th>
+                                    
+                    <th scope="col"
+                         aria-sort="none"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-right">
+                                                    <a href="deals.html"
+                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                                確度
+                                <span class="text-[10px]" aria-hidden="true"></span>
+                            </a>
+                                            </th>
+                                    
+                    <th scope="col"
+                         aria-sort="none"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-right">
+                                                    <a href="deals.html"
+                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                                金額(税込)
+                                <span class="text-[10px]" aria-hidden="true"></span>
+                            </a>
+                                            </th>
+                                    
+                    <th scope="col"
+                         aria-sort="descending"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-left">
+                                                    <a href="deals.html"
+                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                                予定クローズ日
+                                <span class="text-[10px]" aria-hidden="true">▼</span>
+                            </a>
+                                            </th>
+                                    
+                    <th scope="col"
+                         aria-sort="none"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-left">
+                                                    <a href="deals.html"
+                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                                受注日
+                                <span class="text-[10px]" aria-hidden="true"></span>
+                            </a>
+                                            </th>
+                                    
+                    <th scope="col"
+                                                class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-left">
+                                                    営業担当
+                                            </th>
+                
+                                    <th scope="col" class="px-4 py-3 text-right text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        操作
+                    </th>
+                            </tr>
+        </thead>
+
+        <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+                            <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0010
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    株式会社 大垣
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">基幹システム刷新</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                                見込み
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            20%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            2,670,800
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/25
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            吉田 聡太郎
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0043
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    有限会社 西之園
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">採用管理システム導入</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                                見込み
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            10%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            5,489,600
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/23
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            宇野 直人
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0032
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    有限会社 渚
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">コーポレートサイトリニューアル</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                                見込み
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            10%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            5,801,000
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/22
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            吉田 聡太郎
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0118
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    株式会社 石田
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">受発注システム開発</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                                提案中
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            30%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            2,207,000
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/21
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            田中 健一
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0089
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    有限会社 大垣
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">採用管理システム導入</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                                提案中
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            50%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            6,765,000
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/21
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            宇野 直人
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0044
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    有限会社 井上
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">リスティング広告 運用支援</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                                見込み
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            20%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            3,389,600
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/21
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            宇野 直人
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0037
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    有限会社 三宅
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">ノベルティ制作</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                                見込み
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            20%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            38,400
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/21
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            宇野 直人
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0134
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    株式会社 中島
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">採用管理システム導入</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
+                                見積提示
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            70%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            2,750,000
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/20
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            工藤 明美
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0141
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    有限会社 松本
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">採用管理システム導入</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
+                                見積提示
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            60%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            7,858,400
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/18
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            桐山 花子
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0104
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    株式会社 加藤
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">保守契約更新</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                                提案中
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            30%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            4,381,928
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/18
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            桐山 花子
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0111
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    有限会社 中津川
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">リスティング広告 運用支援</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                                提案中
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            40%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            396,000
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/16
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            吉田 聡太郎
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0024
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    有限会社 松本
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">ノベルティ制作</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                                見込み
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            10%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            1,375,000
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/16
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            吉田 聡太郎
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0158
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    株式会社 石田
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">リスティング広告 運用支援</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
+                                見積提示
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            70%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            2,005,600
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/15
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            杉山 直子
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0105
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    有限会社 西之園
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">業務フロー可視化コンサル</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                                提案中
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            50%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            1,782,000
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/15
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            加藤 真綾
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0028
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    有限会社 青田
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">コーポレートサイトリニューアル</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                                見込み
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            20%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            2,867,200
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/11
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            桐山 花子
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0019
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    株式会社 宇野
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">スマートフォンアプリ開発</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                                見込み
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            10%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            495,000
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/11
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            杉山 直子
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0038
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    株式会社 村山
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">リスティング広告 運用支援</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                                見込み
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            20%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            657,600
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/09
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            加藤 真綾
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0115
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    株式会社 山口
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">社内研修プログラム</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                                提案中
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            40%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            7,040,000
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/08
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            工藤 明美
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0042
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    有限会社 中津川
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">保守契約更新</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                                見込み
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            20%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            10,714,000
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/08
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            工藤 明美
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                                    <tr     class="transition-colors motion-reduce:transition-none odd:bg-white even:bg-gray-50/60 dark:odd:bg-gray-800 dark:even:bg-gray-900/20 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+    >
+    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
+                            <a href="deal.html"
+                               class="text-primary-text hover:text-primary-hover hover:underline">
+                                DEAL-2026-0013
+                            </a>
+                        </td>
+
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
+                                                            <a href="customer.html" class="hover:underline">
+                                    有限会社 西之園
+                                </a>
+                                                    </td>
+
+                        <td class="px-4 py-3 font-medium">
+                            <a href="deal.html" class="hover:underline">セキュリティ診断</a>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-center">
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                                見込み
+                            </span>
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                            20%
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right font-medium tabular-nums">
+                            11,071,500
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            2027/01/08
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            —
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                            吉田 聡太郎
+                        </td>
+
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <a href="deal.html"
+                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    詳細
+                                </a>
+
+                                                                    <a href="#" data-demo-disabled="link"
+                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                        編集
+                                    </a>
+                                                                                    </td>
+</tr>
+                    </tbody>
+    </table>
+
+    </div>
+
+    <div >
+        <nav class="flex flex-wrap items-center justify-between gap-3" aria-label="ページ送り">
+                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                全 320 件中
+                1–20 件目
+            </p>
+        
+        <ul class="ms-auto flex items-center gap-1">
+            
+            <li>
+                                    <span class="inline-flex h-8 items-center rounded-md border border-gray-200 px-2 text-gray-300 dark:border-gray-700 dark:text-gray-600"
+                          aria-disabled="true">
+                        <svg class="h-4 w-4" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+    </svg>
+                        <span class="sr-only">前のページ</span>
+                    </span>
+                            </li>
+
+            
+                            
+                                                            <li>
+                                                            <span aria-current="page"
+                                      class="inline-flex h-8 min-w-8 items-center justify-center rounded-md bg-primary px-2 text-sm font-semibold text-white">
+                                    1
+                                </span>
+                                                    </li>
+                                            <li>
+                                                            <a href="deals.html"
+                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                    2
+                                </a>
+                                                    </li>
+                                            <li>
+                                                            <a href="deals.html"
+                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                    3
+                                </a>
+                                                    </li>
+                                            <li>
+                                                            <a href="deals.html"
+                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                    4
+                                </a>
+                                                    </li>
+                                            <li>
+                                                            <a href="deals.html"
+                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                    5
+                                </a>
+                                                    </li>
+                                            <li>
+                                                            <a href="deals.html"
+                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                    6
+                                </a>
+                                                    </li>
+                                                                                    <li>
+                        <span class="inline-flex h-8 items-center px-1 text-gray-400 dark:text-gray-500">...</span>
+                    </li>
+                
+                                            
+                                                            <li>
+                                                            <a href="deals.html"
+                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                    15
+                                </a>
+                                                    </li>
+                                            <li>
+                                                            <a href="deals.html"
+                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                    16
+                                </a>
+                                                    </li>
+                                                
+            
+            <li>
+                                    <a href="deals.html" rel="next"
+                       class="inline-flex h-8 items-center rounded-md border border-gray-300 px-2 text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <svg class="h-4 w-4" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+    </svg>
+                        <span class="sr-only">次のページ</span>
+                    </a>
+                            </li>
+        </ul>
+    </nav>
+
+    </div>
+</div>
+        </div>
+    </div>
+                </main>
+            </div>
+
+            <div x-data="{ classes: JSON.parse('{\u0022neutral\u0022:\u0022border-gray-200 bg-white text-gray-800 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100\u0022,\u0022primary\u0022:\u0022border-primary bg-primary-soft text-primary-soft-fg\u0022,\u0022success\u0022:\u0022border-emerald-200 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-900\\\/60 dark:text-emerald-100\u0022,\u0022warning\u0022:\u0022border-amber-200 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-900\\\/60 dark:text-amber-100\u0022,\u0022danger\u0022:\u0022border-rose-200 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-900\\\/60 dark:text-rose-100\u0022,\u0022info\u0022:\u0022border-sky-200 bg-sky-50 text-sky-800 dark:border-sky-800 dark:bg-sky-900\\\/60 dark:text-sky-100\u0022}') }"
+          class="pointer-events-none fixed inset-x-0 bottom-0 z-[60] flex flex-col items-center gap-2 p-4 sm:items-end"
+     aria-live="polite"
+     aria-atomic="true">
+    <template x-for="item in $store.toast.items" :key="item.id">
+        <div x-transition:enter="transition ease-out duration-200 motion-reduce:transition-none"
+             x-transition:enter-start="opacity-0 translate-y-2"
+             x-transition:leave="transition ease-in duration-150 motion-reduce:transition-none"
+             x-transition:leave-end="opacity-0"
+             :class="classes[item.type] ?? classes.neutral"
+             class="pointer-events-auto flex w-full max-w-sm items-start gap-3 rounded-lg border px-4 py-3 text-sm shadow-lg"
+             role="status">
+            <span class="flex-1" x-text="item.message"></span>
+
+            <button type="button" @click="$store.toast.remove(item.id)"
+                    class="shrink-0 opacity-60 transition hover:opacity-100 motion-reduce:transition-none"
+                    aria-label="閉じる">
+                <svg class="h-4 w-4" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </svg>
+            </button>
+        </div>
+    </template>
+</div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+/* 静的デモ用の追記。本体のスタイルには手を入れない。 */
+.demo-banner {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: #1f2937;
+    color: #f9fafb;
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+.demo-banner strong { color: #fdba74; font-weight: 600; }
+
+.demo-banner__tag {
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background: #f97316;
+    padding: 0.125rem 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+/* 動作しない操作は、押せないことが見て分かるようにする */
+[data-demo-disabled] {
+    cursor: not-allowed !important;
+    opacity: 0.65;
+}
+
+.demo-notice {
+    position: fixed;
+    left: 50%;
+    bottom: 1.5rem;
+    z-index: 80;
+    transform: translateX(-50%);
+    max-width: 90vw;
+    border-radius: 0.5rem;
+    background: #1f2937;
+    color: #f9fafb;
+    padding: 0.625rem 1rem;
+    font-size: 0.8125rem;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.25);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .demo-notice { transition: opacity 0.2s ease; }
+}

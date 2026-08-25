@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="">
+
+        <title>アルティス営業管理</title>
+
+        <!-- Scripts / Styles / Fonts (Vite が自前配信) -->
+        <link rel="preload" as="style" href="build/assets/app-Bsbfsf4V.css" /><link rel="modulepreload" as="script" href="build/assets/app-DxbBum8c.js" /><link rel="stylesheet" href="build/assets/app-Bsbfsf4V.css" /><script type="module" src="build/assets/app-DxbBum8c.js"></script>
+        <style>:root{--color-primary:#0f766e;--color-accent:#ea580c;}</style>
+                <link rel="stylesheet" href="demo.css">
+    <script src="demo.js"></script>
+</head>
+    <body data-demo-page="顧客詳細" class="font-sans antialiased">
+<div class="demo-banner" role="note">
+    <span class="demo-banner__tag">DEMO</span>
+    <span>
+        これはポートフォリオ用の静的デモです。表示されている会社名・担当者名・金額は
+        <strong>すべて架空のダミーデータ</strong>で、保存・出力・検索などの操作は動作しません。
+    </span>
+</div>
+
+        
+        <div x-data="appShell()" @keydown.escape.window="closeMobile()" class="min-h-screen bg-gray-100 dark:bg-gray-900">
+            <div x-show="mobileOpen"
+     x-transition.opacity
+     x-cloak
+     @click="closeMobile()"
+     class="fixed inset-0 z-40 bg-gray-900/50 lg:hidden"
+     aria-hidden="true"></div>
+
+
+<aside id="app-sidebar"
+       :class="[
+           mobileOpen ? 'max-lg:translate-x-0!' : '',
+           collapsed ? 'lg:w-[4.5rem]!' : '',
+       ]"
+       class="fixed inset-y-0 start-0 z-50 flex w-64 max-lg:-translate-x-full flex-col border-e border-gray-200 bg-white transition-[transform,width] duration-200 motion-reduce:transition-none lg:w-64 dark:border-gray-700 dark:bg-gray-800">
+
+    
+    <div class="flex h-14 shrink-0 items-center gap-2 border-b border-gray-100 px-4 dark:border-gray-700">
+        <a href="dashboard.html" class="flex min-w-0 items-center gap-2">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-base font-bold text-white">
+        ア
+    </span>
+            <span class="truncate text-sm font-semibold text-gray-800 dark:text-gray-200" x-show="! collapsed">
+                アルティス営業管理
+            </span>
+        </a>
+
+        <button type="button" @click="closeMobile()"
+                class="ms-auto rounded-md p-1 text-gray-500 hover:bg-gray-100 hover:text-gray-700 lg:hidden dark:hover:bg-gray-700"
+                aria-label="メニューを閉じる">
+            <svg class="h-5 w-5" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </svg>
+        </button>
+    </div>
+
+    
+    <nav class="flex-1 space-y-4 overflow-y-auto px-2 py-4" aria-label="メインメニュー">
+                    <div class="space-y-1">
+                                    <p class="px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500"
+                       x-show="! collapsed">
+                        営業
+                    </p>
+                    <hr class="mx-3 border-gray-200 dark:border-gray-700" x-show="collapsed" x-cloak>
+                
+                                    <a href="dashboard.html"
+      :title="collapsed ? 'ダッシュボード' : null"
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+    <svg class="h-5 w-5 shrink-0" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 15.75V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+    </svg>
+
+    <span class="truncate" x-show="! collapsed">ダッシュボード</span>
+    <span class="sr-only" x-show="collapsed" x-cloak>ダッシュボード</span>
+</a>
+                                    <a href="deals.html"
+      :title="collapsed ? '商談' : null"
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+    <svg class="h-5 w-5 shrink-0" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75h16.5v16.5H3.75z" />
+    </svg>
+
+    <span class="truncate" x-show="! collapsed">商談</span>
+    <span class="sr-only" x-show="collapsed" x-cloak>商談</span>
+</a>
+                                    <a href="#" data-demo-disabled="link"
+    aria-current="page"    :title="collapsed ? '顧客' : null"
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-primary bg-primary-soft font-semibold text-primary-soft-fg">
+    <svg class="h-5 w-5 shrink-0" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+    </svg>
+
+    <span class="truncate" x-show="! collapsed">顧客</span>
+    <span class="sr-only" x-show="collapsed" x-cloak>顧客</span>
+</a>
+                            </div>
+                    <div class="space-y-1">
+                                    <p class="px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500"
+                       x-show="! collapsed">
+                        マスタ
+                    </p>
+                    <hr class="mx-3 border-gray-200 dark:border-gray-700" x-show="collapsed" x-cloak>
+                
+                                    <a href="masters.html"
+      :title="collapsed ? 'マスタ管理' : null"
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+    <svg class="h-5 w-5 shrink-0" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+    </svg>
+
+    <span class="truncate" x-show="! collapsed">マスタ管理</span>
+    <span class="sr-only" x-show="collapsed" x-cloak>マスタ管理</span>
+</a>
+                            </div>
+                    <div class="space-y-1">
+                                    <p class="px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500"
+                       x-show="! collapsed">
+                        管理
+                    </p>
+                    <hr class="mx-3 border-gray-200 dark:border-gray-700" x-show="collapsed" x-cloak>
+                
+                                    <a href="#" data-demo-disabled="link"
+      :title="collapsed ? 'ユーザー管理' : null"
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+    <svg class="h-5 w-5 shrink-0" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+    </svg>
+
+    <span class="truncate" x-show="! collapsed">ユーザー管理</span>
+    <span class="sr-only" x-show="collapsed" x-cloak>ユーザー管理</span>
+</a>
+                                    <a href="#" data-demo-disabled="link"
+      :title="collapsed ? '操作ログ' : null"
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+    <svg class="h-5 w-5 shrink-0" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+    </svg>
+
+    <span class="truncate" x-show="! collapsed">操作ログ</span>
+    <span class="sr-only" x-show="collapsed" x-cloak>操作ログ</span>
+</a>
+                            </div>
+            </nav>
+
+    
+    <div class="hidden shrink-0 border-t border-gray-100 p-2 lg:block dark:border-gray-700">
+        <button type="button" @click="toggleCollapsed()"
+                class="flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 motion-reduce:transition-none dark:text-gray-400 dark:hover:bg-gray-700"
+                :aria-expanded="(! collapsed).toString()"
+                aria-controls="app-sidebar">
+            <svg class="h-5 w-5 shrink-0 transition-transform motion-reduce:transition-none" aria-hidden="true" :class="collapsed && 'rotate-180'"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+    </svg>
+            <span x-show="! collapsed">メニューを折りたたむ</span>
+            <span class="sr-only" x-show="collapsed" x-cloak>メニューを開く</span>
+        </button>
+    </div>
+</aside>
+
+            <div :class="collapsed ? 'lg:ps-[4.5rem]!' : ''"
+                 class="flex min-h-screen flex-col transition-[padding] duration-200 motion-reduce:transition-none lg:ps-64">
+
+                <header class="sticky top-0 z-30 flex h-14 shrink-0 items-center gap-3 border-b border-gray-200 bg-white/95 px-4 backdrop-blur dark:border-gray-700 dark:bg-gray-800/95">
+    <button type="button" @click="openMobile()"
+            class="rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 lg:hidden dark:text-gray-400 dark:hover:bg-gray-700"
+            aria-label="メニューを開く"
+            aria-controls="app-sidebar"
+            :aria-expanded="mobileOpen.toString()">
+        <svg class="h-5 w-5" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    </svg>
+    </button>
+
+    <nav class="min-w-0 text-sm hidden sm:block" aria-label="パンくず">
+        <ol class="flex flex-wrap items-center gap-1 text-gray-500 dark:text-gray-400">
+                            <li class="flex min-w-0 items-center gap-1">
+                    
+                                            <a href="dashboard.html" class="truncate hover:text-gray-700 hover:underline dark:hover:text-gray-200">
+                            ダッシュボード
+                        </a>
+                                    </li>
+                            <li class="flex min-w-0 items-center gap-1">
+                                            <svg class="h-3.5 w-3.5 shrink-0 text-gray-300 dark:text-gray-600" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+    </svg>
+                    
+                                            <a href="dashboard.html" class="truncate hover:text-gray-700 hover:underline dark:hover:text-gray-200">
+                            営業
+                        </a>
+                                    </li>
+                            <li class="flex min-w-0 items-center gap-1">
+                                            <svg class="h-3.5 w-3.5 shrink-0 text-gray-300 dark:text-gray-600" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+    </svg>
+                    
+                                            <span class="truncate font-medium text-gray-700 dark:text-gray-200"
+                               aria-current="page" >
+                            顧客
+                        </span>
+                                    </li>
+                    </ol>
+    </nav>
+
+            <div class="ms-auto">
+            <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
+    <div @click="open = ! open">
+        <button type="button"
+                            class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-100 hover:text-gray-800 motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-gray-700">
+                        <span class="max-w-32 truncate">管理者ユーザー</span>
+                        <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+    </div>
+
+    <div x-show="open"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            class="absolute z-50 mt-2 w-48 rounded-md shadow-lg ltr:origin-top-right rtl:origin-top-left end-0"
+            style="display: none;"
+            @click="open = false">
+        <div class="rounded-md ring-1 ring-black ring-opacity-5 py-1 bg-white dark:bg-gray-700">
+            <div class="border-b border-gray-100 px-4 py-2 dark:border-gray-700">
+                        <p class="text-sm font-medium text-gray-800 dark:text-gray-200">管理者ユーザー</p>
+                        <p class="truncate text-xs text-gray-500 dark:text-gray-400">admin@example.com</p>
+                    </div>
+
+                    <a class="block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out" href="#" data-demo-disabled="link">プロフィール</a>
+
+                    <form method="POST" action="#" data-demo-disabled="link">
+                        <input type="hidden" name="_token" value="" autocomplete="off">
+                        <a class="block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out" href="#" data-demo-disabled="link" onclick="event.preventDefault(); this.closest('form').submit();">ログアウト</a>
+                    </form>
+        </div>
+    </div>
+</div>
+        </div>
+    </header>
+
+                <!-- Page Heading -->
+                                    <header class="border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
+                        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex flex-wrap items-center gap-3">
+                <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
+                    有限会社 津田
+                </h2>
+                <span class="font-mono text-xs text-gray-500 dark:text-gray-400">PTR-0044</span>
+                <span class="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+        有効
+    </span>
+            </div>
+
+            <a href="#" data-demo-disabled="link"
+               class="text-sm text-gray-600 underline hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">
+                顧客一覧へ戻る
+            </a>
+        </div>
+                        </div>
+                    </header>
+                
+                <!-- Page Content -->
+                <main class="flex-1">
+                    <div class="py-8" x-data="{ tab: 'overview' }">
+        <div class="mx-auto max-w-7xl space-y-6 px-4 sm:px-6 lg:px-8">
+            
+            
+            <div class="border-b border-gray-200 dark:border-gray-700">
+                <nav class="-mb-px flex flex-wrap gap-6" aria-label="顧客詳細のタブ">
+                                            <button type="button" @click="tab = 'overview'"
+                                :class="tab === 'overview'
+                                    ? 'border-primary text-gray-900 dark:text-gray-100'
+                                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'"
+                                class="whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition">
+                            概要
+                        </button>
+                                            <button type="button" @click="tab = 'contacts'"
+                                :class="tab === 'contacts'
+                                    ? 'border-primary text-gray-900 dark:text-gray-100'
+                                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'"
+                                class="whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition">
+                            担当者（3）
+                        </button>
+                                            <button type="button" @click="tab = 'deals'"
+                                :class="tab === 'deals'
+                                    ? 'border-primary text-gray-900 dark:text-gray-100'
+                                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'"
+                                class="whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition">
+                            商談（11）
+                        </button>
+                                            <button type="button" @click="tab = 'activities'"
+                                :class="tab === 'activities'
+                                    ? 'border-primary text-gray-900 dark:text-gray-100'
+                                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'"
+                                class="whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition">
+                            活動（27）
+                        </button>
+                                    </nav>
+            </div>
+
+            <div x-show="tab === 'overview'" x-cloak>
+                <div class="space-y-6">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div
+        class="block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
+
+    <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">累計売上(税込)</p>
+
+    <p class="mt-2 flex items-baseline gap-1">
+        <span class="text-3xl font-bold tabular-nums text-gray-900 dark:text-gray-100">16,724,080</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">円</span>
+            </p>
+
+            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">受注済み 5 件</p>
+    </div>
+                    <div
+        class="block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
+
+    <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">進行中商談(税込)</p>
+
+    <p class="mt-2 flex items-baseline gap-1">
+        <span class="text-3xl font-bold tabular-nums text-gray-900 dark:text-gray-100">17,867,300</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">円</span>
+            </p>
+
+            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">進行中 4 件</p>
+    </div>
+                    <div
+        class="block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
+
+    <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">受注残(税込)</p>
+
+    <p class="mt-2 flex items-baseline gap-1">
+        <span class="text-3xl font-bold tabular-nums text-gray-900 dark:text-gray-100">0</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">円</span>
+            </p>
+
+            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">受注済みのうち予定クローズ日が未到来</p>
+    </div>
+                    <div
+        class="block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
+
+    <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">商談数</p>
+
+    <p class="mt-2 flex items-baseline gap-1">
+        <span class="text-3xl font-bold tabular-nums text-gray-900 dark:text-gray-100">11</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">件</span>
+            </p>
+
+            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">失注を含む全件</p>
+    </div>
+            </div>
+
+    <div class="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+        <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200">会社情報</h3>
+
+        <dl class="mt-4 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+                            <div>
+                    <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">顧客コード</dt>
+                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">PTR-0044</dd>
+                </div>
+                            <div>
+                    <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">顧客名</dt>
+                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">有限会社 津田</dd>
+                </div>
+                            <div>
+                    <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">取引先区分</dt>
+                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">両方</dd>
+                </div>
+                            <div>
+                    <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">法人 / 個人</dt>
+                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">個人</dd>
+                </div>
+                            <div>
+                    <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">メールアドレス</dt>
+                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">shuhei94@ogaki.com</dd>
+                </div>
+                            <div>
+                    <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">電話番号</dt>
+                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">04-8568-5624</dd>
+                </div>
+                            <div>
+                    <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">郵便番号</dt>
+                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">7715058</dd>
+                </div>
+                            <div>
+                    <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">住所</dt>
+                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">7929805  北海道原田市東区渚町大垣4-10-3</dd>
+                </div>
+                    </dl>
+
+                    <div class="mt-6 border-t border-gray-100 pt-4 dark:border-gray-700">
+                <a href="#" data-demo-disabled="link"
+                   class="text-sm text-primary-text underline hover:text-primary-hover">
+                    会社情報を編集する（取引先マスタ）
+                </a>
+            </div>
+            </div>
+</div>
+            </div>
+
+            <div x-show="tab === 'contacts'" x-cloak>
+                <div class="space-y-4" x-data="{ editing: null }">
+    <div class="overflow-x-auto rounded-lg border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
+        <table class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
+            <thead class="bg-gray-50 dark:bg-gray-900/40">
+                <tr>
+                                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                            氏名
+                        </th>
+                                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                            部署
+                        </th>
+                                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                            役職
+                        </th>
+                                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                            メールアドレス
+                        </th>
+                                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                            電話番号
+                        </th>
+                                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                            状態
+                        </th>
+                                        <th scope="col" class="px-4 py-3 text-right text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        操作
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+                                    <tr class="">
+                        <td class="px-4 py-3 font-medium">中島 篤司</td>
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">総務部</td>
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">主任</td>
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">vtakahashi@example.org</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">03-4146-6141</td>
+                        <td class="whitespace-nowrap px-4 py-3">
+                            <span class="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+        有効
+    </span>
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <button type="button" x-on:click="editing = (editing === 83 ? null : 83)"
+                                        class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    編集
+                                </button>
+                                                    </td>
+                    </tr>
+
+                                            <tr x-show="editing === 83" x-cloak>
+                            <td colspan="7" class="bg-gray-50 px-4 py-5 dark:bg-gray-900/40">
+                                <form method="POST" action="#" data-demo-disabled="link" class="space-y-4">
+    <input type="hidden" name="_token" value="" autocomplete="off">            <input type="hidden" name="_method" value="PUT">    
+    <input type="hidden" name="contact_id" value="83">
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    
+            <div class="space-y-1">
+                <label for="contact-83-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    氏名
+                                            <span class="ms-1 text-xs font-normal text-rose-600 dark:text-rose-400">必須</span>
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-83-name" name="name" type="text" value="中島 篤司" required="required">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-83-department" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    部署
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-83-department" name="department" type="text" value="総務部">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-83-position" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    役職
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-83-position" name="position" type="text" value="主任">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-83-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    メールアドレス
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-83-email" name="email" type="email" value="vtakahashi@example.org">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-83-phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    電話番号
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-83-phone" name="phone" type="text" value="03-4146-6141">
+
+                            </div>
+            </div>
+
+    <div>
+        <label class="inline-flex items-center gap-2">
+            <input type="checkbox" name="is_active" value="1"
+                   checked                   class="rounded border-gray-300 text-primary-text shadow-sm focus:ring-primary dark:border-gray-700 dark:bg-gray-900">
+            <span class="text-sm text-gray-700 dark:text-gray-300">有効</span>
+        </label>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+            無効にすると、今後の選択肢には出なくなりますが、過去データからは参照できます。
+        </p>
+    </div>
+
+    <div class="flex items-center gap-3">
+        <button type="submit"
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm">
+        更新
+    </button>
+
+                    <button type="button" x-on:click="editing = null"
+                    class="text-sm text-gray-600 underline hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">
+                キャンセル
+            </button>
+            </div>
+</form>
+                            </td>
+                        </tr>
+                                                        <tr class="">
+                        <td class="px-4 py-3 font-medium">吉田 和也</td>
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">総務部</td>
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">部長</td>
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">onakamura@example.net</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">03-5998-8871</td>
+                        <td class="whitespace-nowrap px-4 py-3">
+                            <span class="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+        有効
+    </span>
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <button type="button" x-on:click="editing = (editing === 84 ? null : 84)"
+                                        class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    編集
+                                </button>
+                                                    </td>
+                    </tr>
+
+                                            <tr x-show="editing === 84" x-cloak>
+                            <td colspan="7" class="bg-gray-50 px-4 py-5 dark:bg-gray-900/40">
+                                <form method="POST" action="#" data-demo-disabled="link" class="space-y-4">
+    <input type="hidden" name="_token" value="" autocomplete="off">            <input type="hidden" name="_method" value="PUT">    
+    <input type="hidden" name="contact_id" value="84">
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    
+            <div class="space-y-1">
+                <label for="contact-84-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    氏名
+                                            <span class="ms-1 text-xs font-normal text-rose-600 dark:text-rose-400">必須</span>
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-84-name" name="name" type="text" value="吉田 和也" required="required">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-84-department" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    部署
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-84-department" name="department" type="text" value="総務部">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-84-position" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    役職
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-84-position" name="position" type="text" value="部長">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-84-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    メールアドレス
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-84-email" name="email" type="email" value="onakamura@example.net">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-84-phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    電話番号
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-84-phone" name="phone" type="text" value="03-5998-8871">
+
+                            </div>
+            </div>
+
+    <div>
+        <label class="inline-flex items-center gap-2">
+            <input type="checkbox" name="is_active" value="1"
+                   checked                   class="rounded border-gray-300 text-primary-text shadow-sm focus:ring-primary dark:border-gray-700 dark:bg-gray-900">
+            <span class="text-sm text-gray-700 dark:text-gray-300">有効</span>
+        </label>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+            無効にすると、今後の選択肢には出なくなりますが、過去データからは参照できます。
+        </p>
+    </div>
+
+    <div class="flex items-center gap-3">
+        <button type="submit"
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm">
+        更新
+    </button>
+
+                    <button type="button" x-on:click="editing = null"
+                    class="text-sm text-gray-600 underline hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">
+                キャンセル
+            </button>
+            </div>
+</form>
+                            </td>
+                        </tr>
+                                                        <tr class="">
+                        <td class="px-4 py-3 font-medium">藤本 充</td>
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">情報システム部</td>
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">係長</td>
+                        <td class="px-4 py-3 text-gray-600 dark:text-gray-400">ogaki.naoki@example.org</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">03-3050-6799</td>
+                        <td class="whitespace-nowrap px-4 py-3">
+                            <span class="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+        有効
+    </span>
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-3 text-right">
+                                                            <button type="button" x-on:click="editing = (editing === 85 ? null : 85)"
+                                        class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                    編集
+                                </button>
+                                                    </td>
+                    </tr>
+
+                                            <tr x-show="editing === 85" x-cloak>
+                            <td colspan="7" class="bg-gray-50 px-4 py-5 dark:bg-gray-900/40">
+                                <form method="POST" action="#" data-demo-disabled="link" class="space-y-4">
+    <input type="hidden" name="_token" value="" autocomplete="off">            <input type="hidden" name="_method" value="PUT">    
+    <input type="hidden" name="contact_id" value="85">
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    
+            <div class="space-y-1">
+                <label for="contact-85-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    氏名
+                                            <span class="ms-1 text-xs font-normal text-rose-600 dark:text-rose-400">必須</span>
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-85-name" name="name" type="text" value="藤本 充" required="required">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-85-department" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    部署
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-85-department" name="department" type="text" value="情報システム部">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-85-position" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    役職
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-85-position" name="position" type="text" value="係長">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-85-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    メールアドレス
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-85-email" name="email" type="email" value="ogaki.naoki@example.org">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-85-phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    電話番号
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-85-phone" name="phone" type="text" value="03-3050-6799">
+
+                            </div>
+            </div>
+
+    <div>
+        <label class="inline-flex items-center gap-2">
+            <input type="checkbox" name="is_active" value="1"
+                   checked                   class="rounded border-gray-300 text-primary-text shadow-sm focus:ring-primary dark:border-gray-700 dark:bg-gray-900">
+            <span class="text-sm text-gray-700 dark:text-gray-300">有効</span>
+        </label>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+            無効にすると、今後の選択肢には出なくなりますが、過去データからは参照できます。
+        </p>
+    </div>
+
+    <div class="flex items-center gap-3">
+        <button type="submit"
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm">
+        更新
+    </button>
+
+                    <button type="button" x-on:click="editing = null"
+                    class="text-sm text-gray-600 underline hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">
+                キャンセル
+            </button>
+            </div>
+</form>
+                            </td>
+                        </tr>
+                                                </tbody>
+        </table>
+    </div>
+
+            <div class="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+            <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200">担当者を追加</h3>
+
+            <div class="mt-4">
+                <form method="POST" action="#" data-demo-disabled="link" class="space-y-4">
+    <input type="hidden" name="_token" value="" autocomplete="off">    
+    <input type="hidden" name="contact_id" value="0">
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    
+            <div class="space-y-1">
+                <label for="contact-0-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    氏名
+                                            <span class="ms-1 text-xs font-normal text-rose-600 dark:text-rose-400">必須</span>
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-0-name" name="name" type="text" required="required">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-0-department" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    部署
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-0-department" name="department" type="text">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-0-position" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    役職
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-0-position" name="position" type="text">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-0-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    メールアドレス
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-0-email" name="email" type="email">
+
+                            </div>
+                    
+            <div class="space-y-1">
+                <label for="contact-0-phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    電話番号
+                                    </label>
+
+                <input  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-primary focus:ring-primary rounded-md shadow-sm mt-1 block w-full" id="contact-0-phone" name="phone" type="text">
+
+                            </div>
+            </div>
+
+    <div>
+        <label class="inline-flex items-center gap-2">
+            <input type="checkbox" name="is_active" value="1"
+                   checked                   class="rounded border-gray-300 text-primary-text shadow-sm focus:ring-primary dark:border-gray-700 dark:bg-gray-900">
+            <span class="text-sm text-gray-700 dark:text-gray-300">有効</span>
+        </label>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+            無効にすると、今後の選択肢には出なくなりますが、過去データからは参照できます。
+        </p>
+    </div>
+
+    <div class="flex items-center gap-3">
+        <button type="submit"
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm">
+        追加
+    </button>
+
+            </div>
+</form>
+            </div>
+        </div>
+    </div>
+            </div>
+
+            <div x-show="tab === 'deals'" x-cloak>
+                <div class="space-y-4">
+            <div class="flex justify-end">
+            <a href="#" data-demo-disabled="link"
+               class="inline-flex items-center rounded-md bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition hover:bg-primary-hover">
+                商談を追加
+            </a>
+        </div>
+    
+<div class="overflow-x-auto rounded-lg border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
+    <table class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
+        <thead class="bg-gray-50 dark:bg-gray-900/40">
+            <tr>
+                                    <th scope="col" class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        商談コード
+                    </th>
+                                    <th scope="col" class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        件名
+                    </th>
+                                    <th scope="col" class="px-4 py-3 text-center text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        ステータス
+                    </th>
+                                    <th scope="col" class="px-4 py-3 text-right text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        確度
+                    </th>
+                                    <th scope="col" class="px-4 py-3 text-right text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        金額(税込)
+                    </th>
+                                    <th scope="col" class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        予定クローズ日
+                    </th>
+                                    <th scope="col" class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        受注日
+                    </th>
+                                    <th scope="col" class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        営業担当
+                    </th>
+                                <th scope="col" class="px-4 py-3 text-right text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">操作</th>
+            </tr>
+        </thead>
+
+        <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+                            <tr>
+                    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">DEAL-2026-0307</td>
+                    <td class="px-4 py-3 font-medium">営業支援ツール導入</td>
+                    <td class="whitespace-nowrap px-4 py-3 text-center">
+                        <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200">
+                            失注
+                        </span>
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                        0%
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums">
+                        3,553,000
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2026/03/03
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        —
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        工藤 明美
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right">
+                        <a href="deal.html"
+                           class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                            詳細
+                        </a>
+
+                                                    <a href="#" data-demo-disabled="link"
+                               class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                編集
+                            </a>
+                                            </td>
+                </tr>
+                            <tr>
+                    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">DEAL-2026-0304</td>
+                    <td class="px-4 py-3 font-medium">業務フロー可視化コンサル</td>
+                    <td class="whitespace-nowrap px-4 py-3 text-center">
+                        <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200">
+                            失注
+                        </span>
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                        0%
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums">
+                        136,400
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2026/03/29
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        —
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        桐山 花子
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right">
+                        <a href="deal.html"
+                           class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                            詳細
+                        </a>
+
+                                                    <a href="#" data-demo-disabled="link"
+                               class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                編集
+                            </a>
+                                            </td>
+                </tr>
+                            <tr>
+                    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">DEAL-2026-0274</td>
+                    <td class="px-4 py-3 font-medium">サーバ移行支援</td>
+                    <td class="whitespace-nowrap px-4 py-3 text-center">
+                        <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                            受注
+                        </span>
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                        100%
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums">
+                        25,600
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2025/12/07
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2025/11/18
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        吉田 聡太郎
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right">
+                        <a href="deal.html"
+                           class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                            詳細
+                        </a>
+
+                                                    <a href="#" data-demo-disabled="link"
+                               class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                編集
+                            </a>
+                                            </td>
+                </tr>
+                            <tr>
+                    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">DEAL-2026-0242</td>
+                    <td class="px-4 py-3 font-medium">受発注システム開発</td>
+                    <td class="whitespace-nowrap px-4 py-3 text-center">
+                        <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                            受注
+                        </span>
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                        100%
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums">
+                        3,983,760
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2026/05/14
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2026/04/24
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        吉田 聡太郎
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right">
+                        <a href="deal.html"
+                           class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                            詳細
+                        </a>
+
+                                                    <a href="#" data-demo-disabled="link"
+                               class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                編集
+                            </a>
+                                            </td>
+                </tr>
+                            <tr>
+                    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">DEAL-2026-0236</td>
+                    <td class="px-4 py-3 font-medium">会員サイト改修</td>
+                    <td class="whitespace-nowrap px-4 py-3 text-center">
+                        <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                            受注
+                        </span>
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                        100%
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums">
+                        242,000
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2026/08/05
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2026/07/18
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        工藤 明美
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right">
+                        <a href="deal.html"
+                           class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                            詳細
+                        </a>
+
+                                                    <a href="#" data-demo-disabled="link"
+                               class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                編集
+                            </a>
+                                            </td>
+                </tr>
+                            <tr>
+                    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">DEAL-2026-0235</td>
+                    <td class="px-4 py-3 font-medium">リスティング広告 運用支援</td>
+                    <td class="whitespace-nowrap px-4 py-3 text-center">
+                        <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                            受注
+                        </span>
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                        100%
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums">
+                        12,144,000
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2026/02/15
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2025/11/09
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        工藤 明美
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right">
+                        <a href="deal.html"
+                           class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                            詳細
+                        </a>
+
+                                                    <a href="#" data-demo-disabled="link"
+                               class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                編集
+                            </a>
+                                            </td>
+                </tr>
+                            <tr>
+                    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">DEAL-2026-0211</td>
+                    <td class="px-4 py-3 font-medium">展示会出展サポート</td>
+                    <td class="whitespace-nowrap px-4 py-3 text-center">
+                        <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                            受注
+                        </span>
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                        100%
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums">
+                        328,720
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2026/07/01
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2026/04/27
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        工藤 明美
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right">
+                        <a href="deal.html"
+                           class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                            詳細
+                        </a>
+
+                                                    <a href="#" data-demo-disabled="link"
+                               class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                編集
+                            </a>
+                                            </td>
+                </tr>
+                            <tr>
+                    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">DEAL-2026-0103</td>
+                    <td class="px-4 py-3 font-medium">データ分析基盤構築</td>
+                    <td class="whitespace-nowrap px-4 py-3 text-center">
+                        <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                            提案中
+                        </span>
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                        50%
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums">
+                        1,056,000
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2026/09/12
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        —
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        桐山 花子
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right">
+                        <a href="deal.html"
+                           class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                            詳細
+                        </a>
+
+                                                    <a href="#" data-demo-disabled="link"
+                               class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                編集
+                            </a>
+                                            </td>
+                </tr>
+                            <tr>
+                    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">DEAL-2026-0091</td>
+                    <td class="px-4 py-3 font-medium">基幹システム刷新</td>
+                    <td class="whitespace-nowrap px-4 py-3 text-center">
+                        <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                            提案中
+                        </span>
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                        40%
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums">
+                        2,852,300
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2026/09/28
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        —
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        宇野 直人
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right">
+                        <a href="deal.html"
+                           class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                            詳細
+                        </a>
+
+                                                    <a href="#" data-demo-disabled="link"
+                               class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                編集
+                            </a>
+                                            </td>
+                </tr>
+                            <tr>
+                    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">DEAL-2026-0083</td>
+                    <td class="px-4 py-3 font-medium">ノベルティ制作</td>
+                    <td class="whitespace-nowrap px-4 py-3 text-center">
+                        <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                            提案中
+                        </span>
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                        30%
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums">
+                        6,600,000
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2026/08/20
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        —
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        工藤 明美
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right">
+                        <a href="deal.html"
+                           class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                            詳細
+                        </a>
+
+                                                    <a href="#" data-demo-disabled="link"
+                               class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                編集
+                            </a>
+                                            </td>
+                </tr>
+                            <tr>
+                    <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">DEAL-2026-0079</td>
+                    <td class="px-4 py-3 font-medium">受発注システム開発</td>
+                    <td class="whitespace-nowrap px-4 py-3 text-center">
+                        <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                            提案中
+                        </span>
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                        30%
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums">
+                        7,359,000
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        2026/12/09
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        —
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
+                        田中 健一
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-3 text-right">
+                        <a href="deal.html"
+                           class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                            詳細
+                        </a>
+
+                                                    <a href="#" data-demo-disabled="link"
+                               class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                編集
+                            </a>
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+</div>
+</div>
+            </div>
+
+            <div x-show="tab === 'activities'" x-cloak>
+                <div class="rounded-lg border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/09/06 17:24
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                    メモ
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    工藤 明美
+                                            ／ <span class="font-mono">DEAL-2026-0083</span> ノベルティ制作
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">契約書ドラフトの確認依頼。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/09/05 14:50
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                    メモ
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    田中 健一
+                                            ／ <span class="font-mono">DEAL-2026-0079</span> 受発注システム開発
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">追加要望のヒアリング（訪問）。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/08/31 18:07
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                    電話
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    宇野 直人
+                                            ／ <span class="font-mono">DEAL-2026-0091</span> 基幹システム刷新
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">契約書ドラフトの確認依頼。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/08/26 21:33
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                    訪問
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    桐山 花子
+                                            ／ <span class="font-mono">DEAL-2026-0103</span> データ分析基盤構築
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">追加要望のヒアリング（訪問）。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/08/13 11:36
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                    訪問
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    桐山 花子
+                                            ／ <span class="font-mono">DEAL-2026-0103</span> データ分析基盤構築
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">別部署からも同様の相談があるとの情報を得た。横展開を狙う。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/08/05 21:16
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                    訪問
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    工藤 明美
+                                            ／ <span class="font-mono">DEAL-2026-0083</span> ノベルティ制作
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">提案書を送付。来週あらためて打ち合わせ予定。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/08/05 09:22
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                    電話
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    田中 健一
+                                            ／ <span class="font-mono">DEAL-2026-0079</span> 受発注システム開発
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">キックオフ日程を調整。開発チームに引き継ぎ予定。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/07/22 08:04
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                    訪問
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    桐山 花子
+                                            ／ <span class="font-mono">DEAL-2026-0103</span> データ分析基盤構築
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">稟議が通ったとの連絡。契約書の準備に入る。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/06/29 23:59
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                    電話
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    工藤 明美
+                                            ／ <span class="font-mono">DEAL-2026-0083</span> ノベルティ制作
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">初回訪問。現行システムの運用負荷が高く、刷新を検討中とのこと。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/06/29 22:40
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                    訪問
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    田中 健一
+                                            ／ <span class="font-mono">DEAL-2026-0079</span> 受発注システム開発
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">担当者が異動のため、後任と顔合わせ。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/06/26 02:09
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                    訪問
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    工藤 明美
+                                            ／ <span class="font-mono">DEAL-2026-0083</span> ノベルティ制作
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">初回訪問。現行システムの運用負荷が高く、刷新を検討中とのこと。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/06/24 18:41
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                    メモ
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    宇野 直人
+                                            ／ <span class="font-mono">DEAL-2026-0091</span> 基幹システム刷新
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">見送りの連絡。次年度に再検討したいとのこと。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/06/21 02:33
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                    電話
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    田中 健一
+                                            ／ <span class="font-mono">DEAL-2026-0079</span> 受発注システム開発
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">提案書を送付。来週あらためて打ち合わせ予定。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/06/17 19:57
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">
+                    メール
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    工藤 明美
+                                            ／ <span class="font-mono">DEAL-2026-0083</span> ノベルティ制作
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">見送りの連絡。次年度に再検討したいとのこと。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/06/14 02:09
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                    訪問
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    宇野 直人
+                                            ／ <span class="font-mono">DEAL-2026-0091</span> 基幹システム刷新
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">キックオフ日程を調整。開発チームに引き継ぎ予定。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/05/30 23:55
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                    メモ
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    桐山 花子
+                                            ／ <span class="font-mono">DEAL-2026-0103</span> データ分析基盤構築
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">見送りの連絡。次年度に再検討したいとのこと。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/05/06 21:38
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                    訪問
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    吉田 聡太郎
+                                            ／ <span class="font-mono">DEAL-2026-0242</span> 受発注システム開発
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">稟議が通ったとの連絡。契約書の準備に入る。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/02/21 06:07
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">
+                    メール
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    桐山 花子
+                                            ／ <span class="font-mono">DEAL-2026-0304</span> 業務フロー可視化コンサル
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">見送りの連絡。次年度に再検討したいとのこと。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/02/15 02:59
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                    電話
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    工藤 明美
+                                            ／ <span class="font-mono">DEAL-2026-0307</span> 営業支援ツール導入
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">見送りの連絡。次年度に再検討したいとのこと。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/02/14 20:45
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                    メモ
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    桐山 花子
+                                            ／ <span class="font-mono">DEAL-2026-0304</span> 業務フロー可視化コンサル
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">見送りの連絡。次年度に再検討したいとのこと。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/02/06 11:45
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                    訪問
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    桐山 花子
+                                            ／ <span class="font-mono">DEAL-2026-0304</span> 業務フロー可視化コンサル
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">キックオフ日程を調整。開発チームに引き継ぎ予定。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/02/02 22:30
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                    メモ
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    桐山 花子
+                                            ／ <span class="font-mono">DEAL-2026-0304</span> 業務フロー可視化コンサル
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">初回訪問。現行システムの運用負荷が高く、刷新を検討中とのこと。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2026/01/03 13:55
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                    メモ
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    工藤 明美
+                                            ／ <span class="font-mono">DEAL-2026-0307</span> 営業支援ツール導入
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">見送りの連絡。次年度に再検討したいとのこと。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2025/12/29 03:29
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                    訪問
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    工藤 明美
+                                            ／ <span class="font-mono">DEAL-2026-0307</span> 営業支援ツール導入
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">先方の予算取りが年度内とのことで、スケジュールを前倒しで調整。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2025/12/14 21:03
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">
+                    メール
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    工藤 明美
+                                            ／ <span class="font-mono">DEAL-2026-0307</span> 営業支援ツール導入
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">キックオフ日程を調整。開発チームに引き継ぎ予定。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2025/11/15 22:11
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                    電話
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    吉田 聡太郎
+                                            ／ <span class="font-mono">DEAL-2026-0274</span> サーバ移行支援
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">見送りの連絡。次年度に再検討したいとのこと。</p>
+            </div>
+        </div>
+            <div class="flex flex-wrap items-start gap-4 border-b border-gray-100 px-6 py-4 last:border-b-0 dark:border-gray-700">
+            <div class="w-36 shrink-0">
+                <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
+                    2025/10/07 04:47
+                </p>
+                <span class="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                    電話
+                </span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="text-xs text-gray-500 dark:text-gray-400">
+                    吉田 聡太郎
+                                            ／ <span class="font-mono">DEAL-2026-0274</span> サーバ移行支援
+                                    </p>
+                <p class="mt-1 whitespace-pre-line text-sm text-gray-900 dark:text-gray-100">キックオフ日程を調整。開発チームに引き継ぎ予定。</p>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+    </div>
+                </main>
+            </div>
+
+            <div x-data="{ classes: JSON.parse('{\u0022neutral\u0022:\u0022border-gray-200 bg-white text-gray-800 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100\u0022,\u0022primary\u0022:\u0022border-primary bg-primary-soft text-primary-soft-fg\u0022,\u0022success\u0022:\u0022border-emerald-200 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-900\\\/60 dark:text-emerald-100\u0022,\u0022warning\u0022:\u0022border-amber-200 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-900\\\/60 dark:text-amber-100\u0022,\u0022danger\u0022:\u0022border-rose-200 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-900\\\/60 dark:text-rose-100\u0022,\u0022info\u0022:\u0022border-sky-200 bg-sky-50 text-sky-800 dark:border-sky-800 dark:bg-sky-900\\\/60 dark:text-sky-100\u0022}') }"
+          class="pointer-events-none fixed inset-x-0 bottom-0 z-[60] flex flex-col items-center gap-2 p-4 sm:items-end"
+     aria-live="polite"
+     aria-atomic="true">
+    <template x-for="item in $store.toast.items" :key="item.id">
+        <div x-transition:enter="transition ease-out duration-200 motion-reduce:transition-none"
+             x-transition:enter-start="opacity-0 translate-y-2"
+             x-transition:leave="transition ease-in duration-150 motion-reduce:transition-none"
+             x-transition:leave-end="opacity-0"
+             :class="classes[item.type] ?? classes.neutral"
+             class="pointer-events-auto flex w-full max-w-sm items-start gap-3 rounded-lg border px-4 py-3 text-sm shadow-lg"
+             role="status">
+            <span class="flex-1" x-text="item.message"></span>
+
+            <button type="button" @click="$store.toast.remove(item.id)"
+                    class="shrink-0 opacity-60 transition hover:opacity-100 motion-reduce:transition-none"
+                    aria-label="閉じる">
+                <svg class="h-4 w-4" aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </svg>
+            </button>
+        </div>
+    </template>
+</div>
+        </div>
+    </body>
+</html>
