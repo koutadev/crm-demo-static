@@ -8,7 +8,7 @@
         <title>アルティス営業管理</title>
 
         <!-- Scripts / Styles / Fonts (Vite が自前配信) -->
-        <link rel="preload" as="style" href="build/assets/app-ClwDgvt6.css" /><link rel="modulepreload" as="script" href="build/assets/app-CobmalS0.js" /><link rel="stylesheet" href="build/assets/app-ClwDgvt6.css" /><script type="module" src="build/assets/app-CobmalS0.js"></script>
+        <link rel="preload" as="style" href="build/assets/app-56fT0ls4.css" /><link rel="modulepreload" as="script" href="build/assets/app-DLL5n2AT.js" /><link rel="stylesheet" href="build/assets/app-56fT0ls4.css" /><script type="module" src="build/assets/app-DLL5n2AT.js"></script>
         <style>:root{--color-primary:#0f766e;--color-accent:#ea580c;}</style>
                 <link rel="stylesheet" href="demo.css">
     <script src="demo.js"></script>
@@ -59,7 +59,7 @@
 
     
     <div class="flex h-14 shrink-0 items-center gap-2 border-b border-gray-100 px-4 dark:border-gray-700">
-        <a href="dashboard.html" class="flex min-w-0 items-center gap-2">
+        <a href="dashboard.html" class="flex min-h-11 min-w-0 items-center gap-2 sm:min-h-0">
             <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-base font-bold text-white">
         ア
     </span>
@@ -69,7 +69,7 @@
         </a>
 
         <button type="button" @click="closeMobile()"
-                class="ms-auto rounded-md p-1 text-gray-500 hover:bg-gray-100 hover:text-gray-700 lg:hidden dark:hover:bg-gray-700"
+                class="ms-auto inline-flex min-h-11 min-w-11 items-center justify-center rounded-md p-1 text-gray-500 hover:bg-gray-100 hover:text-gray-700 sm:min-h-0 sm:min-w-0 lg:hidden dark:hover:bg-gray-700"
                 aria-label="メニューを閉じる">
             <svg class="h-5 w-5" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -89,7 +89,7 @@
                 
                                     <a href="dashboard.html"
       :title="collapsed ? 'ダッシュボード' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 15.75V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
@@ -100,7 +100,7 @@
 </a>
                                     <a href="deals.html"
     aria-current="page"    :title="collapsed ? '商談' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-primary bg-primary-soft font-semibold text-primary-soft-fg">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-primary bg-primary-soft font-semibold text-primary-soft-fg">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75h16.5v16.5H3.75z" />
@@ -111,7 +111,7 @@
 </a>
                                     <a href="#" data-demo-disabled="link"
       :title="collapsed ? '顧客' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
@@ -130,7 +130,7 @@
                 
                                     <a href="masters.html"
       :title="collapsed ? 'マスタ管理' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
@@ -149,7 +149,7 @@
                 
                                     <a href="#" data-demo-disabled="link"
       :title="collapsed ? 'ユーザー管理' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
@@ -160,7 +160,7 @@
 </a>
                                     <a href="#" data-demo-disabled="link"
       :title="collapsed ? '操作ログ' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -178,7 +178,7 @@
 
                 <header class="sticky top-0 z-30 flex h-14 shrink-0 items-center gap-3 border-b border-gray-200 bg-white/95 px-4 backdrop-blur dark:border-gray-700 dark:bg-gray-800/95">
     <button type="button" @click="openMobile()"
-            class="rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 lg:hidden dark:text-gray-400 dark:hover:bg-gray-700"
+            class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 sm:min-h-0 sm:min-w-0 lg:hidden dark:text-gray-400 dark:hover:bg-gray-700"
             aria-label="メニューを開く"
             aria-controls="app-sidebar"
             :aria-expanded="mobileOpen.toString()">
@@ -224,7 +224,7 @@
             <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
     <div @click="open = ! open">
         <button type="button"
-                            class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-100 hover:text-gray-800 motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-gray-700">
+                            class="inline-flex min-h-11 items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-100 hover:text-gray-800 motion-reduce:transition-none sm:min-h-0 dark:text-gray-300 dark:hover:bg-gray-700">
                         <span class="max-w-32 truncate">管理者ユーザー</span>
                         <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -273,20 +273,20 @@
             <a href="deals.html"
            role="tab"
            aria-selected="true"
-           class="rounded px-3 py-1.5 text-xs font-medium transition-colors motion-reduce:transition-none bg-primary text-white">
+           class="inline-flex min-h-11 items-center rounded px-3 py-1.5 text-xs font-medium transition-colors motion-reduce:transition-none sm:min-h-0 bg-primary text-white">
             一覧
         </a>
             <a href="deals-kanban.html"
            role="tab"
            aria-selected="false"
-           class="rounded px-3 py-1.5 text-xs font-medium transition-colors motion-reduce:transition-none text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+           class="inline-flex min-h-11 items-center rounded px-3 py-1.5 text-xs font-medium transition-colors motion-reduce:transition-none sm:min-h-0 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
             カンバン
         </a>
     </div>
             </div>
 
                             <a href="#" data-demo-disabled="link"
-                   class="inline-flex items-center rounded-md bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition hover:bg-primary-hover">
+                   class="inline-flex min-h-11 items-center rounded-md bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition hover:bg-primary-hover sm:min-h-0">
                     商談を追加
                 </a>
                     </div>
@@ -370,7 +370,7 @@
                         :class="measure === 'amount'
                             ? 'bg-primary text-white'
                             : 'text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
-                        class="rounded px-3 py-1 font-medium transition-colors motion-reduce:transition-none">
+                        class="inline-flex min-h-11 items-center rounded px-3 py-1 font-medium transition-colors motion-reduce:transition-none sm:min-h-0">
                     金額
                 </button>
                             <button type="button"
@@ -380,7 +380,7 @@
                         :class="measure === 'count'
                             ? 'bg-primary text-white'
                             : 'text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
-                        class="rounded px-3 py-1 font-medium transition-colors motion-reduce:transition-none">
+                        class="inline-flex min-h-11 items-center rounded px-3 py-1 font-medium transition-colors motion-reduce:transition-none sm:min-h-0">
                     件数
                 </button>
                     </div>
@@ -533,7 +533,7 @@
                 @click="open = ! open"
                 aria-haspopup="menu"
                 :aria-expanded="open.toString()"
-                class="inline-flex items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm text-gray-700 shadow-sm transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800">
+                class="inline-flex min-h-11 items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm text-gray-700 shadow-sm transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none sm:min-h-0 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800">
             <span>すべて</span>
                         <svg class="h-4 w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true">
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -639,7 +639,7 @@
            id="name"
            name="name"
            value=""
-            placeholder="例：今月クローズ予定の進行中"            required                                 class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-3 py-2 text-sm border-gray-300 dark:border-gray-700" maxlength="100">
+            placeholder="例：今月クローズ予定の進行中"            required                                 class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-3 py-2 text-sm min-h-11 sm:min-h-0 border-gray-300 dark:border-gray-700" maxlength="100">
 
             <p class="text-xs text-gray-500 dark:text-gray-400">同じ名前で保存すると上書きします。</p>
     
@@ -670,11 +670,11 @@
             
             <div class="flex items-center justify-end gap-2 border-t border-gray-100 pt-4 dark:border-gray-700">
                 <button type="button"
-                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 gap-2 px-4 py-2 text-sm" x-on:click="$dispatch('close')">
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 gap-2 px-4 py-2 text-sm min-h-11 sm:min-h-0" x-on:click="$dispatch('close')">
         キャンセル
     </button>
                 <button type="submit"
-                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm">
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm min-h-11 sm:min-h-0">
         保存
     </button>
             </div>
@@ -697,7 +697,7 @@
                 <label for="dt-q" class="block text-xs font-medium text-gray-600 dark:text-gray-400">キーワード</label>
                 <input id="dt-q" type="search" name="q" value=""
                        placeholder="商談コード・件名で検索"
-                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 sm:text-sm">
+                       class="mt-1 block min-h-11 w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:min-h-0 sm:text-sm dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100">
             </div>
 
                             <div class="">
@@ -706,7 +706,7 @@
                     </label>
 
                                             <select id="dt-status" name="status"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 sm:text-sm">
+                                class="mt-1 block min-h-11 w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:min-h-0 sm:text-sm dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100">
                             <option value="">すべて</option>
                                                             <option value="open" >
                                     進行中（受注・失注を除く）
@@ -739,7 +739,7 @@
     
     <div x-data="combobox(JSON.parse('{\u0022options\u0022:[{\u0022value\u0022:\u00221\u0022,\u0022label\u0022:\u0022株式会社 江古田\u0022,\u0022search\u0022:\u0022株式会社 江古田\u0022},{\u0022value\u0022:\u00222\u0022,\u0022label\u0022:\u0022有限会社 木村\u0022,\u0022search\u0022:\u0022有限会社 木村\u0022},{\u0022value\u0022:\u00223\u0022,\u0022label\u0022:\u0022株式会社 津田\u0022,\u0022search\u0022:\u0022株式会社 津田\u0022},{\u0022value\u0022:\u00224\u0022,\u0022label\u0022:\u0022株式会社 石田\u0022,\u0022search\u0022:\u0022株式会社 石田\u0022},{\u0022value\u0022:\u00225\u0022,\u0022label\u0022:\u0022有限会社 西之園\u0022,\u0022search\u0022:\u0022有限会社 西之園\u0022},{\u0022value\u0022:\u00226\u0022,\u0022label\u0022:\u0022有限会社 三宅\u0022,\u0022search\u0022:\u0022有限会社 三宅\u0022},{\u0022value\u0022:\u00227\u0022,\u0022label\u0022:\u0022有限会社 大垣\u0022,\u0022search\u0022:\u0022有限会社 大垣\u0022},{\u0022value\u0022:\u00228\u0022,\u0022label\u0022:\u0022有限会社 笹田\u0022,\u0022search\u0022:\u0022有限会社 笹田\u0022},{\u0022value\u0022:\u00229\u0022,\u0022label\u0022:\u0022株式会社 江古田\u0022,\u0022search\u0022:\u0022株式会社 江古田\u0022},{\u0022value\u0022:\u002210\u0022,\u0022label\u0022:\u0022有限会社 青田\u0022,\u0022search\u0022:\u0022有限会社 青田\u0022},{\u0022value\u0022:\u002211\u0022,\u0022label\u0022:\u0022株式会社 大垣\u0022,\u0022search\u0022:\u0022株式会社 大垣\u0022},{\u0022value\u0022:\u002212\u0022,\u0022label\u0022:\u0022有限会社 小林\u0022,\u0022search\u0022:\u0022有限会社 小林\u0022},{\u0022value\u0022:\u002213\u0022,\u0022label\u0022:\u0022有限会社 小林\u0022,\u0022search\u0022:\u0022有限会社 小林\u0022},{\u0022value\u0022:\u002214\u0022,\u0022label\u0022:\u0022有限会社 中島\u0022,\u0022search\u0022:\u0022有限会社 中島\u0022},{\u0022value\u0022:\u002215\u0022,\u0022label\u0022:\u0022有限会社 松本\u0022,\u0022search\u0022:\u0022有限会社 松本\u0022},{\u0022value\u0022:\u002216\u0022,\u0022label\u0022:\u0022有限会社 渚\u0022,\u0022search\u0022:\u0022有限会社 渚\u0022},{\u0022value\u0022:\u002217\u0022,\u0022label\u0022:\u0022株式会社 加納\u0022,\u0022search\u0022:\u0022株式会社 加納\u0022},{\u0022value\u0022:\u002218\u0022,\u0022label\u0022:\u0022有限会社 津田\u0022,\u0022search\u0022:\u0022有限会社 津田\u0022},{\u0022value\u0022:\u002219\u0022,\u0022label\u0022:\u0022株式会社 村山\u0022,\u0022search\u0022:\u0022株式会社 村山\u0022},{\u0022value\u0022:\u002220\u0022,\u0022label\u0022:\u0022株式会社 江古田\u0022,\u0022search\u0022:\u0022株式会社 江古田\u0022},{\u0022value\u0022:\u002221\u0022,\u0022label\u0022:\u0022有限会社 藤本\u0022,\u0022search\u0022:\u0022有限会社 藤本\u0022},{\u0022value\u0022:\u002222\u0022,\u0022label\u0022:\u0022有限会社 松本\u0022,\u0022search\u0022:\u0022有限会社 松本\u0022},{\u0022value\u0022:\u002223\u0022,\u0022label\u0022:\u0022有限会社 木村\u0022,\u0022search\u0022:\u0022有限会社 木村\u0022},{\u0022value\u0022:\u002224\u0022,\u0022label\u0022:\u0022株式会社 山口\u0022,\u0022search\u0022:\u0022株式会社 山口\u0022},{\u0022value\u0022:\u002225\u0022,\u0022label\u0022:\u0022株式会社 中村\u0022,\u0022search\u0022:\u0022株式会社 中村\u0022},{\u0022value\u0022:\u002226\u0022,\u0022label\u0022:\u0022株式会社 宇野\u0022,\u0022search\u0022:\u0022株式会社 宇野\u0022},{\u0022value\u0022:\u002227\u0022,\u0022label\u0022:\u0022株式会社 佐々木\u0022,\u0022search\u0022:\u0022株式会社 佐々木\u0022},{\u0022value\u0022:\u002228\u0022,\u0022label\u0022:\u0022株式会社 江古田\u0022,\u0022search\u0022:\u0022株式会社 江古田\u0022},{\u0022value\u0022:\u002229\u0022,\u0022label\u0022:\u0022有限会社 井上\u0022,\u0022search\u0022:\u0022有限会社 井上\u0022},{\u0022value\u0022:\u002230\u0022,\u0022label\u0022:\u0022有限会社 津田\u0022,\u0022search\u0022:\u0022有限会社 津田\u0022},{\u0022value\u0022:\u002231\u0022,\u0022label\u0022:\u0022有限会社 中津川\u0022,\u0022search\u0022:\u0022有限会社 中津川\u0022},{\u0022value\u0022:\u002232\u0022,\u0022label\u0022:\u0022有限会社 西之園\u0022,\u0022search\u0022:\u0022有限会社 西之園\u0022},{\u0022value\u0022:\u002233\u0022,\u0022label\u0022:\u0022株式会社 加藤\u0022,\u0022search\u0022:\u0022株式会社 加藤\u0022},{\u0022value\u0022:\u002234\u0022,\u0022label\u0022:\u0022株式会社 青山\u0022,\u0022search\u0022:\u0022株式会社 青山\u0022},{\u0022value\u0022:\u002235\u0022,\u0022label\u0022:\u0022有限会社 津田\u0022,\u0022search\u0022:\u0022有限会社 津田\u0022},{\u0022value\u0022:\u002236\u0022,\u0022label\u0022:\u0022株式会社 小林\u0022,\u0022search\u0022:\u0022株式会社 小林\u0022},{\u0022value\u0022:\u002237\u0022,\u0022label\u0022:\u0022株式会社 笹田\u0022,\u0022search\u0022:\u0022株式会社 笹田\u0022},{\u0022value\u0022:\u002238\u0022,\u0022label\u0022:\u0022株式会社 浜田\u0022,\u0022search\u0022:\u0022株式会社 浜田\u0022},{\u0022value\u0022:\u002239\u0022,\u0022label\u0022:\u0022株式会社 青田\u0022,\u0022search\u0022:\u0022株式会社 青田\u0022},{\u0022value\u0022:\u002240\u0022,\u0022label\u0022:\u0022株式会社 中村\u0022,\u0022search\u0022:\u0022株式会社 中村\u0022},{\u0022value\u0022:\u002241\u0022,\u0022label\u0022:\u0022株式会社 廣川\u0022,\u0022search\u0022:\u0022株式会社 廣川\u0022},{\u0022value\u0022:\u002242\u0022,\u0022label\u0022:\u0022有限会社 野村\u0022,\u0022search\u0022:\u0022有限会社 野村\u0022},{\u0022value\u0022:\u002243\u0022,\u0022label\u0022:\u0022株式会社 中島\u0022,\u0022search\u0022:\u0022株式会社 中島\u0022},{\u0022value\u0022:\u002244\u0022,\u0022label\u0022:\u0022有限会社 津田\u0022,\u0022search\u0022:\u0022有限会社 津田\u0022}],\u0022value\u0022:\u0022\u0022,\u0022label\u0022:\u0022\u0022,\u0022source\u0022:null}'))"
                                              @keydown.escape.stop="close()"
-         @click.outside="close()"
+         @click.outside="closeFromOutside($event)"
                   class="relative">
 
         
@@ -765,7 +765,7 @@
                    @keydown.end.prevent="moveTo(-1)"
                    @keydown.enter.prevent="selectActive()"
                    @keydown.tab="close()"
-                                                                            class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-2.5 py-1.5 text-xs border-gray-300 dark:border-gray-700 pe-16">
+                                                                            class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-2.5 py-1.5 text-xs min-h-11 sm:min-h-0 border-gray-300 dark:border-gray-700 pe-16">
 
             
             <div class="absolute inset-y-0 end-0 flex items-center gap-0.5 pe-2">
@@ -773,7 +773,7 @@
                         x-show="hasSelection"
                         x-cloak
                         @click="clear(); $refs.input?.focus()"
-                                                class="rounded p-1 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none dark:hover:text-gray-200"
+                                                class="inline-flex min-h-11 min-w-11 items-center justify-center rounded p-1 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none sm:min-h-0 sm:min-w-0 dark:hover:text-gray-200"
                         aria-label="選択を解除">
                     <svg class="h-4 w-4" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -795,7 +795,8 @@
             x-show="open"
             x-cloak
             x-transition.opacity.duration.100ms
-            class="absolute z-30 mt-1 max-h-60 w-full overflow-auto rounded-md border border-gray-200 bg-white py-1 text-sm shadow-lg dark:border-gray-700 dark:bg-gray-800">
+            
+            class="fixed z-40 max-h-60 overflow-auto rounded-md border border-gray-200 bg-white py-1 text-sm shadow-lg dark:border-gray-700 dark:bg-gray-800">
 
             <template x-for="(item, index) in filtered" :key="item.value">
                 <li :id="&#039;dt-partner_id&#039; + '-option-' + index"
@@ -835,7 +836,7 @@
     
     <div x-data="combobox(JSON.parse('{\u0022options\u0022:[{\u0022value\u0022:\u00221\u0022,\u0022label\u0022:\u0022工藤 明美\u0022,\u0022search\u0022:\u0022工藤 明美\u0022},{\u0022value\u0022:\u00222\u0022,\u0022label\u0022:\u0022吉田 聡太郎\u0022,\u0022search\u0022:\u0022吉田 聡太郎\u0022},{\u0022value\u0022:\u00223\u0022,\u0022label\u0022:\u0022桐山 花子\u0022,\u0022search\u0022:\u0022桐山 花子\u0022},{\u0022value\u0022:\u00224\u0022,\u0022label\u0022:\u0022渡辺 翔太\u0022,\u0022search\u0022:\u0022渡辺 翔太\u0022},{\u0022value\u0022:\u00225\u0022,\u0022label\u0022:\u0022杉山 直子\u0022,\u0022search\u0022:\u0022杉山 直子\u0022},{\u0022value\u0022:\u00226\u0022,\u0022label\u0022:\u0022宇野 直人\u0022,\u0022search\u0022:\u0022宇野 直人\u0022},{\u0022value\u0022:\u00227\u0022,\u0022label\u0022:\u0022田中 健一\u0022,\u0022search\u0022:\u0022田中 健一\u0022},{\u0022value\u0022:\u00228\u0022,\u0022label\u0022:\u0022加藤 真綾\u0022,\u0022search\u0022:\u0022加藤 真綾\u0022},{\u0022value\u0022:\u00229\u0022,\u0022label\u0022:\u0022浜田 晃\u0022,\u0022search\u0022:\u0022浜田 晃\u0022},{\u0022value\u0022:\u002210\u0022,\u0022label\u0022:\u0022伊藤 千代\u0022,\u0022search\u0022:\u0022伊藤 千代\u0022},{\u0022value\u0022:\u002211\u0022,\u0022label\u0022:\u0022高橋 加奈\u0022,\u0022search\u0022:\u0022高橋 加奈\u0022},{\u0022value\u0022:\u002212\u0022,\u0022label\u0022:\u0022小泉 春香\u0022,\u0022search\u0022:\u0022小泉 春香\u0022},{\u0022value\u0022:\u002213\u0022,\u0022label\u0022:\u0022渚 明美\u0022,\u0022search\u0022:\u0022渚 明美\u0022},{\u0022value\u0022:\u002214\u0022,\u0022label\u0022:\u0022伊藤 直子\u0022,\u0022search\u0022:\u0022伊藤 直子\u0022},{\u0022value\u0022:\u002215\u0022,\u0022label\u0022:\u0022近藤 花子\u0022,\u0022search\u0022:\u0022近藤 花子\u0022},{\u0022value\u0022:\u002216\u0022,\u0022label\u0022:\u0022松本 洋介\u0022,\u0022search\u0022:\u0022松本 洋介\u0022},{\u0022value\u0022:\u002217\u0022,\u0022label\u0022:\u0022野村 健一\u0022,\u0022search\u0022:\u0022野村 健一\u0022},{\u0022value\u0022:\u002218\u0022,\u0022label\u0022:\u0022井高 春香\u0022,\u0022search\u0022:\u0022井高 春香\u0022},{\u0022value\u0022:\u002219\u0022,\u0022label\u0022:\u0022佐々木 浩\u0022,\u0022search\u0022:\u0022佐々木 浩\u0022},{\u0022value\u0022:\u002220\u0022,\u0022label\u0022:\u0022西之園 花子\u0022,\u0022search\u0022:\u0022西之園 花子\u0022},{\u0022value\u0022:\u002221\u0022,\u0022label\u0022:\u0022山岸 舞\u0022,\u0022search\u0022:\u0022山岸 舞\u0022},{\u0022value\u0022:\u002222\u0022,\u0022label\u0022:\u0022山本 里佳\u0022,\u0022search\u0022:\u0022山本 里佳\u0022},{\u0022value\u0022:\u002223\u0022,\u0022label\u0022:\u0022佐藤 陽子\u0022,\u0022search\u0022:\u0022佐藤 陽子\u0022},{\u0022value\u0022:\u002224\u0022,\u0022label\u0022:\u0022野村 涼平\u0022,\u0022search\u0022:\u0022野村 涼平\u0022}],\u0022value\u0022:\u0022\u0022,\u0022label\u0022:\u0022\u0022,\u0022source\u0022:null}'))"
                                              @keydown.escape.stop="close()"
-         @click.outside="close()"
+         @click.outside="closeFromOutside($event)"
                   class="relative">
 
         
@@ -861,7 +862,7 @@
                    @keydown.end.prevent="moveTo(-1)"
                    @keydown.enter.prevent="selectActive()"
                    @keydown.tab="close()"
-                                                                            class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-2.5 py-1.5 text-xs border-gray-300 dark:border-gray-700 pe-16">
+                                                                            class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-2.5 py-1.5 text-xs min-h-11 sm:min-h-0 border-gray-300 dark:border-gray-700 pe-16">
 
             
             <div class="absolute inset-y-0 end-0 flex items-center gap-0.5 pe-2">
@@ -869,7 +870,7 @@
                         x-show="hasSelection"
                         x-cloak
                         @click="clear(); $refs.input?.focus()"
-                                                class="rounded p-1 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none dark:hover:text-gray-200"
+                                                class="inline-flex min-h-11 min-w-11 items-center justify-center rounded p-1 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none sm:min-h-0 sm:min-w-0 dark:hover:text-gray-200"
                         aria-label="選択を解除">
                     <svg class="h-4 w-4" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -891,7 +892,8 @@
             x-show="open"
             x-cloak
             x-transition.opacity.duration.100ms
-            class="absolute z-30 mt-1 max-h-60 w-full overflow-auto rounded-md border border-gray-200 bg-white py-1 text-sm shadow-lg dark:border-gray-700 dark:bg-gray-800">
+            
+            class="fixed z-40 max-h-60 overflow-auto rounded-md border border-gray-200 bg-white py-1 text-sm shadow-lg dark:border-gray-700 dark:bg-gray-800">
 
             <template x-for="(item, index) in filtered" :key="item.value">
                 <li :id="&#039;dt-employee_id&#039; + '-option-' + index"
@@ -933,7 +935,7 @@
           aria-label="基準日" >
                     
             <label for="period_basis-expected_close_date"
-                   class="cursor-pointer rounded px-3 py-1.5 text-xs font-medium transition-colors motion-reduce:transition-none bg-primary text-white">
+                   class="inline-flex min-h-11 cursor-pointer items-center rounded px-3 py-1.5 text-xs font-medium transition-colors motion-reduce:transition-none sm:min-h-0 bg-primary text-white">
                 <input type="radio"
                        id="period_basis-expected_close_date"
                        name="period_basis"
@@ -944,7 +946,7 @@
             </label>
                     
             <label for="period_basis-ordered_at"
-                   class="cursor-pointer rounded px-3 py-1.5 text-xs font-medium transition-colors motion-reduce:transition-none text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                   class="inline-flex min-h-11 cursor-pointer items-center rounded px-3 py-1.5 text-xs font-medium transition-colors motion-reduce:transition-none sm:min-h-0 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
                 <input type="radio"
                        id="period_basis-ordered_at"
                        name="period_basis"
@@ -961,7 +963,7 @@
 <div>
     <label for="probability_min" class="block text-xs font-medium text-gray-600 dark:text-gray-400">確度</label>
     <select id="probability_min" name="probability_min"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 sm:text-sm">
+            class="mt-1 block min-h-11 w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:min-h-0 sm:text-sm dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100">
         <option value="">すべて</option>
                     <option value="90" >90% 以上</option>
                     <option value="70" >70% 以上</option>
@@ -977,9 +979,9 @@
             期間
                     </label>
     
-    <div x-data="dateRange(JSON.parse('{\u0022presets\u0022:[{\u0022value\u0022:\u0022today\u0022,\u0022label\u0022:\u0022今日\u0022,\u0022from\u0022:\u00222026-08-25\u0022,\u0022to\u0022:\u00222026-08-25\u0022},{\u0022value\u0022:\u0022this_week\u0022,\u0022label\u0022:\u0022今週\u0022,\u0022from\u0022:\u00222026-08-24\u0022,\u0022to\u0022:\u00222026-08-30\u0022},{\u0022value\u0022:\u0022this_month\u0022,\u0022label\u0022:\u0022今月\u0022,\u0022from\u0022:\u00222026-08-01\u0022,\u0022to\u0022:\u00222026-08-31\u0022},{\u0022value\u0022:\u0022this_quarter\u0022,\u0022label\u0022:\u0022今四半期\u0022,\u0022from\u0022:\u00222026-07-01\u0022,\u0022to\u0022:\u00222026-09-30\u0022},{\u0022value\u0022:\u0022this_fiscal_year\u0022,\u0022label\u0022:\u0022今年度\u0022,\u0022from\u0022:\u00222026-04-01\u0022,\u0022to\u0022:\u00222027-03-31\u0022},{\u0022value\u0022:\u0022last_7_days\u0022,\u0022label\u0022:\u0022過去 7 日\u0022,\u0022from\u0022:\u00222026-08-19\u0022,\u0022to\u0022:\u00222026-08-25\u0022},{\u0022value\u0022:\u0022last_30_days\u0022,\u0022label\u0022:\u0022過去 30 日\u0022,\u0022from\u0022:\u00222026-07-27\u0022,\u0022to\u0022:\u00222026-08-25\u0022},{\u0022value\u0022:\u0022last_90_days\u0022,\u0022label\u0022:\u0022過去 90 日\u0022,\u0022from\u0022:\u00222026-05-28\u0022,\u0022to\u0022:\u00222026-08-25\u0022}],\u0022preset\u0022:\u0022none\u0022,\u0022from\u0022:\u0022\u0022,\u0022to\u0022:\u0022\u0022,\u0022submitOnChange\u0022:false,\u0022noneLabel\u0022:\u0022指定なし\u0022}'))"
+    <div x-data="dateRange(JSON.parse('{\u0022presets\u0022:[{\u0022value\u0022:\u0022today\u0022,\u0022label\u0022:\u0022今日\u0022,\u0022from\u0022:\u00222026-09-06\u0022,\u0022to\u0022:\u00222026-09-06\u0022},{\u0022value\u0022:\u0022this_week\u0022,\u0022label\u0022:\u0022今週\u0022,\u0022from\u0022:\u00222026-08-31\u0022,\u0022to\u0022:\u00222026-09-06\u0022},{\u0022value\u0022:\u0022this_month\u0022,\u0022label\u0022:\u0022今月\u0022,\u0022from\u0022:\u00222026-09-01\u0022,\u0022to\u0022:\u00222026-09-30\u0022},{\u0022value\u0022:\u0022this_quarter\u0022,\u0022label\u0022:\u0022今四半期\u0022,\u0022from\u0022:\u00222026-07-01\u0022,\u0022to\u0022:\u00222026-09-30\u0022},{\u0022value\u0022:\u0022this_fiscal_year\u0022,\u0022label\u0022:\u0022今年度\u0022,\u0022from\u0022:\u00222026-04-01\u0022,\u0022to\u0022:\u00222027-03-31\u0022},{\u0022value\u0022:\u0022last_7_days\u0022,\u0022label\u0022:\u0022過去 7 日\u0022,\u0022from\u0022:\u00222026-08-31\u0022,\u0022to\u0022:\u00222026-09-06\u0022},{\u0022value\u0022:\u0022last_30_days\u0022,\u0022label\u0022:\u0022過去 30 日\u0022,\u0022from\u0022:\u00222026-08-08\u0022,\u0022to\u0022:\u00222026-09-06\u0022},{\u0022value\u0022:\u0022last_90_days\u0022,\u0022label\u0022:\u0022過去 90 日\u0022,\u0022from\u0022:\u00222026-06-09\u0022,\u0022to\u0022:\u00222026-09-06\u0022}],\u0022preset\u0022:\u0022none\u0022,\u0022from\u0022:\u0022\u0022,\u0022to\u0022:\u0022\u0022,\u0022submitOnChange\u0022:false,\u0022noneLabel\u0022:\u0022指定なし\u0022}'))"
          @keydown.escape.stop="open = false"
-         @click.outside="open = false"
+         @click.outside="closeFromOutside($event)"
          class="relative">
 
         <input type="hidden" name="period_preset" :value="preset">
@@ -994,7 +996,7 @@
                                         aria-haspopup="dialog"
                     :aria-expanded="open.toString()"
                     aria-controls="period-panel"
-                    class="inline-flex w-full items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 shadow-sm transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 motion-reduce:transition-none dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800">
+                    class="inline-flex min-h-11 w-full min-w-0 items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 sm:min-h-0 shadow-sm transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 motion-reduce:transition-none dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800">
                 <svg class="h-4 w-4 shrink-0 text-gray-400" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
@@ -1009,7 +1011,7 @@
                     x-show="hasRange"
                     x-cloak
                     @click="clear()"
-                                        class="rounded-md p-2 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600 motion-reduce:transition-none dark:hover:bg-gray-700"
+                                        class="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-md p-2 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600 motion-reduce:transition-none sm:min-h-0 sm:min-w-0 dark:hover:bg-gray-700"
                     aria-label="期間の指定を解除">
                 <svg class="h-4 w-4" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -1020,12 +1022,13 @@
 
         
         <div id="period-panel"
+             x-ref="panel"
              x-show="open"
              x-cloak
              x-transition.opacity.duration.100ms
              role="dialog"
              aria-label="期間を選ぶ"
-             class="absolute z-30 mt-1 w-max max-w-[calc(100vw-2rem)] rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
+             class="fixed z-40 w-max max-w-[calc(100vw-1rem)] rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
 
             <div class="flex flex-col gap-4 sm:flex-row">
                 
@@ -1064,13 +1067,13 @@
                             <div x-data="datepicker(JSON.parse('{\u0022value\u0022:\u0022\u0022,\u0022holidays\u0022:[],\u0022min\u0022:\u0022\u0022,\u0022max\u0022:\u0022\u0022,\u0022weekStart\u0022:1}'))"
      x-modelable="value"
      @keydown.escape.stop="close()"
-     @click.outside="close()"
+     @click.outside="closeFromOutside($event)"
      class="relative mt-0.5" x-model="from" @datepicker-changed="onCustomInput()">
 
     
     <div class="relative">
         <input type="text"
-               id="datepicker-6a8d655e2d9e8"
+               id="datepicker-6a9d303976e35"
                x-model="display"
                @blur="parseDisplay()"
                @keydown.enter.prevent="parseDisplay(); close()"
@@ -1078,11 +1081,11 @@
                placeholder="YYYY/MM/DD"
                autocomplete="off"
                inputmode="numeric"
-                                                            class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-2.5 py-1.5 text-xs border-gray-300 dark:border-gray-700 pe-10">
+                                                            class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-2.5 py-1.5 text-xs min-h-11 sm:min-h-0 border-gray-300 dark:border-gray-700 pe-11 sm:pe-10">
 
         <button type="button"
                 @click="toggle()"
-                                class="absolute inset-y-0 end-0 flex items-center px-2 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none dark:hover:text-gray-200"
+                                class="absolute inset-y-0 end-0 flex min-w-11 items-center justify-center px-2 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none sm:min-w-0 dark:hover:text-gray-200"
                 aria-haspopup="dialog"
                 :aria-expanded="open.toString()"
                 aria-label="カレンダーを開く">
@@ -1094,17 +1097,18 @@
     </div>
 
     
-    <div x-show="open"
+    <div x-ref="panel"
+         x-show="open"
          x-cloak
          x-transition.opacity.duration.100ms
          role="dialog"
          aria-label="日付を選ぶ"
-         class="absolute z-40 mt-1 w-72 rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
+         class="fixed z-40 w-72 max-w-[calc(100vw-1rem)] rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
 
         
         <div class="flex items-center justify-between gap-2">
             <button type="button" @click="shiftMonth(-1)"
-                    class="rounded p-1 text-gray-500 transition hover:bg-gray-100 motion-reduce:transition-none dark:hover:bg-gray-700"
+                    class="inline-flex min-h-11 min-w-11 items-center justify-center rounded p-1 text-gray-500 transition hover:bg-gray-100 motion-reduce:transition-none sm:min-h-0 sm:min-w-0 dark:hover:bg-gray-700"
                     aria-label="前の月">
                 <svg class="h-4 w-4" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -1129,7 +1133,7 @@
             </div>
 
             <button type="button" @click="shiftMonth(1)"
-                    class="rounded p-1 text-gray-500 transition hover:bg-gray-100 motion-reduce:transition-none dark:hover:bg-gray-700"
+                    class="inline-flex min-h-11 min-w-11 items-center justify-center rounded p-1 text-gray-500 transition hover:bg-gray-100 motion-reduce:transition-none sm:min-h-0 sm:min-w-0 dark:hover:bg-gray-700"
                     aria-label="次の月">
                 <svg class="h-4 w-4" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -1196,11 +1200,11 @@
 
         <div class="mt-2 flex items-center justify-between border-t border-gray-100 pt-2 dark:border-gray-700">
             <button type="button"
-                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-primary dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white gap-1.5 px-2.5 py-1.5 text-xs" x-on:click="clear()">
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-primary dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white gap-1.5 px-2.5 py-1.5 text-xs min-h-11 sm:min-h-0" x-on:click="clear()">
         クリア
     </button>
             <button type="button"
-                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 gap-1.5 px-2.5 py-1.5 text-xs" x-on:click="selectToday()">
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 gap-1.5 px-2.5 py-1.5 text-xs min-h-11 sm:min-h-0" x-on:click="selectToday()">
         今日
     </button>
         </div>
@@ -1213,13 +1217,13 @@
                             <div x-data="datepicker(JSON.parse('{\u0022value\u0022:\u0022\u0022,\u0022holidays\u0022:[],\u0022min\u0022:\u0022\u0022,\u0022max\u0022:\u0022\u0022,\u0022weekStart\u0022:1}'))"
      x-modelable="value"
      @keydown.escape.stop="close()"
-     @click.outside="close()"
+     @click.outside="closeFromOutside($event)"
      class="relative mt-0.5" x-model="to" @datepicker-changed="onCustomInput()">
 
     
     <div class="relative">
         <input type="text"
-               id="datepicker-6a8d655e2dd81"
+               id="datepicker-6a9d303977285"
                x-model="display"
                @blur="parseDisplay()"
                @keydown.enter.prevent="parseDisplay(); close()"
@@ -1227,11 +1231,11 @@
                placeholder="YYYY/MM/DD"
                autocomplete="off"
                inputmode="numeric"
-                                                            class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-2.5 py-1.5 text-xs border-gray-300 dark:border-gray-700 pe-10">
+                                                            class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-2.5 py-1.5 text-xs min-h-11 sm:min-h-0 border-gray-300 dark:border-gray-700 pe-11 sm:pe-10">
 
         <button type="button"
                 @click="toggle()"
-                                class="absolute inset-y-0 end-0 flex items-center px-2 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none dark:hover:text-gray-200"
+                                class="absolute inset-y-0 end-0 flex min-w-11 items-center justify-center px-2 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none sm:min-w-0 dark:hover:text-gray-200"
                 aria-haspopup="dialog"
                 :aria-expanded="open.toString()"
                 aria-label="カレンダーを開く">
@@ -1243,17 +1247,18 @@
     </div>
 
     
-    <div x-show="open"
+    <div x-ref="panel"
+         x-show="open"
          x-cloak
          x-transition.opacity.duration.100ms
          role="dialog"
          aria-label="日付を選ぶ"
-         class="absolute z-40 mt-1 w-72 rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
+         class="fixed z-40 w-72 max-w-[calc(100vw-1rem)] rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
 
         
         <div class="flex items-center justify-between gap-2">
             <button type="button" @click="shiftMonth(-1)"
-                    class="rounded p-1 text-gray-500 transition hover:bg-gray-100 motion-reduce:transition-none dark:hover:bg-gray-700"
+                    class="inline-flex min-h-11 min-w-11 items-center justify-center rounded p-1 text-gray-500 transition hover:bg-gray-100 motion-reduce:transition-none sm:min-h-0 sm:min-w-0 dark:hover:bg-gray-700"
                     aria-label="前の月">
                 <svg class="h-4 w-4" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -1278,7 +1283,7 @@
             </div>
 
             <button type="button" @click="shiftMonth(1)"
-                    class="rounded p-1 text-gray-500 transition hover:bg-gray-100 motion-reduce:transition-none dark:hover:bg-gray-700"
+                    class="inline-flex min-h-11 min-w-11 items-center justify-center rounded p-1 text-gray-500 transition hover:bg-gray-100 motion-reduce:transition-none sm:min-h-0 sm:min-w-0 dark:hover:bg-gray-700"
                     aria-label="次の月">
                 <svg class="h-4 w-4" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -1345,11 +1350,11 @@
 
         <div class="mt-2 flex items-center justify-between border-t border-gray-100 pt-2 dark:border-gray-700">
             <button type="button"
-                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-primary dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white gap-1.5 px-2.5 py-1.5 text-xs" x-on:click="clear()">
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-primary dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white gap-1.5 px-2.5 py-1.5 text-xs min-h-11 sm:min-h-0" x-on:click="clear()">
         クリア
     </button>
             <button type="button"
-                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 gap-1.5 px-2.5 py-1.5 text-xs" x-on:click="selectToday()">
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 gap-1.5 px-2.5 py-1.5 text-xs min-h-11 sm:min-h-0" x-on:click="selectToday()">
         今日
     </button>
         </div>
@@ -1360,11 +1365,11 @@
 
                     <div class="mt-3 flex items-center justify-between gap-2">
                         <button type="button"
-                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-primary dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white gap-1.5 px-2.5 py-1.5 text-xs" x-on:click="clear()">
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-primary dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white gap-1.5 px-2.5 py-1.5 text-xs min-h-11 sm:min-h-0" x-on:click="clear()">
         指定なし
     </button>
                         <button type="button"
-                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-1.5 px-2.5 py-1.5 text-xs" x-on:click="apply()">
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-1.5 px-2.5 py-1.5 text-xs min-h-11 sm:min-h-0" x-on:click="apply()">
         適用
     </button>
                     </div>
@@ -1379,7 +1384,7 @@
             
             <div class="flex items-center gap-2">
                 <button type="submit"
-                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm">
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm min-h-11 sm:min-h-0">
         検索
     </button>
 
@@ -1400,21 +1405,21 @@
                             
                 <div class="inline-flex overflow-hidden rounded-md border border-gray-300 text-xs dark:border-gray-600">
                                             <a href="deals.html"
-                           class="px-3 py-1.5 bg-primary text-white">
+                           class="inline-flex min-h-11 items-center px-3 py-1.5 sm:min-h-0 bg-primary text-white">
                             通常
                         </a>
                                             <a href="deals.html"
-                           class="px-3 py-1.5 bg-white text-gray-600 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+                           class="inline-flex min-h-11 items-center px-3 py-1.5 sm:min-h-0 bg-white text-gray-600 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
                             削除済みも表示
                         </a>
                                             <a href="deals.html"
-                           class="px-3 py-1.5 bg-white text-gray-600 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+                           class="inline-flex min-h-11 items-center px-3 py-1.5 sm:min-h-0 bg-white text-gray-600 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
                             削除済みのみ
                         </a>
                                     </div>
             
                             <a href="#" data-demo-disabled="link"
-                   class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700">
+                   class="inline-flex min-h-11 items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium sm:min-h-0 text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700">
                     CSV出力
                 </a>
                     </div>
@@ -1422,14 +1427,15 @@
 
     
     <div class="overflow-x-auto rounded-lg border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
-    <table class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
+    
+    <table  data-table-cards            class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
         <thead class="bg-gray-50 dark:bg-gray-900/40">
             <tr>
                                     
                     <th scope="col"
                          aria-sort="none"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-left">
                                                     <a href="deals.html"
-                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                               class="inline-flex min-h-11 items-center gap-1 rounded transition-colors hover:text-gray-800 sm:min-h-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
                                 商談コード
                                 <span class="text-[10px]" aria-hidden="true"></span>
                             </a>
@@ -1443,7 +1449,7 @@
                     <th scope="col"
                          aria-sort="none"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-left">
                                                     <a href="deals.html"
-                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                               class="inline-flex min-h-11 items-center gap-1 rounded transition-colors hover:text-gray-800 sm:min-h-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
                                 件名
                                 <span class="text-[10px]" aria-hidden="true"></span>
                             </a>
@@ -1452,7 +1458,7 @@
                     <th scope="col"
                          aria-sort="none"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-center">
                                                     <a href="deals.html"
-                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                               class="inline-flex min-h-11 items-center gap-1 rounded transition-colors hover:text-gray-800 sm:min-h-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
                                 ステータス
                                 <span class="text-[10px]" aria-hidden="true"></span>
                             </a>
@@ -1461,7 +1467,7 @@
                     <th scope="col"
                          aria-sort="none"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-right">
                                                     <a href="deals.html"
-                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                               class="inline-flex min-h-11 items-center gap-1 rounded transition-colors hover:text-gray-800 sm:min-h-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
                                 確度
                                 <span class="text-[10px]" aria-hidden="true"></span>
                             </a>
@@ -1470,7 +1476,7 @@
                     <th scope="col"
                          aria-sort="none"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-right">
                                                     <a href="deals.html"
-                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                               class="inline-flex min-h-11 items-center gap-1 rounded transition-colors hover:text-gray-800 sm:min-h-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
                                 金額(税込)
                                 <span class="text-[10px]" aria-hidden="true"></span>
                             </a>
@@ -1479,7 +1485,7 @@
                     <th scope="col"
                          aria-sort="descending"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-left">
                                                     <a href="deals.html"
-                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                               class="inline-flex min-h-11 items-center gap-1 rounded transition-colors hover:text-gray-800 sm:min-h-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
                                 予定クローズ日
                                 <span class="text-[10px]" aria-hidden="true">▼</span>
                             </a>
@@ -1488,7 +1494,7 @@
                     <th scope="col"
                          aria-sort="none"                         class="px-4 py-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 text-left">
                                                     <a href="deals.html"
-                               class="inline-flex items-center gap-1 rounded transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
+                               class="inline-flex min-h-11 items-center gap-1 rounded transition-colors hover:text-gray-800 sm:min-h-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none dark:hover:text-gray-100">
                                 受注日
                                 <span class="text-[10px]" aria-hidden="true"></span>
                             </a>
@@ -1510,19 +1516,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0010
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     株式会社 大垣
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">基幹システム刷新</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">基幹システム刷新</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -1540,7 +1546,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/25
+                            2027/02/06
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -1553,12 +1559,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -1567,19 +1573,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0043
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     有限会社 西之園
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">採用管理システム導入</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">採用管理システム導入</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -1597,7 +1603,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/24
+                            2027/02/05
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -1610,12 +1616,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -1624,19 +1630,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0089
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     有限会社 大垣
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">採用管理システム導入</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">採用管理システム導入</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -1654,7 +1660,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/22
+                            2027/02/03
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -1667,12 +1673,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -1681,19 +1687,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0032
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     有限会社 渚
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">コーポレートサイトリニューアル</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">コーポレートサイトリニューアル</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -1711,7 +1717,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/22
+                            2027/02/03
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -1724,12 +1730,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -1738,19 +1744,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0118
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     株式会社 石田
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">受発注システム開発</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">受発注システム開発</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -1768,7 +1774,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/21
+                            2027/02/02
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -1781,12 +1787,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -1795,19 +1801,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0044
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     有限会社 井上
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">リスティング広告 運用支援</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">リスティング広告 運用支援</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -1825,7 +1831,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/21
+                            2027/02/02
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -1838,12 +1844,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -1852,19 +1858,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0037
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     有限会社 三宅
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">ノベルティ制作</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">ノベルティ制作</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -1882,7 +1888,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/21
+                            2027/02/02
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -1895,12 +1901,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -1909,19 +1915,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0134
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     株式会社 中島
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">採用管理システム導入</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">採用管理システム導入</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -1939,7 +1945,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/20
+                            2027/02/01
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -1952,12 +1958,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -1966,19 +1972,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0141
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     有限会社 松本
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">採用管理システム導入</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">採用管理システム導入</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -1996,7 +2002,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/18
+                            2027/01/30
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -2009,12 +2015,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -2023,19 +2029,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0104
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     株式会社 加藤
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">保守契約更新</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">保守契約更新</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -2053,7 +2059,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/18
+                            2027/01/30
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -2066,12 +2072,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -2080,19 +2086,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0111
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     有限会社 中津川
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">リスティング広告 運用支援</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">リスティング広告 運用支援</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -2110,7 +2116,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/16
+                            2027/01/28
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -2123,12 +2129,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -2137,19 +2143,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0024
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     有限会社 松本
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">ノベルティ制作</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">ノベルティ制作</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -2167,7 +2173,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/16
+                            2027/01/28
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -2180,12 +2186,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -2194,19 +2200,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0158
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     株式会社 石田
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">リスティング広告 運用支援</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">リスティング広告 運用支援</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -2224,7 +2230,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/15
+                            2027/01/27
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -2237,12 +2243,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -2251,19 +2257,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0105
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     有限会社 西之園
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">業務フロー可視化コンサル</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">業務フロー可視化コンサル</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -2281,7 +2287,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/15
+                            2027/01/27
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -2294,12 +2300,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -2308,19 +2314,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0028
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     有限会社 青田
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">コーポレートサイトリニューアル</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">コーポレートサイトリニューアル</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -2338,7 +2344,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/11
+                            2027/01/23
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -2351,12 +2357,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -2365,19 +2371,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0019
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     株式会社 宇野
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">スマートフォンアプリ開発</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">スマートフォンアプリ開発</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -2395,7 +2401,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/11
+                            2027/01/23
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -2408,12 +2414,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -2422,19 +2428,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0115
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     株式会社 山口
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">社内研修プログラム</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">社内研修プログラム</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -2452,7 +2458,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/09
+                            2027/01/21
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -2465,12 +2471,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -2479,19 +2485,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0038
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     株式会社 村山
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">リスティング広告 運用支援</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">リスティング広告 運用支援</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -2509,7 +2515,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/09
+                            2027/01/21
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -2522,12 +2528,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -2536,19 +2542,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0013
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     有限会社 西之園
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">セキュリティ診断</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">セキュリティ診断</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -2566,7 +2572,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/09
+                            2027/01/21
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -2579,12 +2585,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -2593,19 +2599,19 @@
     >
     <td class="whitespace-nowrap px-4 py-3 font-mono text-xs">
                             <a href="deal.html"
-                               class="text-primary-text hover:text-primary-hover hover:underline">
+                               class="inline-flex min-h-11 items-center text-primary-text hover:text-primary-hover hover:underline sm:min-h-0">
                                 DEAL-2026-0042
                             </a>
                         </td>
 
                         <td class="px-4 py-3 text-gray-600 dark:text-gray-400">
-                                                            <a href="customer.html" class="hover:underline">
+                                                            <a href="customer.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">
                                     有限会社 中津川
                                 </a>
                                                     </td>
 
                         <td class="px-4 py-3 font-medium">
-                            <a href="deal.html" class="hover:underline">保守契約更新</a>
+                            <a href="deal.html" class="inline-flex min-h-11 items-center hover:underline sm:min-h-0">保守契約更新</a>
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-center">
@@ -2623,7 +2629,7 @@
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
-                            2027/01/08
+                            2027/01/20
                         </td>
 
                         <td class="whitespace-nowrap px-4 py-3 text-gray-600 dark:text-gray-400">
@@ -2636,12 +2642,12 @@
 
                         <td class="whitespace-nowrap px-4 py-3 text-right">
                                                             <a href="deal.html"
-                                   class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                                   class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                     詳細
                                 </a>
 
                                                                     <a href="#" data-demo-disabled="link"
-                                       class="ms-3 text-xs font-medium text-primary-text hover:text-primary-hover">
+                                       class="ms-3 inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                                         編集
                                     </a>
                                                                                     </td>
@@ -2658,10 +2664,10 @@
                 1–20 件目
             </p>
         
-        <ul class="ms-auto flex items-center gap-1">
+        <ul class="ms-auto flex flex-wrap items-center justify-end gap-1">
             
             <li>
-                                    <span class="inline-flex h-8 items-center rounded-md border border-gray-200 px-2 text-gray-300 dark:border-gray-700 dark:text-gray-600"
+                                    <span class="inline-flex h-11 sm:h-8 items-center rounded-md border border-gray-200 px-2 text-gray-300 dark:border-gray-700 dark:text-gray-600"
                           aria-disabled="true">
                         <svg class="h-4 w-4" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -2675,54 +2681,54 @@
                             
                                                             <li>
                                                             <span aria-current="page"
-                                      class="inline-flex h-8 min-w-8 items-center justify-center rounded-md bg-primary px-2 text-sm font-semibold text-white">
+                                      class="inline-flex h-11 min-w-11 sm:h-8 sm:min-w-8 items-center justify-center rounded-md bg-primary px-2 text-sm font-semibold text-white">
                                     1
                                 </span>
                                                     </li>
                                             <li>
                                                             <a href="deals.html"
-                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                   class="inline-flex h-11 min-w-11 sm:h-8 sm:min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
                                     2
                                 </a>
                                                     </li>
                                             <li>
                                                             <a href="deals.html"
-                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                   class="inline-flex h-11 min-w-11 sm:h-8 sm:min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
                                     3
                                 </a>
                                                     </li>
                                             <li>
                                                             <a href="deals.html"
-                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                   class="inline-flex h-11 min-w-11 sm:h-8 sm:min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
                                     4
                                 </a>
                                                     </li>
                                             <li>
                                                             <a href="deals.html"
-                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                   class="inline-flex h-11 min-w-11 sm:h-8 sm:min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
                                     5
                                 </a>
                                                     </li>
                                             <li>
                                                             <a href="deals.html"
-                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                   class="inline-flex h-11 min-w-11 sm:h-8 sm:min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
                                     6
                                 </a>
                                                     </li>
                                                                                     <li>
-                        <span class="inline-flex h-8 items-center px-1 text-gray-400 dark:text-gray-500">...</span>
+                        <span class="inline-flex h-11 sm:h-8 items-center px-1 text-gray-400 dark:text-gray-500">...</span>
                     </li>
                 
                                             
                                                             <li>
                                                             <a href="deals.html"
-                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                   class="inline-flex h-11 min-w-11 sm:h-8 sm:min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
                                     15
                                 </a>
                                                     </li>
                                             <li>
                                                             <a href="deals.html"
-                                   class="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                                   class="inline-flex h-11 min-w-11 sm:h-8 sm:min-w-8 items-center justify-center rounded-md border border-gray-300 px-2 text-sm text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
                                     16
                                 </a>
                                                     </li>
@@ -2730,7 +2736,7 @@
             
             <li>
                                     <a href="deals.html" rel="next"
-                       class="inline-flex h-8 items-center rounded-md border border-gray-300 px-2 text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                       class="inline-flex h-11 sm:h-8 items-center rounded-md border border-gray-300 px-2 text-gray-600 transition hover:bg-gray-50 motion-reduce:transition-none dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
                         <svg class="h-4 w-4" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />

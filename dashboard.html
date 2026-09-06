@@ -8,7 +8,7 @@
         <title>アルティス営業管理</title>
 
         <!-- Scripts / Styles / Fonts (Vite が自前配信) -->
-        <link rel="preload" as="style" href="build/assets/app-ClwDgvt6.css" /><link rel="modulepreload" as="script" href="build/assets/app-CobmalS0.js" /><link rel="stylesheet" href="build/assets/app-ClwDgvt6.css" /><script type="module" src="build/assets/app-CobmalS0.js"></script>
+        <link rel="preload" as="style" href="build/assets/app-56fT0ls4.css" /><link rel="modulepreload" as="script" href="build/assets/app-DLL5n2AT.js" /><link rel="stylesheet" href="build/assets/app-56fT0ls4.css" /><script type="module" src="build/assets/app-DLL5n2AT.js"></script>
         <style>:root{--color-primary:#0f766e;--color-accent:#ea580c;}</style>
                 <link rel="stylesheet" href="demo.css">
     <script src="demo.js"></script>
@@ -59,7 +59,7 @@
 
     
     <div class="flex h-14 shrink-0 items-center gap-2 border-b border-gray-100 px-4 dark:border-gray-700">
-        <a href="dashboard.html" class="flex min-w-0 items-center gap-2">
+        <a href="dashboard.html" class="flex min-h-11 min-w-0 items-center gap-2 sm:min-h-0">
             <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-base font-bold text-white">
         ア
     </span>
@@ -69,7 +69,7 @@
         </a>
 
         <button type="button" @click="closeMobile()"
-                class="ms-auto rounded-md p-1 text-gray-500 hover:bg-gray-100 hover:text-gray-700 lg:hidden dark:hover:bg-gray-700"
+                class="ms-auto inline-flex min-h-11 min-w-11 items-center justify-center rounded-md p-1 text-gray-500 hover:bg-gray-100 hover:text-gray-700 sm:min-h-0 sm:min-w-0 lg:hidden dark:hover:bg-gray-700"
                 aria-label="メニューを閉じる">
             <svg class="h-5 w-5" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -89,7 +89,7 @@
                 
                                     <a href="dashboard.html"
     aria-current="page"    :title="collapsed ? 'ダッシュボード' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-primary bg-primary-soft font-semibold text-primary-soft-fg">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-primary bg-primary-soft font-semibold text-primary-soft-fg">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 15.75V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
@@ -100,7 +100,7 @@
 </a>
                                     <a href="deals.html"
       :title="collapsed ? '商談' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75h16.5v16.5H3.75z" />
@@ -111,7 +111,7 @@
 </a>
                                     <a href="#" data-demo-disabled="link"
       :title="collapsed ? '顧客' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
@@ -130,7 +130,7 @@
                 
                                     <a href="masters.html"
       :title="collapsed ? 'マスタ管理' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
@@ -149,7 +149,7 @@
                 
                                     <a href="#" data-demo-disabled="link"
       :title="collapsed ? 'ユーザー管理' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
@@ -160,7 +160,7 @@
 </a>
                                     <a href="#" data-demo-disabled="link"
       :title="collapsed ? '操作ログ' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -178,7 +178,7 @@
 
                 <header class="sticky top-0 z-30 flex h-14 shrink-0 items-center gap-3 border-b border-gray-200 bg-white/95 px-4 backdrop-blur dark:border-gray-700 dark:bg-gray-800/95">
     <button type="button" @click="openMobile()"
-            class="rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 lg:hidden dark:text-gray-400 dark:hover:bg-gray-700"
+            class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 sm:min-h-0 sm:min-w-0 lg:hidden dark:text-gray-400 dark:hover:bg-gray-700"
             aria-label="メニューを開く"
             aria-controls="app-sidebar"
             :aria-expanded="mobileOpen.toString()">
@@ -226,7 +226,7 @@
             <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
     <div @click="open = ! open">
         <button type="button"
-                            class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-100 hover:text-gray-800 motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-gray-700">
+                            class="inline-flex min-h-11 items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-100 hover:text-gray-800 motion-reduce:transition-none sm:min-h-0 dark:text-gray-300 dark:hover:bg-gray-700">
                         <span class="max-w-32 truncate">管理者ユーザー</span>
                         <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -299,16 +299,16 @@
                     <span class="shrink-0 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">円</span>
             </p>
 
-            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">2026年8月に受注した商談</p>
+            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">2026年9月に受注した商談</p>
     </a>
                                             <a
      href="deals.html"     class="@container block rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800 transition hover:border-primary hover:shadow-sm motion-reduce:transition-none">
 
     <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">今月の受注見込み(税込)</p>
 
-    <p class="mt-2 flex min-w-0 items-baseline gap-1" title="40,501,305 円">
+    <p class="mt-2 flex min-w-0 items-baseline gap-1" title="54,274,239 円">
         
-        <span class="min-w-0 truncate text-[length:clamp(1.125rem,9cqi,1.875rem)] font-bold leading-tight tabular-nums text-gray-900 dark:text-gray-100">40,501,305</span>
+        <span class="min-w-0 truncate text-[length:clamp(1.125rem,9cqi,1.875rem)] font-bold leading-tight tabular-nums text-gray-900 dark:text-gray-100">54,274,239</span>
                     <span class="shrink-0 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">円</span>
             </p>
 
@@ -332,9 +332,9 @@
 
     <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">受注残(税込)</p>
 
-    <p class="mt-2 flex min-w-0 items-baseline gap-1" title="57,772,148 円">
+    <p class="mt-2 flex min-w-0 items-baseline gap-1" title="61,072,148 円">
         
-        <span class="min-w-0 truncate text-[length:clamp(1.125rem,9cqi,1.875rem)] font-bold leading-tight tabular-nums text-gray-900 dark:text-gray-100">57,772,148</span>
+        <span class="min-w-0 truncate text-[length:clamp(1.125rem,9cqi,1.875rem)] font-bold leading-tight tabular-nums text-gray-900 dark:text-gray-100">61,072,148</span>
                     <span class="shrink-0 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">円</span>
             </p>
 
@@ -353,10 +353,10 @@
                     role="img"
                     aria-describedby="chart-monthly-sales-summary"
                     aria-label="月次売上推移（受注日ベース・税込）"
-                    data-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;2025\/09&quot;,&quot;2025\/10&quot;,&quot;2025\/11&quot;,&quot;2025\/12&quot;,&quot;2026\/01&quot;,&quot;2026\/02&quot;,&quot;2026\/03&quot;,&quot;2026\/04&quot;,&quot;2026\/05&quot;,&quot;2026\/06&quot;,&quot;2026\/07&quot;,&quot;2026\/08&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;受注金額&quot;,&quot;data&quot;:[46883600,25015240,52523020,43218038,51345612,6373180,28217204,39835080,14855120,14378080,19614960,21082508],&quot;backgroundColor&quot;:&quot;#0f766e&quot;,&quot;borderWidth&quot;:2,&quot;borderRadius&quot;:0,&quot;borderColor&quot;:&quot;#0f766e&quot;,&quot;tension&quot;:0.3,&quot;fill&quot;:false,&quot;pointRadius&quot;:3},{&quot;label&quot;:&quot;全社目標&quot;,&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:[49200000,26300000,55100000,45400000,53900000,6700000,29600000,41800000,15600000,15100000,20600000,22100000],&quot;borderColor&quot;:&quot;#ea580c&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;borderWidth&quot;:2,&quot;borderDash&quot;:[6,4],&quot;pointRadius&quot;:0,&quot;fill&quot;:false,&quot;tension&quot;:0}]},&quot;options&quot;:{&quot;responsive&quot;:true,&quot;maintainAspectRatio&quot;:false,&quot;plugins&quot;:{&quot;legend&quot;:{&quot;display&quot;:true,&quot;position&quot;:&quot;bottom&quot;}},&quot;scales&quot;:{&quot;y&quot;:{&quot;beginAtZero&quot;:true,&quot;ticks&quot;:{&quot;precision&quot;:0}}}}}"></canvas>
+                    data-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;2025\/10&quot;,&quot;2025\/11&quot;,&quot;2025\/12&quot;,&quot;2026\/01&quot;,&quot;2026\/02&quot;,&quot;2026\/03&quot;,&quot;2026\/04&quot;,&quot;2026\/05&quot;,&quot;2026\/06&quot;,&quot;2026\/07&quot;,&quot;2026\/08&quot;,&quot;2026\/09&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;受注金額&quot;,&quot;data&quot;:[22964840,50734420,34651918,41651280,36744192,22089444,24939600,26646280,23851300,18065260,2750000,21082508],&quot;backgroundColor&quot;:&quot;#0f766e&quot;,&quot;borderWidth&quot;:2,&quot;borderRadius&quot;:0,&quot;borderColor&quot;:&quot;#0f766e&quot;,&quot;tension&quot;:0.3,&quot;fill&quot;:false,&quot;pointRadius&quot;:3},{&quot;label&quot;:&quot;全社目標&quot;,&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:[24100000,53300000,36400000,43700000,38600000,23200000,26200000,28000000,25000000,19000000,2900000,22100000],&quot;borderColor&quot;:&quot;#ea580c&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;borderWidth&quot;:2,&quot;borderDash&quot;:[6,4],&quot;pointRadius&quot;:0,&quot;fill&quot;:false,&quot;tension&quot;:0}]},&quot;options&quot;:{&quot;responsive&quot;:true,&quot;maintainAspectRatio&quot;:false,&quot;plugins&quot;:{&quot;legend&quot;:{&quot;display&quot;:true,&quot;position&quot;:&quot;bottom&quot;}},&quot;scales&quot;:{&quot;y&quot;:{&quot;beginAtZero&quot;:true,&quot;ticks&quot;:{&quot;precision&quot;:0}}}}}"></canvas>
 
             
-            <p id="chart-monthly-sales-summary" class="sr-only">月次売上推移（受注日ベース・税込）：2025/09 46,883,600（全社目標 49,200,000）、2025/10 25,015,240（全社目標 26,300,000）、2025/11 52,523,020（全社目標 55,100,000）、2025/12 43,218,038（全社目標 45,400,000）、2026/01 51,345,612（全社目標 53,900,000）、2026/02 6,373,180（全社目標 6,700,000）、2026/03 28,217,204（全社目標 29,600,000）、2026/04 39,835,080（全社目標 41,800,000）、2026/05 14,855,120（全社目標 15,600,000）、2026/06 14,378,080（全社目標 15,100,000）、2026/07 19,614,960（全社目標 20,600,000）、2026/08 21,082,508（全社目標 22,100,000）</p>
+            <p id="chart-monthly-sales-summary" class="sr-only">月次売上推移（受注日ベース・税込）：2025/10 22,964,840（全社目標 24,100,000）、2025/11 50,734,420（全社目標 53,300,000）、2025/12 34,651,918（全社目標 36,400,000）、2026/01 41,651,280（全社目標 43,700,000）、2026/02 36,744,192（全社目標 38,600,000）、2026/03 22,089,444（全社目標 23,200,000）、2026/04 24,939,600（全社目標 26,200,000）、2026/05 26,646,280（全社目標 28,000,000）、2026/06 23,851,300（全社目標 25,000,000）、2026/07 18,065,260（全社目標 19,000,000）、2026/08 2,750,000（全社目標 2,900,000）、2026/09 21,082,508（全社目標 22,100,000）</p>
             </div>
 </div>
                                             <div class="rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800">
@@ -401,7 +401,7 @@
                             </div>
 
                             <div class="flex shrink-0 items-center gap-2"><a href="#" data-demo-disabled="link"
-           class="text-xs text-primary-text underline hover:text-primary-hover">目標を編集</a></div>
+           class="inline-flex min-h-11 items-center text-xs text-primary-text underline hover:text-primary-hover sm:min-h-0">目標を編集</a></div>
                     </div>
     
     <div class="px-5 py-4 text-sm text-gray-700 dark:text-gray-300">
@@ -409,7 +409,7 @@
         <div class="space-y-2">
     <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
         <div class="min-w-0">
-                            <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">当月（2026年8月）</p>
+                            <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">当月（2026年9月）</p>
             
             <p class="mt-0.5 flex items-baseline gap-1">
                 <span class="text-2xl font-bold tabular-nums text-gray-900 dark:text-gray-100">21,082,508</span>
@@ -429,7 +429,7 @@
          role="progressbar"
          aria-valuemin="0"
          aria-valuemax="100"
-          aria-valuenow="95.4"          aria-label="当月（2026年8月） 達成率"
+          aria-valuenow="95.4"          aria-label="当月（2026年9月） 達成率"
          aria-valuetext="目標 22,100,000円 に対して実績 21,082,508円、達成率 95.4%（達成間近）">
         <div class="bg-amber-600 h-full rounded-full transition-[width] duration-500 motion-reduce:transition-none"
              style="width: 95.4%"></div>
@@ -450,15 +450,15 @@
                             <p class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">2026年度（累計）</p>
             
             <p class="mt-0.5 flex items-baseline gap-1">
-                <span class="text-2xl font-bold tabular-nums text-gray-900 dark:text-gray-100">109,765,748</span>
+                <span class="text-2xl font-bold tabular-nums text-gray-900 dark:text-gray-100">117,334,948</span>
                 <span class="text-xs text-gray-500 dark:text-gray-400">円</span>
             </p>
         </div>
 
         <div class="text-end">
-                            <p class="text-lg font-bold tabular-nums text-amber-700 dark:text-amber-400">95.3%</p>
+                            <p class="text-lg font-bold tabular-nums text-amber-700 dark:text-amber-400">95.2%</p>
                 <p class="text-xs text-gray-500 dark:text-gray-400">
-                    目標 <span class="tabular-nums">115,200,000</span> 円
+                    目標 <span class="tabular-nums">123,200,000</span> 円
                 </p>
                     </div>
     </div>
@@ -467,10 +467,10 @@
          role="progressbar"
          aria-valuemin="0"
          aria-valuemax="100"
-          aria-valuenow="95.3"          aria-label="2026年度（累計） 達成率"
-         aria-valuetext="目標 115,200,000円 に対して実績 109,765,748円、達成率 95.3%（達成間近）">
+          aria-valuenow="95.2"          aria-label="2026年度（累計） 達成率"
+         aria-valuetext="目標 123,200,000円 に対して実績 117,334,948円、達成率 95.2%（達成間近）">
         <div class="bg-amber-600 h-full rounded-full transition-[width] duration-500 motion-reduce:transition-none"
-             style="width: 95.3%"></div>
+             style="width: 95.2%"></div>
     </div>
 
     <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
@@ -523,7 +523,7 @@
                                 x-on:click="axis = 'hierarchy'"
                                 :class="axis === 'hierarchy'                                    ? 'bg-primary text-white'
                                     : 'text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
-                                class="rounded px-3 py-1 font-medium transition-colors motion-reduce:transition-none">
+                                class="inline-flex min-h-11 items-center rounded px-3 py-1 font-medium transition-colors motion-reduce:transition-none sm:min-h-0">
                             階層（地域 → エリア → 店舗）
                         </button>
                                             <button type="button"
@@ -532,14 +532,15 @@
                                 x-on:click="axis = 'prefecture'"
                                 :class="axis === 'prefecture'                                    ? 'bg-primary text-white'
                                     : 'text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
-                                class="rounded px-3 py-1 font-medium transition-colors motion-reduce:transition-none">
+                                class="inline-flex min-h-11 items-center rounded px-3 py-1 font-medium transition-colors motion-reduce:transition-none sm:min-h-0">
                             都道府県
                         </button>
                                     </div>
             </div>
 
             <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700"
+                        <table data-table-cards
+                   class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700"
                    x-show="axis === 'hierarchy'" >
                 <thead class="bg-gray-50 dark:bg-gray-900/40">
                     <tr>
@@ -562,7 +563,7 @@
                                                 x-on:click="toggle('region-1')"
                                                 :aria-expanded="(!! open['region-1']).toString()"
                                                 :aria-label="(open['region-1'] ? '閉じる：' : '開く：') + '東日本地域'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['region-1'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -623,7 +624,7 @@
                                                 x-on:click="toggle('area-2')"
                                                 :aria-expanded="(!! open['area-2']).toString()"
                                                 :aria-label="(open['area-2'] ? '閉じる：' : '開く：') + '首都圏エリア'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['area-2'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -684,7 +685,7 @@
                                                 x-on:click="toggle('store-3')"
                                                 :aria-expanded="(!! open['store-3']).toString()"
                                                 :aria-label="(open['store-3'] ? '閉じる：' : '開く：') + '東京本店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-3'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -800,7 +801,7 @@
                                                 x-on:click="toggle('store-4')"
                                                 :aria-expanded="(!! open['store-4']).toString()"
                                                 :aria-label="(open['store-4'] ? '閉じる：' : '開く：') + '東京西支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-4'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -916,7 +917,7 @@
                                                 x-on:click="toggle('store-5')"
                                                 :aria-expanded="(!! open['store-5']).toString()"
                                                 :aria-label="(open['store-5'] ? '閉じる：' : '開く：') + '横浜支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-5'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -1087,7 +1088,7 @@
                                                 x-on:click="toggle('area-7')"
                                                 :aria-expanded="(!! open['area-7']).toString()"
                                                 :aria-label="(open['area-7'] ? '閉じる：' : '開く：') + '北関東エリア'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['area-7'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -1203,7 +1204,7 @@
                                                 x-on:click="toggle('store-9')"
                                                 :aria-expanded="(!! open['store-9']).toString()"
                                                 :aria-label="(open['store-9'] ? '閉じる：' : '開く：') + '宇都宮支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-9'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -1319,7 +1320,7 @@
                                                 x-on:click="toggle('region-16')"
                                                 :aria-expanded="(!! open['region-16']).toString()"
                                                 :aria-label="(open['region-16'] ? '閉じる：' : '開く：') + '西日本地域'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['region-16'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -1380,7 +1381,7 @@
                                                 x-on:click="toggle('area-17')"
                                                 :aria-expanded="(!! open['area-17']).toString()"
                                                 :aria-label="(open['area-17'] ? '閉じる：' : '開く：') + '関西エリア'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['area-17'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -1496,7 +1497,7 @@
                                                 x-on:click="toggle('store-19')"
                                                 :aria-expanded="(!! open['store-19']).toString()"
                                                 :aria-label="(open['store-19'] ? '閉じる：' : '開く：') + '大阪南支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-19'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -1612,7 +1613,7 @@
                                                 x-on:click="toggle('store-20')"
                                                 :aria-expanded="(!! open['store-20']).toString()"
                                                 :aria-label="(open['store-20'] ? '閉じる：' : '開く：') + '神戸支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-20'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -1783,7 +1784,7 @@
                                                 x-on:click="toggle('area-22')"
                                                 :aria-expanded="(!! open['area-22']).toString()"
                                                 :aria-label="(open['area-22'] ? '閉じる：' : '開く：') + '九州エリア'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['area-22'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -1899,7 +1900,7 @@
                                                 x-on:click="toggle('region-10')"
                                                 :aria-expanded="(!! open['region-10']).toString()"
                                                 :aria-label="(open['region-10'] ? '閉じる：' : '開く：') + '中日本地域'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['region-10'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -1960,7 +1961,7 @@
                                                 x-on:click="toggle('area-11')"
                                                 :aria-expanded="(!! open['area-11']).toString()"
                                                 :aria-label="(open['area-11'] ? '閉じる：' : '開く：') + '東海エリア'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['area-11'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -2021,7 +2022,7 @@
                                                 x-on:click="toggle('store-12')"
                                                 :aria-expanded="(!! open['store-12']).toString()"
                                                 :aria-label="(open['store-12'] ? '閉じる：' : '開く：') + '名古屋支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-12'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -2137,7 +2138,7 @@
                                                 x-on:click="toggle('store-13')"
                                                 :aria-expanded="(!! open['store-13']).toString()"
                                                 :aria-label="(open['store-13'] ? '閉じる：' : '開く：') + '静岡支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-13'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -2253,7 +2254,7 @@
                                                 x-on:click="toggle('area-14')"
                                                 :aria-expanded="(!! open['area-14']).toString()"
                                                 :aria-label="(open['area-14'] ? '閉じる：' : '開く：') + '北陸エリア'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['area-14'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -2385,7 +2386,8 @@
                     </tr>
                 </tfoot>
             </table>
-                        <table class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700"
+                        <table data-table-cards
+                   class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700"
                    x-show="axis === 'prefecture'"  x-cloak >
                 <thead class="bg-gray-50 dark:bg-gray-900/40">
                     <tr>
@@ -2408,7 +2410,7 @@
                                                 x-on:click="toggle('prefecture-東京都')"
                                                 :aria-expanded="(!! open['prefecture-東京都']).toString()"
                                                 :aria-label="(open['prefecture-東京都'] ? '閉じる：' : '開く：') + '東京都'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['prefecture-東京都'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -2469,7 +2471,7 @@
                                                 x-on:click="toggle('store-3')"
                                                 :aria-expanded="(!! open['store-3']).toString()"
                                                 :aria-label="(open['store-3'] ? '閉じる：' : '開く：') + '東京本店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-3'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -2585,7 +2587,7 @@
                                                 x-on:click="toggle('store-4')"
                                                 :aria-expanded="(!! open['store-4']).toString()"
                                                 :aria-label="(open['store-4'] ? '閉じる：' : '開く：') + '東京西支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-4'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -2701,7 +2703,7 @@
                                                 x-on:click="toggle('prefecture-栃木県')"
                                                 :aria-expanded="(!! open['prefecture-栃木県']).toString()"
                                                 :aria-label="(open['prefecture-栃木県'] ? '閉じる：' : '開く：') + '栃木県'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['prefecture-栃木県'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -2762,7 +2764,7 @@
                                                 x-on:click="toggle('store-9')"
                                                 :aria-expanded="(!! open['store-9']).toString()"
                                                 :aria-label="(open['store-9'] ? '閉じる：' : '開く：') + '宇都宮支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-9'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -2878,7 +2880,7 @@
                                                 x-on:click="toggle('prefecture-兵庫県')"
                                                 :aria-expanded="(!! open['prefecture-兵庫県']).toString()"
                                                 :aria-label="(open['prefecture-兵庫県'] ? '閉じる：' : '開く：') + '兵庫県'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['prefecture-兵庫県'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -2939,7 +2941,7 @@
                                                 x-on:click="toggle('store-20')"
                                                 :aria-expanded="(!! open['store-20']).toString()"
                                                 :aria-label="(open['store-20'] ? '閉じる：' : '開く：') + '神戸支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-20'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -3055,7 +3057,7 @@
                                                 x-on:click="toggle('prefecture-大阪府')"
                                                 :aria-expanded="(!! open['prefecture-大阪府']).toString()"
                                                 :aria-label="(open['prefecture-大阪府'] ? '閉じる：' : '開く：') + '大阪府'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['prefecture-大阪府'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -3171,7 +3173,7 @@
                                                 x-on:click="toggle('store-19')"
                                                 :aria-expanded="(!! open['store-19']).toString()"
                                                 :aria-label="(open['store-19'] ? '閉じる：' : '開く：') + '大阪南支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-19'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -3287,7 +3289,7 @@
                                                 x-on:click="toggle('prefecture-神奈川県')"
                                                 :aria-expanded="(!! open['prefecture-神奈川県']).toString()"
                                                 :aria-label="(open['prefecture-神奈川県'] ? '閉じる：' : '開く：') + '神奈川県'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['prefecture-神奈川県'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -3348,7 +3350,7 @@
                                                 x-on:click="toggle('store-5')"
                                                 :aria-expanded="(!! open['store-5']).toString()"
                                                 :aria-label="(open['store-5'] ? '閉じる：' : '開く：') + '横浜支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-5'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -3464,7 +3466,7 @@
                                                 x-on:click="toggle('prefecture-愛知県')"
                                                 :aria-expanded="(!! open['prefecture-愛知県']).toString()"
                                                 :aria-label="(open['prefecture-愛知県'] ? '閉じる：' : '開く：') + '愛知県'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['prefecture-愛知県'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -3525,7 +3527,7 @@
                                                 x-on:click="toggle('store-12')"
                                                 :aria-expanded="(!! open['store-12']).toString()"
                                                 :aria-label="(open['store-12'] ? '閉じる：' : '開く：') + '名古屋支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-12'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -3641,7 +3643,7 @@
                                                 x-on:click="toggle('prefecture-静岡県')"
                                                 :aria-expanded="(!! open['prefecture-静岡県']).toString()"
                                                 :aria-label="(open['prefecture-静岡県'] ? '閉じる：' : '開く：') + '静岡県'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['prefecture-静岡県'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -3702,7 +3704,7 @@
                                                 x-on:click="toggle('store-13')"
                                                 :aria-expanded="(!! open['store-13']).toString()"
                                                 :aria-label="(open['store-13'] ? '閉じる：' : '開く：') + '静岡支店'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['store-13'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -3818,7 +3820,7 @@
                                                 x-on:click="toggle('prefecture-埼玉県')"
                                                 :aria-expanded="(!! open['prefecture-埼玉県']).toString()"
                                                 :aria-label="(open['prefecture-埼玉県'] ? '閉じる：' : '開く：') + '埼玉県'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['prefecture-埼玉県'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -3989,7 +3991,7 @@
                                                 x-on:click="toggle('prefecture-京都府')"
                                                 :aria-expanded="(!! open['prefecture-京都府']).toString()"
                                                 :aria-label="(open['prefecture-京都府'] ? '閉じる：' : '開く：') + '京都府'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['prefecture-京都府'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -4105,7 +4107,7 @@
                                                 x-on:click="toggle('prefecture-福岡県')"
                                                 :aria-expanded="(!! open['prefecture-福岡県']).toString()"
                                                 :aria-label="(open['prefecture-福岡県'] ? '閉じる：' : '開く：') + '福岡県'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['prefecture-福岡県'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -4221,7 +4223,7 @@
                                                 x-on:click="toggle('prefecture-石川県')"
                                                 :aria-expanded="(!! open['prefecture-石川県']).toString()"
                                                 :aria-label="(open['prefecture-石川県'] ? '閉じる：' : '開く：') + '石川県'"
-                                                class="flex h-5 w-5 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700">
+                                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:h-5 sm:w-5 dark:hover:bg-gray-700">
                                             <span class="text-xs" x-text="open['prefecture-石川県'] ? '▾' : '▸'">▸</span>
                                         </button>
                                     
@@ -4367,7 +4369,9 @@
                     </div>
 
                     <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
+                        
+<table data-table-cards
+       class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
                             <thead class="bg-gray-50 dark:bg-gray-900/40">
                                 <tr>
                                     <th class="px-5 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">ステータス</th>
@@ -4381,7 +4385,7 @@
                                                                     <tr>
                                         <td class="whitespace-nowrap px-5 py-3">
                                             <a href="deals.html"
-                                               class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+                                               class="inline-flex min-h-11 items-center rounded-full px-2 py-0.5 text-xs font-medium sm:min-h-0 bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200">
                                                 見込み
                                             </a>
                                         </td>
@@ -4398,7 +4402,7 @@
                                                                     <tr>
                                         <td class="whitespace-nowrap px-5 py-3">
                                             <a href="deals.html"
-                                               class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
+                                               class="inline-flex min-h-11 items-center rounded-full px-2 py-0.5 text-xs font-medium sm:min-h-0 bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
                                                 提案中
                                             </a>
                                         </td>
@@ -4415,7 +4419,7 @@
                                                                     <tr>
                                         <td class="whitespace-nowrap px-5 py-3">
                                             <a href="deals.html"
-                                               class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
+                                               class="inline-flex min-h-11 items-center rounded-full px-2 py-0.5 text-xs font-medium sm:min-h-0 bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
                                                 見積提示
                                             </a>
                                         </td>
@@ -4432,7 +4436,7 @@
                                                                     <tr>
                                         <td class="whitespace-nowrap px-5 py-3">
                                             <a href="deals.html"
-                                               class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                                               class="inline-flex min-h-11 items-center rounded-full px-2 py-0.5 text-xs font-medium sm:min-h-0 bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
                                                 受注
                                             </a>
                                         </td>
@@ -4449,7 +4453,7 @@
                                                                     <tr>
                                         <td class="whitespace-nowrap px-5 py-3">
                                             <a href="deals.html"
-                                               class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200">
+                                               class="inline-flex min-h-11 items-center rounded-full px-2 py-0.5 text-xs font-medium sm:min-h-0 bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200">
                                                 失注
                                             </a>
                                         </td>
@@ -4473,7 +4477,7 @@
                     <div class="flex items-center justify-between border-b border-gray-100 px-5 py-4 dark:border-gray-700">
                         <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200">最近の操作</h3>
                         <a href="#" data-demo-disabled="link"
-                           class="text-xs font-medium text-primary-text hover:text-primary-hover">
+                           class="inline-flex min-h-11 items-center text-xs font-medium text-primary-text hover:text-primary-hover sm:min-h-0">
                             すべて見る &rarr;
                         </a>
                     </div>
@@ -4481,7 +4485,7 @@
                     <ul class="divide-y divide-gray-100 dark:divide-gray-700">
                                                     <li class="flex flex-wrap items-center gap-x-3 gap-y-1 px-5 py-3 text-sm">
                                 <span class="w-36 shrink-0 text-xs tabular-nums text-gray-500 dark:text-gray-400">
-                                    2026/08/25 18:50
+                                    2026/09/06 18:19
                                 </span>
                                 <span class="font-medium text-gray-800 dark:text-gray-200">
                                     管理者ユーザー
@@ -4496,22 +4500,7 @@
                             </li>
                                                     <li class="flex flex-wrap items-center gap-x-3 gap-y-1 px-5 py-3 text-sm">
                                 <span class="w-36 shrink-0 text-xs tabular-nums text-gray-500 dark:text-gray-400">
-                                    2026/08/25 18:49
-                                </span>
-                                <span class="font-medium text-gray-800 dark:text-gray-200">
-                                    管理者ユーザー
-                                </span>
-                                <span class="inline-flex items-center rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700 dark:bg-gray-700 dark:text-gray-200">
-                                    ログイン
-                                </span>
-                                <span class="text-gray-500 dark:text-gray-400">
-                                                                            User
-                                        管理者ユーザー
-                                                                    </span>
-                            </li>
-                                                    <li class="flex flex-wrap items-center gap-x-3 gap-y-1 px-5 py-3 text-sm">
-                                <span class="w-36 shrink-0 text-xs tabular-nums text-gray-500 dark:text-gray-400">
-                                    2026/08/25 18:47
+                                    2026/09/06 18:19
                                 </span>
                                 <span class="font-medium text-gray-800 dark:text-gray-200">
                                     システム
@@ -4526,7 +4515,7 @@
                             </li>
                                                     <li class="flex flex-wrap items-center gap-x-3 gap-y-1 px-5 py-3 text-sm">
                                 <span class="w-36 shrink-0 text-xs tabular-nums text-gray-500 dark:text-gray-400">
-                                    2026/08/25 18:47
+                                    2026/09/06 18:19
                                 </span>
                                 <span class="font-medium text-gray-800 dark:text-gray-200">
                                     システム
@@ -4541,7 +4530,7 @@
                             </li>
                                                     <li class="flex flex-wrap items-center gap-x-3 gap-y-1 px-5 py-3 text-sm">
                                 <span class="w-36 shrink-0 text-xs tabular-nums text-gray-500 dark:text-gray-400">
-                                    2026/08/25 18:47
+                                    2026/09/06 18:19
                                 </span>
                                 <span class="font-medium text-gray-800 dark:text-gray-200">
                                     システム
@@ -4556,7 +4545,7 @@
                             </li>
                                                     <li class="flex flex-wrap items-center gap-x-3 gap-y-1 px-5 py-3 text-sm">
                                 <span class="w-36 shrink-0 text-xs tabular-nums text-gray-500 dark:text-gray-400">
-                                    2026/08/25 18:47
+                                    2026/09/06 18:19
                                 </span>
                                 <span class="font-medium text-gray-800 dark:text-gray-200">
                                     システム

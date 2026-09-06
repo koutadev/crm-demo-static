@@ -8,7 +8,7 @@
         <title>アルティス営業管理</title>
 
         <!-- Scripts / Styles / Fonts (Vite が自前配信) -->
-        <link rel="preload" as="style" href="build/assets/app-ClwDgvt6.css" /><link rel="modulepreload" as="script" href="build/assets/app-CobmalS0.js" /><link rel="stylesheet" href="build/assets/app-ClwDgvt6.css" /><script type="module" src="build/assets/app-CobmalS0.js"></script>
+        <link rel="preload" as="style" href="build/assets/app-56fT0ls4.css" /><link rel="modulepreload" as="script" href="build/assets/app-DLL5n2AT.js" /><link rel="stylesheet" href="build/assets/app-56fT0ls4.css" /><script type="module" src="build/assets/app-DLL5n2AT.js"></script>
         <style>:root{--color-primary:#0f766e;--color-accent:#ea580c;}</style>
                 <link rel="stylesheet" href="demo.css">
     <script src="demo.js"></script>
@@ -59,7 +59,7 @@
 
     
     <div class="flex h-14 shrink-0 items-center gap-2 border-b border-gray-100 px-4 dark:border-gray-700">
-        <a href="dashboard.html" class="flex min-w-0 items-center gap-2">
+        <a href="dashboard.html" class="flex min-h-11 min-w-0 items-center gap-2 sm:min-h-0">
             <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-base font-bold text-white">
         ア
     </span>
@@ -69,7 +69,7 @@
         </a>
 
         <button type="button" @click="closeMobile()"
-                class="ms-auto rounded-md p-1 text-gray-500 hover:bg-gray-100 hover:text-gray-700 lg:hidden dark:hover:bg-gray-700"
+                class="ms-auto inline-flex min-h-11 min-w-11 items-center justify-center rounded-md p-1 text-gray-500 hover:bg-gray-100 hover:text-gray-700 sm:min-h-0 sm:min-w-0 lg:hidden dark:hover:bg-gray-700"
                 aria-label="メニューを閉じる">
             <svg class="h-5 w-5" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -89,7 +89,7 @@
                 
                                     <a href="dashboard.html"
       :title="collapsed ? 'ダッシュボード' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 15.75V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
@@ -100,7 +100,7 @@
 </a>
                                     <a href="deals.html"
     aria-current="page"    :title="collapsed ? '商談' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-primary bg-primary-soft font-semibold text-primary-soft-fg">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-primary bg-primary-soft font-semibold text-primary-soft-fg">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75h16.5v16.5H3.75z" />
@@ -111,7 +111,7 @@
 </a>
                                     <a href="#" data-demo-disabled="link"
       :title="collapsed ? '顧客' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
@@ -130,7 +130,7 @@
                 
                                     <a href="masters.html"
       :title="collapsed ? 'マスタ管理' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
@@ -149,7 +149,7 @@
                 
                                     <a href="#" data-demo-disabled="link"
       :title="collapsed ? 'ユーザー管理' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
@@ -160,7 +160,7 @@
 </a>
                                     <a href="#" data-demo-disabled="link"
       :title="collapsed ? '操作ログ' : null"
-   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+   class="group flex items-center gap-3 rounded-md border-s-2 px-3 py-2 text-sm transition-colors motion-reduce:transition-none min-h-11 sm:min-h-0 border-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg class="h-5 w-5 shrink-0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -178,7 +178,7 @@
 
                 <header class="sticky top-0 z-30 flex h-14 shrink-0 items-center gap-3 border-b border-gray-200 bg-white/95 px-4 backdrop-blur dark:border-gray-700 dark:bg-gray-800/95">
     <button type="button" @click="openMobile()"
-            class="rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 lg:hidden dark:text-gray-400 dark:hover:bg-gray-700"
+            class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 sm:min-h-0 sm:min-w-0 lg:hidden dark:text-gray-400 dark:hover:bg-gray-700"
             aria-label="メニューを開く"
             aria-controls="app-sidebar"
             :aria-expanded="mobileOpen.toString()">
@@ -234,7 +234,7 @@
             <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
     <div @click="open = ! open">
         <button type="button"
-                            class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-100 hover:text-gray-800 motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-gray-700">
+                            class="inline-flex min-h-11 items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-100 hover:text-gray-800 motion-reduce:transition-none sm:min-h-0 dark:text-gray-300 dark:hover:bg-gray-700">
                         <span class="max-w-32 truncate">管理者ユーザー</span>
                         <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -292,13 +292,13 @@
                                         <span aria-hidden="true">·</span>
                     <span>吉田 聡太郎</span>
                     <span aria-hidden="true">·</span>
-                    <span>予定クローズ 2027/01/22</span>
+                    <span>予定クローズ 2027/02/03</span>
                                     </p>
             </div>
 
             <div class="flex items-center gap-4">
                                     <a href="#" data-demo-disabled="link"
-              class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm">
+              class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm min-h-11 sm:min-h-0">
         編集
     </a>
                 
@@ -383,7 +383,7 @@
         <div class="flex flex-wrap items-start gap-4">
             <div class="w-40 shrink-0">
                 <p class="text-sm font-medium tabular-nums text-gray-900 dark:text-gray-100">
-                    2026/08/28 10:21
+                    2026/09/09 09:54
                 </p>
                 <p class="mt-0.5 text-xs text-gray-500 dark:text-gray-400">
                     2日後
@@ -491,7 +491,7 @@
             </div>
                     <div>
                 <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">予定クローズ日</dt>
-                <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">2027/01/22</dd>
+                <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">2027/02/03</dd>
             </div>
                     <div>
                 <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">受注日</dt>
@@ -499,11 +499,11 @@
             </div>
                     <div>
                 <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">登録日時</dt>
-                <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">2026/08/25 18:47</dd>
+                <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">2026/09/06 18:19</dd>
             </div>
                     <div>
                 <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">最終更新</dt>
-                <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">2026/08/25 18:47</dd>
+                <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">2026/09/06 18:19</dd>
             </div>
             </dl>
     </div>
@@ -581,14 +581,15 @@
                             </div>
 
                             <div class="flex shrink-0 items-center gap-2"><a href="#" data-demo-disabled="link"
-              class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 gap-1.5 px-2.5 py-1.5 text-xs">
+              class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 gap-1.5 px-2.5 py-1.5 text-xs min-h-11 sm:min-h-0">
         明細を編集
     </a></div>
                     </div>
     
     <div class="px-5 py-4 text-sm text-gray-700 dark:text-gray-300">
         <div class="overflow-x-auto rounded-lg border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
-    <table class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
+    
+    <table  data-table-cards            class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
         <thead class="bg-gray-50 dark:bg-gray-900/40">
             <tr>
                                     
@@ -724,7 +725,7 @@
                             </div>
 
                             <div class="flex shrink-0 items-center gap-2"><button type="button"
-                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-1.5 px-2.5 py-1.5 text-xs" x-on:click="$dispatch('open-modal', 'deal-activity')">
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-1.5 px-2.5 py-1.5 text-xs min-h-11 sm:min-h-0" x-on:click="$dispatch('open-modal', 'deal-activity')">
         活動を追加
     </button></div>
                     </div>
@@ -734,7 +735,7 @@
                     <li class="flex flex-wrap items-start gap-4 py-4 first:pt-0 opacity-90">
                 <div class="w-40 shrink-0">
                     <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
-                        2026/08/28 10:21
+                        2026/09/09 09:54
                     </p>
                     <p class="mt-0.5 flex items-center gap-1.5">
                         <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
@@ -755,7 +756,7 @@
                     <li class="flex flex-wrap items-start gap-4 py-4 first:pt-0">
                 <div class="w-40 shrink-0">
                     <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
-                        2026/08/05 07:03
+                        2026/08/17 06:36
                     </p>
                     <p class="mt-0.5 flex items-center gap-1.5">
                         <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">
@@ -772,7 +773,7 @@
                     <li class="flex flex-wrap items-start gap-4 py-4 first:pt-0">
                 <div class="w-40 shrink-0">
                     <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
-                        2026/08/03 17:47
+                        2026/08/15 17:19
                     </p>
                     <p class="mt-0.5 flex items-center gap-1.5">
                         <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">
@@ -789,7 +790,7 @@
                     <li class="flex flex-wrap items-start gap-4 py-4 first:pt-0">
                 <div class="w-40 shrink-0">
                     <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
-                        2026/07/09 09:09
+                        2026/07/21 08:42
                     </p>
                     <p class="mt-0.5 flex items-center gap-1.5">
                         <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
@@ -806,7 +807,7 @@
                     <li class="flex flex-wrap items-start gap-4 py-4 first:pt-0">
                 <div class="w-40 shrink-0">
                     <p class="whitespace-nowrap text-sm tabular-nums text-gray-700 dark:text-gray-300">
-                        2026/06/20 16:32
+                        2026/07/02 16:05
                     </p>
                     <p class="mt-0.5 flex items-center gap-1.5">
                         <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">
@@ -889,7 +890,7 @@
     
     <select id="type"
             name="type"
-            required                                    class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-3 py-2 text-sm border-gray-300 dark:border-gray-700">
+            required                                    class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-3 py-2 text-sm min-h-11 sm:min-h-0 border-gray-300 dark:border-gray-700">
         
                     <option value="phone" selected>電話</option>
                     <option value="visit" >訪問</option>
@@ -907,7 +908,7 @@
                     </label>
     
     <input type="datetime-local" id="activity_at" name="activity_at"
-                           value="2026-08-25T18:50" required
+                           value="2026-09-06T18:19" required
                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300">
 
             <p class="text-xs text-gray-500 dark:text-gray-400">先の日時を入れると「次アクション」として上部に出ます。</p>
@@ -923,7 +924,7 @@
     
     <div x-data="combobox(JSON.parse('{\u0022options\u0022:[{\u0022value\u0022:\u00221\u0022,\u0022label\u0022:\u0022工藤 明美\u0022,\u0022search\u0022:\u0022工藤 明美\u0022},{\u0022value\u0022:\u00222\u0022,\u0022label\u0022:\u0022吉田 聡太郎\u0022,\u0022search\u0022:\u0022吉田 聡太郎\u0022},{\u0022value\u0022:\u00223\u0022,\u0022label\u0022:\u0022桐山 花子\u0022,\u0022search\u0022:\u0022桐山 花子\u0022},{\u0022value\u0022:\u00224\u0022,\u0022label\u0022:\u0022渡辺 翔太\u0022,\u0022search\u0022:\u0022渡辺 翔太\u0022},{\u0022value\u0022:\u00225\u0022,\u0022label\u0022:\u0022杉山 直子\u0022,\u0022search\u0022:\u0022杉山 直子\u0022},{\u0022value\u0022:\u00226\u0022,\u0022label\u0022:\u0022宇野 直人\u0022,\u0022search\u0022:\u0022宇野 直人\u0022},{\u0022value\u0022:\u00227\u0022,\u0022label\u0022:\u0022田中 健一\u0022,\u0022search\u0022:\u0022田中 健一\u0022},{\u0022value\u0022:\u00228\u0022,\u0022label\u0022:\u0022加藤 真綾\u0022,\u0022search\u0022:\u0022加藤 真綾\u0022},{\u0022value\u0022:\u00229\u0022,\u0022label\u0022:\u0022浜田 晃\u0022,\u0022search\u0022:\u0022浜田 晃\u0022},{\u0022value\u0022:\u002210\u0022,\u0022label\u0022:\u0022伊藤 千代\u0022,\u0022search\u0022:\u0022伊藤 千代\u0022},{\u0022value\u0022:\u002211\u0022,\u0022label\u0022:\u0022高橋 加奈\u0022,\u0022search\u0022:\u0022高橋 加奈\u0022},{\u0022value\u0022:\u002212\u0022,\u0022label\u0022:\u0022小泉 春香\u0022,\u0022search\u0022:\u0022小泉 春香\u0022},{\u0022value\u0022:\u002213\u0022,\u0022label\u0022:\u0022渚 明美\u0022,\u0022search\u0022:\u0022渚 明美\u0022},{\u0022value\u0022:\u002214\u0022,\u0022label\u0022:\u0022伊藤 直子\u0022,\u0022search\u0022:\u0022伊藤 直子\u0022},{\u0022value\u0022:\u002215\u0022,\u0022label\u0022:\u0022近藤 花子\u0022,\u0022search\u0022:\u0022近藤 花子\u0022},{\u0022value\u0022:\u002216\u0022,\u0022label\u0022:\u0022松本 洋介\u0022,\u0022search\u0022:\u0022松本 洋介\u0022},{\u0022value\u0022:\u002217\u0022,\u0022label\u0022:\u0022野村 健一\u0022,\u0022search\u0022:\u0022野村 健一\u0022},{\u0022value\u0022:\u002218\u0022,\u0022label\u0022:\u0022井高 春香\u0022,\u0022search\u0022:\u0022井高 春香\u0022},{\u0022value\u0022:\u002219\u0022,\u0022label\u0022:\u0022佐々木 浩\u0022,\u0022search\u0022:\u0022佐々木 浩\u0022},{\u0022value\u0022:\u002220\u0022,\u0022label\u0022:\u0022西之園 花子\u0022,\u0022search\u0022:\u0022西之園 花子\u0022},{\u0022value\u0022:\u002221\u0022,\u0022label\u0022:\u0022山岸 舞\u0022,\u0022search\u0022:\u0022山岸 舞\u0022},{\u0022value\u0022:\u002222\u0022,\u0022label\u0022:\u0022山本 里佳\u0022,\u0022search\u0022:\u0022山本 里佳\u0022},{\u0022value\u0022:\u002223\u0022,\u0022label\u0022:\u0022佐藤 陽子\u0022,\u0022search\u0022:\u0022佐藤 陽子\u0022},{\u0022value\u0022:\u002224\u0022,\u0022label\u0022:\u0022野村 涼平\u0022,\u0022search\u0022:\u0022野村 涼平\u0022}],\u0022value\u0022:\u00221\u0022,\u0022label\u0022:\u0022工藤 明美\u0022,\u0022source\u0022:null}'))"
                                              @keydown.escape.stop="close()"
-         @click.outside="close()"
+         @click.outside="closeFromOutside($event)"
                   class="relative">
 
         
@@ -949,7 +950,7 @@
                    @keydown.end.prevent="moveTo(-1)"
                    @keydown.enter.prevent="selectActive()"
                    @keydown.tab="close()"
-                   required                                                         class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-3 py-2 text-sm border-gray-300 dark:border-gray-700 pe-16">
+                   required                                                         class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-3 py-2 text-sm min-h-11 sm:min-h-0 border-gray-300 dark:border-gray-700 pe-16">
 
             
             <div class="absolute inset-y-0 end-0 flex items-center gap-0.5 pe-2">
@@ -957,7 +958,7 @@
                         x-show="hasSelection"
                         x-cloak
                         @click="clear(); $refs.input?.focus()"
-                                                class="rounded p-1 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none dark:hover:text-gray-200"
+                                                class="inline-flex min-h-11 min-w-11 items-center justify-center rounded p-1 text-gray-400 transition hover:text-gray-600 motion-reduce:transition-none sm:min-h-0 sm:min-w-0 dark:hover:text-gray-200"
                         aria-label="選択を解除">
                     <svg class="h-4 w-4" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -979,7 +980,8 @@
             x-show="open"
             x-cloak
             x-transition.opacity.duration.100ms
-            class="absolute z-30 mt-1 max-h-60 w-full overflow-auto rounded-md border border-gray-200 bg-white py-1 text-sm shadow-lg dark:border-gray-700 dark:bg-gray-800">
+            
+            class="fixed z-40 max-h-60 overflow-auto rounded-md border border-gray-200 bg-white py-1 text-sm shadow-lg dark:border-gray-700 dark:bg-gray-800">
 
             <template x-for="(item, index) in filtered" :key="item.value">
                 <li :id="&#039;employee_id&#039; + '-option-' + index"
@@ -1015,18 +1017,18 @@
     <textarea id="note"
               name="note"
               rows="4"
-               placeholder="訪問・電話の内容や次の約束など"                                                         class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-3 py-2 text-sm border-gray-300 dark:border-gray-700"></textarea>
+               placeholder="訪問・電話の内容や次の約束など"                                                         class="block w-full rounded-md shadow-sm focus:border-primary focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:bg-gray-900 dark:text-gray-200 dark:disabled:bg-gray-800 px-3 py-2 text-sm min-h-11 sm:min-h-0 border-gray-300 dark:border-gray-700"></textarea>
 
     
     </div>
 
             <div class="flex items-center justify-end gap-2 border-t border-gray-100 pt-4 dark:border-gray-700">
                 <button type="button"
-                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 gap-2 px-4 py-2 text-sm" x-on:click="$dispatch('close')">
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 gap-2 px-4 py-2 text-sm min-h-11 sm:min-h-0" x-on:click="$dispatch('close')">
         キャンセル
     </button>
                 <button type="submit"
-                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm">
+                                    class="inline-flex items-center justify-center rounded-md border font-medium transition-colors duration-150 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 border-transparent bg-primary text-white hover:bg-primary-hover focus-visible:ring-primary gap-2 px-4 py-2 text-sm min-h-11 sm:min-h-0">
         追加
     </button>
             </div>
