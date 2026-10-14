@@ -4,6 +4,17 @@
 
     var MESSAGE = 'このデモでは動作しません（表示専用の静的サイトです）。';
 
+    function syncBannerHeight() {
+        var banner = document.querySelector('.demo-banner');
+
+        if (banner) {
+            document.documentElement.style.setProperty('--demo-banner-h', banner.offsetHeight + 'px');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', syncBannerHeight);
+    window.addEventListener('resize', syncBannerHeight);
+
     function notice(message) {
         var el = document.querySelector('.demo-notice');
 
