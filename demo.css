@@ -1,4 +1,8 @@
 /* 静的デモ用の追記。本体のスタイルには手を入れない。 */
+:root {
+    --demo-banner-h: 2.25rem;
+}
+
 .demo-banner {
     position: sticky;
     top: 0;
@@ -14,6 +18,14 @@
 }
 
 .demo-banner strong { color: #fdba74; font-weight: 600; }
+
+body[data-demo-page] #app-sidebar {
+    top: var(--demo-banner-h);
+}
+
+body[data-demo-page] header.sticky.top-0 {
+    top: var(--demo-banner-h);
+}
 
 .demo-banner__tag {
     flex-shrink: 0;
